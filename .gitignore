@@ -1,2 +1,8 @@
 config/shopify.yml
 vendor/plugins/shopify_app/doc/
+log/*.log
+tmp/**/*
+doc/api
+doc/app
+db/*.sqlite3
+
