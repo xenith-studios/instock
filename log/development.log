@@ -1,1 +1,1387 @@
 [Shopify App] Shopify App plugin installed but no config/shopify.yml found.
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-01 14:13:42) [GET]
+Redirected to controllerlogin
+Filter chain halted as [#<ActionController::Filters::AroundFilter:0x235878c @identifier=nil, @kind=:filter, @method=:shopify_session, @options={:except=>#<Set: {"welcome"}>}>] did_not_yield.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2009-07-01 14:13:42) [GET]
+Rendering template within layouts/application
+Rendering login/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing LoginController#authenticate (for 127.0.0.1 at 2009-07-01 14:14:01) [POST]
+  Parameters: {"shop"=>"linuxdan", "commit"=>"Authenticate", "authenticity_token"=>"3fcb0df1337fc55e9ed6a74a6ac0c1d938f6bfc0"}
+Redirected to http://linuxdan.myshopify.com/admin/api/auth?api_key=b2da14e1291682a9dad049d4970f5541
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/login/authenticate]
+
+
+Processing LoginController#finalize (for 127.0.0.1 at 2009-07-01 14:14:19) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com", "timestamp"=>"1246482859", "signature"=>"f3b519e10aebc6f96c37f8d118ec8771", "t"=>"d9d095a14eb2875ec3dbe9da8431ed53"}
+Redirected to /
+Completed in 3ms (DB: 0) | 302 Found [http://localhost/login/finalize?shop=linuxdan.myshopify.com&signature=f3b519e10aebc6f96c37f8d118ec8771&t=d9d095a14eb2875ec3dbe9da8431ed53&timestamp=1246482859]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-01 14:14:19) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 6412ms (View: 1901, DB: 0) | 200 OK [http://localhost/]
+[Shopify App] Loading API credentials from config/shopify.yml
+[Shopify App] Loading API credentials from config/shopify.yml
+/!\ FAILSAFE /!\  Thu Jul 02 10:27:34 -0700 2009
+  Status: 500 Internal Server Error
+  Could not find table 'sessions'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/sqlite3_adapter.rb:29:in `table_structure'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/object/misc.rb:39:in `returning'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/sqlite3_adapter.rb:28:in `table_structure'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/sqlite_adapter.rb:189:in `columns'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1220:in `columns'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1228:in `columns_hash'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session/active_record_store.rb:104:in `setup_sessid_compatibility!'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session/active_record_store.rb:78:in `find_by_session_id'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session/active_record_store.rb:288:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/base.rb:1398:in `silence'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session/active_record_store.rb:288:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/cgi/session.rb:273:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/cgi/session.rb:273:in `initialize_without_cgi_reader'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/cgi_ext/session.rb:19:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/cgi_process.rb:94:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/cgi_process.rb:94:in `session'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/cgi_process.rb:130:in `stale_session_check!'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/cgi_process.rb:78:in `session'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1205:in `assign_shortcuts_without_flash'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/flash.rb:166:in `assign_shortcuts'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:519:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+[Shopify App] Loading API credentials from config/shopify.yml
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (21.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (49.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSessions (20090702172307)
+  [4;36;1mSQL (75.6ms)[0m   [0;1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar(255) NOT NULL, "data" text, "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (19.3ms)[0m   [0mCREATE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [4;36;1mSQL (33.3ms)[0m   [0;1mCREATE INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")[0m
+  [4;35;1mSQL (56.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090702172307')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_list("sessions")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_info('index_sessions_on_updated_at')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_sessions_on_session_id')[0m
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 10:28:21) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+Redirected to controllerlogin
+Filter chain halted as [#<ActionController::Filters::AroundFilter:0x22b17c0 @identifier=nil, @kind=:filter, @method=:shopify_session, @options={:except=>#<Set: {"welcome"}>}>] did_not_yield.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2009-07-02 10:28:21) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+Rendering template within layouts/application
+Rendering login/index
+
+
+ActionView::TemplateError (No :secret given to the #protect_from_forgery call.  Set that or use a session store capable of generating its own keys (Cookie Session Store).) on line #7 of app/views/login/index.html.erb:
+4:   First you have to register this app with a shop to allow access to its private admin data.
+5: </p>
+6: 
+7: <% form_tag '/login/authenticate' do %>
+8:   <label for='shop'><strong>The URL of the Shop</strong>
+9:     <span class="hint">(or just the subdomain if it's at myshopify.com)</span>
+10:   </label>
+
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/request_forgery_protection.rb:115:in `form_authenticity_token'
+    (eval):2:in `send'
+    (eval):2:in `form_authenticity_token'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:470:in `token_tag'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:447:in `extra_tags_for_form'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:455:in `form_tag_html'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:461:in `form_tag_in_block'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:39:in `form_tag'
+    app/views/login/index.html.erb:7
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (44.3ms)
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (19.5ms)
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 10:28:55) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+Redirected to controllerlogin
+Filter chain halted as [#<ActionController::Filters::AroundFilter:0x2359204 @identifier=nil, @kind=:filter, @method=:shopify_session, @options={:except=>#<Set: {"welcome"}>}>] did_not_yield.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2009-07-02 10:28:55) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+Rendering template within layouts/application
+Rendering login/index
+
+
+ActionView::TemplateError (No :secret given to the #protect_from_forgery call.  Set that or use a session store capable of generating its own keys (Cookie Session Store).) on line #7 of app/views/login/index.html.erb:
+4:   First you have to register this app with a shop to allow access to its private admin data.
+5: </p>
+6: 
+7: <% form_tag '/login/authenticate' do %>
+8:   <label for='shop'><strong>The URL of the Shop</strong>
+9:     <span class="hint">(or just the subdomain if it's at myshopify.com)</span>
+10:   </label>
+
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/request_forgery_protection.rb:115:in `form_authenticity_token'
+    (eval):2:in `send'
+    (eval):2:in `form_authenticity_token'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:470:in `token_tag'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:447:in `extra_tags_for_form'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:455:in `form_tag_html'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:461:in `form_tag_in_block'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:39:in `form_tag'
+    app/views/login/index.html.erb:7
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (51.6ms)
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.8ms)
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 10:29:01) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+Redirected to controllerlogin
+Filter chain halted as [#<ActionController::Filters::AroundFilter:0x2434afc @identifier=nil, @kind=:filter, @method=:shopify_session, @options={:except=>#<Set: {"welcome"}>}>] did_not_yield.
+Completed in 0ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2009-07-02 10:29:01) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+Rendering template within layouts/application
+Rendering login/index
+
+
+ActionView::TemplateError (No :secret given to the #protect_from_forgery call.  Set that or use a session store capable of generating its own keys (Cookie Session Store).) on line #7 of app/views/login/index.html.erb:
+4:   First you have to register this app with a shop to allow access to its private admin data.
+5: </p>
+6: 
+7: <% form_tag '/login/authenticate' do %>
+8:   <label for='shop'><strong>The URL of the Shop</strong>
+9:     <span class="hint">(or just the subdomain if it's at myshopify.com)</span>
+10:   </label>
+
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/request_forgery_protection.rb:115:in `form_authenticity_token'
+    (eval):2:in `send'
+    (eval):2:in `form_authenticity_token'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:470:in `token_tag'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:447:in `extra_tags_for_form'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:455:in `form_tag_html'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:461:in `form_tag_in_block'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:39:in `form_tag'
+    app/views/login/index.html.erb:7
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (122.6ms)
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing LoginController#finalize (for 127.0.0.1 at 2009-07-02 10:31:34) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.gsub!):
+    /vendor/plugins/shopify_app/lib/shopify_api.rb:138:in `prepare_url'
+    /vendor/plugins/shopify_app/lib/shopify_api.rb:106:in `initialize'
+    /app/controllers/login_controller.rb:16:in `new'
+    /app/controllers/login_controller.rb:16:in `finalize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (32.6ms)
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.8ms)
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing LoginController#finalize (for 127.0.0.1 at 2009-07-02 11:13:43) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+
+
+NoMethodError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.gsub!):
+    /vendor/plugins/shopify_app/lib/shopify_api.rb:138:in `prepare_url'
+    /vendor/plugins/shopify_app/lib/shopify_api.rb:106:in `initialize'
+    /app/controllers/login_controller.rb:16:in `new'
+    /app/controllers/login_controller.rb:16:in `finalize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (37.2ms)
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 11:13:50) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+Redirected to controllerlogin
+Filter chain halted as [#<ActionController::Filters::AroundFilter:0x2213318 @identifier=nil, @kind=:filter, @method=:shopify_session, @options={:except=>#<Set: {"welcome"}>}>] did_not_yield.
+Completed in 1ms (DB: 1) | 302 Found [http://localhost/]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2009-07-02 11:13:50) [GET]
+  Session ID: ec3925142ec2aecec3e2936350efb762
+Rendering template within layouts/application
+Rendering login/index
+
+
+ActionView::TemplateError (No :secret given to the #protect_from_forgery call.  Set that or use a session store capable of generating its own keys (Cookie Session Store).) on line #7 of app/views/login/index.html.erb:
+4:   First you have to register this app with a shop to allow access to its private admin data.
+5: </p>
+6: 
+7: <% form_tag '/login/authenticate' do %>
+8:   <label for='shop'><strong>The URL of the Shop</strong>
+9:     <span class="hint">(or just the subdomain if it's at myshopify.com)</span>
+10:   </label>
+
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/request_forgery_protection.rb:115:in `form_authenticity_token'
+    (eval):2:in `send'
+    (eval):2:in `form_authenticity_token'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:470:in `token_tag'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:447:in `extra_tags_for_form'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:455:in `form_tag_html'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:461:in `form_tag_in_block'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/helpers/form_tag_helper.rb:39:in `form_tag'
+    app/views/login/index.html.erb:7
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/renderable.rb:39:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/template.rb:73:in `render_template'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:256:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:367:in `_render_with_layout'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_view/base.rb:254:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1174:in `render_for_file'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:896:in `render_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:868:in `render_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1248:in `default_render'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1254:in `perform_action_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (44.2ms)
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.8ms)
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 11:26:58) [GET]
+
+
+CGI::Session::CookieStore::TamperedWithCookie (CGI::Session::CookieStore::TamperedWithCookie):
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session/cookie_store.rb:145:in `unmarshal'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session/cookie_store.rb:102:in `restore'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/cgi/session.rb:304:in `[]'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/cgi_process.rb:98:in `session'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/cgi_process.rb:130:in `stale_session_check!'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/cgi_process.rb:78:in `session'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1205:in `assign_shortcuts_without_flash'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/flash.rb:166:in `assign_shortcuts'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:519:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (30.3ms)
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (0.9ms)
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 11:27:54) [GET]
+Redirected to controllerlogin
+Filter chain halted as [#<ActionController::Filters::AroundFilter:0x23592e0 @identifier=nil, @kind=:filter, @method=:shopify_session, @options={:except=>#<Set: {"welcome"}>}>] did_not_yield.
+Completed in 1ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing LoginController#index (for 127.0.0.1 at 2009-07-02 11:27:54) [GET]
+Rendering template within layouts/application
+Rendering login/index
+Completed in 25ms (View: 24, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing LoginController#authenticate (for 127.0.0.1 at 2009-07-02 11:28:00) [POST]
+  Parameters: {"shop"=>"linuxdan", "commit"=>"Authenticate", "authenticity_token"=>"de4770b2d8d39e68079ec095ef377731cd3d12f5"}
+Redirected to http://linuxdan.myshopify.com/admin/api/auth?api_key=b2da14e1291682a9dad049d4970f5541
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/login/authenticate]
+
+
+Processing LoginController#finalize (for 127.0.0.1 at 2009-07-02 11:28:04) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com", "timestamp"=>"1246559284", "signature"=>"92f31023364f4b7118b879a86b15a473", "t"=>"d9d095a14eb2875ec3dbe9da8431ed53"}
+Redirected to /
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/login/finalize?shop=linuxdan.myshopify.com&signature=92f31023364f4b7118b879a86b15a473&t=d9d095a14eb2875ec3dbe9da8431ed53&timestamp=1246559284]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 11:28:04) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 3431ms (View: 1965, DB: 0) | 200 OK [http://localhost/]
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-02 12:26:09) [GET]
+
+
+ActionController::RoutingError (No route matches "/receive_shipment" with {:method=>:get}):
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-02 12:32:09) [GET]
+
+
+ActionController::RoutingError (No route matches "/receive_shipment" with {:method=>:get}):
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-02 12:32:17) [GET]
+
+
+ActionController::RoutingError (No route matches "/receive_shipment" with {:method=>:get}):
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing HomeController#receive_shipment (for 127.0.0.1 at 2009-07-02 12:33:27) [GET]
+Rendering template within layouts/application
+Rendering home/receive_shipment
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/home/receive_shipment]
+
+
+Processing HomeController#design (for 127.0.0.1 at 2009-07-02 12:33:35) [GET]
+Rendering template within layouts/application
+Rendering home/design
+Completed in 22ms (View: 5, DB: 0) | 200 OK [http://localhost/home/design]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 12:34:02) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 5507ms (View: 1263, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 12:34:08) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 2482ms (View: 965, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 12:34:10) [GET]
+Rendering template within layouts/application
+Rendering home/index
+Completed in 2903ms (View: 1500, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HomeController#receive_shipment (for 127.0.0.1 at 2009-07-02 12:34:29) [GET]
+Rendering template within layouts/application
+Rendering home/receive_shipment
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/home/receive_shipment]
+[Shopify App] Loading API credentials from config/shopify.yml
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-02 12:57:58) [GET]
+
+
+ActionController::RoutingError (No route matches "/warehouse/receive_shipment" with {:method=>:get}):
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-02 12:58:14) [GET]
+
+
+ActionController::RoutingError (No route matches "/warehouse/recieve_shipment" with {:method=>:get}):
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-07-02 12:58:42) [GET]
+
+
+ActionController::RoutingError (No route matches "/warehouse/" with {:method=>:get}):
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing WarehouseController#index (for 127.0.0.1 at 2009-07-02 12:59:11) [GET]
+
+
+ActionController::UnknownAction (No action responded to index. Actions: receive_shipment):
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 12:59:19) [GET]
+Rendering template within layouts/application
+Rendering warehouse/receive_shipment
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 13:29:04) [GET]
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment]
+[Shopify App] Loading API credentials from config/shopify.yml
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 13:29:24) [GET]
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 13:30:34) [GET]
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 13:30:41) [GET]
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 13:32:07) [GET]
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 65ms (View: 4, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 13:46:32) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com"}
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 15ms (View: 14, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment?shop=linuxdan.myshopify.com]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 14:12:12) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com"}
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment?shop=linuxdan.myshopify.com]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-07-02 14:12:18) [GET]
+Rendering template within layouts/home
+Rendering home/index
+Completed in 5861ms (View: 1512, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 14:48:16) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com"}
+
+
+ArgumentError (Missing site URI):
+    /Users/danielhc/.gem/ruby/1.8/gems/activeresource-2.2.2/lib/active_resource/connection.rb:85:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/activeresource-2.2.2/lib/active_resource/base.rb:321:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/activeresource-2.2.2/lib/active_resource/base.rb:321:in `connection'
+    /Users/danielhc/.gem/ruby/1.8/gems/activeresource-2.2.2/lib/active_resource/base.rb:327:in `connection'
+    /Users/danielhc/.gem/ruby/1.8/gems/activeresource-2.2.2/lib/active_resource/base.rb:574:in `find_every'
+    /Users/danielhc/.gem/ruby/1.8/gems/activeresource-2.2.2/lib/active_resource/base.rb:517:in `find'
+    /app/controllers/warehouse_controller.rb:3:in `receive_shipment'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Users/danielhc/.gem/ruby/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load_without_new_constant_marking'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:142:in `load'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/danielhc/.gem/ruby/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (34.2ms)
+Rendered /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (21.1ms)
+Rendering /Users/danielhc/.gem/ruby/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 14:54:43) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com"}
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 3961ms (View: 5, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment?shop=linuxdan.myshopify.com]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 14:54:47) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com"}
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 730ms (View: 5, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment?shop=linuxdan.myshopify.com]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 15:16:12) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com"}
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 963ms (View: 5, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment?shop=linuxdan.myshopify.com]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 15:16:25) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com"}
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 809ms (View: 39, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment?shop=linuxdan.myshopify.com]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 15:17:33) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com"}
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 829ms (View: 37, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment?shop=linuxdan.myshopify.com]
+
+
+Processing WarehouseController#receive_shipment (for 127.0.0.1 at 2009-07-02 15:18:12) [GET]
+  Parameters: {"shop"=>"linuxdan.myshopify.com"}
+Rendering template within layouts/warehouse
+Rendering warehouse/receive_shipment
+Completed in 737ms (View: 5, DB: 0) | 200 OK [http://localhost/warehouse/receive_shipment?shop=linuxdan.myshopify.com]

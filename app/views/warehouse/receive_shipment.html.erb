@@ -1,2 +1,11 @@
-<h1>Warehouse#receive_shipment</h1>
-<p>Find me in app/views/warehouse/receive_shipment.html.erb</p>
+<h1>Receive Shipment</h1>
+<form action="receive_shipment_submit" method="get" accept-charset="utf-8">
+	<label>From:
+	<select id="vendors" name="vendors" size="10">
+		<% @vendor_names.each do |vn| %>
+		<option value="<%= vn %>"><%= vn %></p>
+		<% end #each %>
+	</select>
+	</label>
+	<p><input type="submit" value="Continue &rarr;"></p>
+</form>
