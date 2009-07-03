@@ -1,11 +1,17 @@
+<% content_for(:custom_js, javascript_include_tag('receive_shipment')) %>
 <h1>Receive Shipment</h1>
 <form action="receive_shipment_submit" method="get" accept-charset="utf-8">
-	<label>From:
-	<select id="vendors" name="vendors" size="10">
-		<% @vendor_names.each do |vn| %>
-		<option value="<%= vn %>"><%= vn %></p>
-		<% end #each %>
-	</select>
-	</label>
+	<table><tr>
+		<td valign="top">
+			<label for="vendors">From:</label>
+		</td>
+		<td>
+			<select id="vendors" name="vendors" size="10">
+				<% @vendor_names.each do |vn| %>
+				<option value="<%= vn %>"><%= vn %></p>
+				<% end #each %>
+			</select>
+		</td>
+	</tr></table>
 	<p><input type="submit" value="Continue &rarr;"></p>
 </form>

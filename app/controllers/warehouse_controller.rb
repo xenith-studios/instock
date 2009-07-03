@@ -4,5 +4,6 @@ class WarehouseController < ApplicationController
   def receive_shipment
     @products = ShopifyAPI::Product.find(:all, :order => 'vendor')
     @vendor_names = @products.map{|product| product.vendor}.uniq
+    
   end
 end
