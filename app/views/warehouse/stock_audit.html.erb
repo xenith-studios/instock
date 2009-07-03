@@ -1,0 +1,23 @@
+<% if @products.blank? %>
+
+  <em class="note">There are no products in your store.</em>
+
+<% else %>
+
+  <% @products.each do |product| %>
+    <div class="product box">
+      <div class="wrapper">
+        <%= image_tag product.images.first.small rescue '' %>
+
+        <h4><%= link_to product.title, "http://#{current_shop.url}/admin/products/#{product.id}" %></h4>
+
+        <p class="price"><%= product.price_range %> <%= current_shop.shop.currency %></p>
+        <p style="margin-bottom: 0"><%= product.product_type %> <span class="note">type</span></p>
+        <p style="margin: 0"><%= product.vendor %> <span class="note">vendor</span></p>
+      
+        <div style="clear:left"></div>
+      </div>
+    </div>
+  <% end %>
+
+<% end %>
