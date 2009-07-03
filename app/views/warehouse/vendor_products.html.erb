@@ -1,0 +1,6 @@
+<% @products.each do |product| %>
+	<div class="product_checkbox">
+		<%= check_box_tag("products", product) %>
+		<label for="products"><%= product.title %></label>
+	</div>
+<% end #each %>
