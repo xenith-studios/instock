@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	$('#vendors').change(function() {
-		alert($(this).val());
+		var vendor = $(this).val();
+		$('#productVariants').empty();
+		$('#productVariants').load("/warehouse/vendor_products", {vendor_name: vendor});
 	})
 })

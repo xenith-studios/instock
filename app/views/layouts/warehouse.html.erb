@@ -8,9 +8,11 @@
   <title>inStock</title>
 
   <%= stylesheet_link_tag 'application' %>
-  <%= javascript_include_tag 'jrails' %>
+  <%= stylesheet_link_tag 'warehouse' %>
   <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js' %>
   <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js' %>
+  <%= javascript_include_tag 'jrails' %>
+  <%= yield(:custom_js) %>
 </head>
 	
 <body>
@@ -20,7 +22,9 @@
     
     <p id="login-link">  
       <% if current_shop %>
-          <span class="note">current shop</span> <%= link_to current_shop.url, "http://#{current_shop.url}", :class => 'shop_name' %> <span class="note">|</span>           
+          <span class="note">current shop</span> 
+		  <%= link_to "Store", "http://#{current_shop.url}", :class => 'shop_name' %> <span class="note">|</span> 
+		  <%= link_to "Admin", "http://#{current_shop.url}/admin", :class => 'shop_name' %> <span class="note">|</span>
           <%= link_to 'logout', :controller => "login", :action => 'logout' %>
       <% end %>
     </p>
