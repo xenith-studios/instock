@@ -4,20 +4,20 @@
 
 <% else %>
 
-  <% @products.each do |product| %>
-    <div class="product box">
-      <div class="wrapper">
-        <%= image_tag product.images.first.small rescue '' %>
+  <% @vendors.each do |vendor| %>
+    <h2><%= vendor %></h2>
+      <% @products.select{|p| p.vendor == vendor}.each do |product| %>
+        <div class="product box">
+          <div class="wrapper">
+            <h2><%= link_to product.title, "http://#{current_shop.url}/admin/products/#{product.id}" %></h2>
+            <% product.variants.sort{|a,b| a.title <=> b.title}.each do |variant| %>
 
-        <h4><%= link_to product.title, "http://#{current_shop.url}/admin/products/#{product.id}" %></h4>
-
-        <p class="price"><%= product.price_range %> <%= current_shop.shop.currency %></p>
-        <p style="margin-bottom: 0"><%= product.product_type %> <span class="note">type</span></p>
-        <p style="margin: 0"><%= product.vendor %> <span class="note">vendor</span></p>
-      
-        <div style="clear:left"></div>
-      </div>
-    </div>
+              <h4><%= link_to variant.title, "http://#{current_shop.url}/admin/products/#{product.id}" %></h4>
+              <p>Expected number on hand: <%= variant.inventory_quantity %></p>
+              <div style="clear:left"></div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
   <% end %>
-
 <% end %>

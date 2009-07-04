@@ -5,8 +5,8 @@ class WarehouseController < ApplicationController
   end
 
   def stock_audit
-    #@vendor_names = ShopifyAPI::Product.find(:all, :group => vendor, :order => 'vendor').map{|product| product.vendor}.uniq
-    @products = ShopifyAPI::Product.find(:all, :group => :vendor, :order => 'vendor')
+    @vendors = ShopifyAPI::Product.find(:all, :group => :vendor, :order => 'vendor').map{|product| product.vendor}.uniq
+    @products = ShopifyAPI::Product.find(:all, :sort => :title)#, :group => :vendor, :order => 'vendor')
     orders = ShopifyAPI::Order.find(:all, :limit => 'financial_status = pending')
   end
 end
