@@ -1,3 +1,5 @@
+config/shopify.yml
+vendor/plugins/shopify_app/doc/
 log/*.log
 tmp/**/*
 doc/api

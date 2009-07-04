@@ -15,4 +15,5 @@ class HomeController < ApplicationController
     @orders   = ShopifyAPI::Order.find(:all, :params => {:limit => 3, :order => "created_at DESC" })
   end
   
+  
 end
