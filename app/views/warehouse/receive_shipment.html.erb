@@ -1,6 +1,6 @@
 <% content_for(:custom_js, javascript_include_tag('receive_shipment')) %>
 <h1>Receive Shipment</h1>
-<form action="receive_shipment_submit" method="get" accept-charset="utf-8">
+<%= form_tag("/warehouse/process_shipment") %>
 	<table><tr>
 		<td valign="top">
 			<label for="vendors">From:</label>
@@ -13,7 +13,7 @@
 			</select>
 		</td>
 		<td valign="top">
-			<label for="product_variants">Products in this shipment:</label>
+			<label for="product_variants">Variants:</label>
 		</td>
 		<td>
 			<div id="productVariants"></div>

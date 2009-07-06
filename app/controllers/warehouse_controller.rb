@@ -7,6 +7,10 @@ class WarehouseController < ApplicationController
   end
   
   def process_shipment
+    if(request.post?)
+      variant_ids = params['variant_ids']
+      raise(variant_ids.inspect)
+    end #if
   end
   
   def vendor_products
