@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  shipment_id: 1
+  variant_id: 1
+  count: 1
+
+two:
+  shipment_id: 1
+  variant_id: 1
+  count: 1
