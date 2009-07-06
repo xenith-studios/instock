@@ -1,6 +1,23 @@
 <% @products.each do |product| %>
-	<div class="product_checkbox">
-		<%= check_box_tag("products", product.id) %>
-		<label for="products"><%= product.title %></label>
+	<div class="productCheckboxes">
+	<div class="productVariantCheckbox">
+		<%= check_box_tag("product_variants", product.variants.first.id) %>
+		<% title = (product.variants.first.title == "Default") ? product.title : product.variants.first.title %>
+		<label for="product_variants"><%= title   %></label>
 	</div>
+	<% if(product.variants.length > 1) %>
+	<ul class="variantList">
+		<% variant_count = product.variants.length %>
+		<% product.variants.slice(1..variant_count).each do |variant| %>
+		<li>
+			<div class="productVariantCheckbox">
+				<%= check_box_tag("product_variants", variant.id) %>
+				<% title = (variant.title == "Default") ? product.title : variant.title %>
+				<label for="product_variants"><%= title %></label>
+			</div>
+		</link>
+		<% end #each %>
+	</ul>
+	</div>
+	<% end #if %>
 <% end #each %>

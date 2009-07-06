@@ -10,10 +10,10 @@ class WarehouseController < ApplicationController
   end
   
   def vendor_products
-    #if(request.post?)
+    if(request.post?)
       vendor_name = params['vendor_name']
       @products = ShopifyAPI::Product.find(:all, :params => {:vendor => vendor_name})
       render(:layout => false)
-    #end #if
+    end #if
   end
 end
