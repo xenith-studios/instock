@@ -10,9 +10,9 @@
         <div class="product box">
           <div class="wrapper">
             <h2><%= link_to product.title, "http://#{current_shop.url}/admin/products/#{product.id}" %></h2>
-            <% product.variants.sort{|a,b| a.title <=> b.title}.each do |variant| %>
+            <% product.variants.sort{|a,b| a.title.casecmp(b.title)}.each do |variant| %>
 
-              <h4><%= link_to variant.title, "http://#{current_shop.url}/admin/products/#{product.id}" %></h4>
+              <h4><%= variant.title %> <small>(sku: <%= variant.sku %>)</small></h4>
               <p>Expected number on hand: <%= variant.inventory_quantity %></p>
               <div style="clear:left"></div>
             <% end %>
