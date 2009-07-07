@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(:version => 20090706200201) do
 
   create_table "shipment_items", :force => true do |t|
     t.integer  "shipment_id"
+    t.integer  "product_id"
     t.integer  "variant_id"
+    t.string   "title"
+    t.string   "sku"
     t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,7 +35,6 @@ ActiveRecord::Schema.define(:version => 20090706200201) do
   create_table "shipments", :force => true do |t|
     t.integer  "shopify_store_id"
     t.datetime "created_at"
-    t.datetime "update_at"
     t.datetime "updated_at"
   end
 

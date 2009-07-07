@@ -2,8 +2,6 @@ class CreateShipments < ActiveRecord::Migration
   def self.up
     create_table :shipments do |t|
       t.integer :shopify_store_id
-      t.datetime :created_at
-      t.datetime :update_at
 
       t.timestamps
     end

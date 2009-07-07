@@ -6,7 +6,7 @@
 			<% product.variants.each do |variant| %>
 			<li>
 				<div class="productVariantCheckbox">
-					<%= check_box_tag("variant_ids[]", variant.id) %>
+					<%= check_box_tag("product_variant_ids[]", "#{product.id}|#{variant.id}" ) %>
 					<% title = (variant.title == "Default") ? product.title : variant.title %>
 					<label for="product_variants"><%= title %></label>
 				</div>
