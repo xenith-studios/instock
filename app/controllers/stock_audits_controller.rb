@@ -3,6 +3,10 @@ class StockAuditsController < ApplicationController
   layout "warehouse"
   
   def index
+    @audits = StockAudit.find(:all)
+  end
+  
+  def new
     @products = {}
     @all_products = ShopifyAPI::Product.find(:all, :sort => :title)
     @vendors = @all_products.map{|product| product.vendor}.uniq.sort{|a,b| a.casecmp(b)}
@@ -10,5 +14,13 @@ class StockAuditsController < ApplicationController
       @products[vendor] = @all_products.select{|p| p.vendor == vendor}
     end
     orders = ShopifyAPI::Order.find(:all, :conditions => 'financial_status = pending')
+  end
+  
+  def create
+    
+  end
+  
+  def show
+    
   end
 end

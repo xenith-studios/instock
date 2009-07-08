@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090706200201) do
+ActiveRecord::Schema.define(:version => 20090708204841) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -34,6 +34,25 @@ ActiveRecord::Schema.define(:version => 20090706200201) do
 
   create_table "shipments", :force => true do |t|
     t.integer  "shopify_store_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stock_audit_items", :force => true do |t|
+    t.integer  "stock_audit_id"
+    t.integer  "product_id"
+    t.integer  "variant_id"
+    t.string   "title"
+    t.string   "sku"
+    t.integer  "expected_count"
+    t.integer  "actual_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stock_audits", :force => true do |t|
+    t.integer  "shopify_store_id"
+    t.string   "created_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
