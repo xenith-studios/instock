@@ -7,7 +7,10 @@ class StockAuditsController < ApplicationController
   end
   
   def new
+    @audit = StockAudit.new
+    @audit.stock_audit_items.build
     @products = {}
+    @variants = {}
     @all_products = ShopifyAPI::Product.find(:all, :sort => :title)
     @vendors = @all_products.map{|product| product.vendor}.uniq.sort{|a,b| a.casecmp(b)}
     @vendors.each do |vendor|
@@ -17,10 +20,28 @@ class StockAuditsController < ApplicationController
   end
   
   def create
-    
+    @audit = StockAudit.new(params[:stock_audit])
+    if @audit.save
+      flash[:notice] = "Successfully created audit."
+      redirect_to @audit
+    else
+      render :action => 'new'
+    end
   end
   
   def show
+    
+  end
+  
+  def update
+    
+  end
+  
+  #def destroy
+  #  
+  #end
+  
+  def edit
     
   end
 end
