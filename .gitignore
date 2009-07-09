@@ -6,3 +6,4 @@ doc/api
 doc/app
 db/*.sqlite3
 vendor/plugins/**/doc/*
+.DS_Store

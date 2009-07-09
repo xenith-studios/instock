@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :stock_audits
+  map.resources :stock_audits, :has_many => :stock_audit_items
 
   map.root :controller => 'home'
   # The priority is based upon order of creation: first created -> highest priority.

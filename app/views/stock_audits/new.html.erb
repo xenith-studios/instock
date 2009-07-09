@@ -1,0 +1,32 @@
+<% if @products.blank? %>
+
+  <em class="note">There are no products in your store.</em>
+
+<% else %>
+  <%= error_messages_for :audit %>
+  <% form_for @audit do |audit| %>
+    <% @vendors.each do |vendor| %>
+      <h2><%= vendor %></h2>
+        <% @products[vendor].each do |product| %>
+          <div class="product box">
+            <div class="wrapper">
+              <h2><%= link_to product.title, "http://#{current_shop.url}/admin/products/#{product.id}" %></h2>
+              <% product.variants.sort{|a,b| a.title.casecmp(b.title)}.each do |variant| %>
+                <% audit.fields_for :stock_audit_items do |item| %>
+                  <h4><%= variant.title %> <small>(sku: <%= variant.sku %>)</small></h4>
+                  <p>
+                    Shopify inventory count: <%= variant.inventory_quantity %><br />
+                    Pending order count: <%= 0 %><br />
+                    Expected number on hand: <%= variant.inventory_quantity + 0 %><br />
+                    Enter actual count: <%= item.text_field :actual_count, :size => 4 %>
+                  </p>
+                  <div style="clear:left"></div>
+                <% end%>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+    <%= submit_tag 'Complete Audit' %>
+  <% end%>
+<% end %>
