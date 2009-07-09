@@ -9,13 +9,23 @@ class WarehouseController < ApplicationController
       @variants = Hash.new()
       product_variant_ids.each do |pvid|
         pid, vid = pvid.split("|")
+        product = ShopifyAPI::Product.find(pid)
         variant = ShopifyAPI::Variant.find(vid, :params => { :product_id => pid })
+        title = variant.title =~ /Default/ ? product.title : variant.title
         @variants[vid.to_i] = variant unless variant.blank? 
-        @shipment.shipment_items << ShipmentItem.new(:variant_id => vid, :product_id => pid, :title => variant.title, :sku => variant.sku)
+        @shipment.shipment_items << ShipmentItem.new(
+          :variant_id => vid, 
+          :product_id => pid, 
+          :title => title,
+          :sku => variant.sku)
       end #each
     end #if
     rescue ActiveResource::ResourceNotFound => e
       # Just ignore it ?!?  
+  end
+  
+  def process_shipment
+    raise(params.inspect)
   end
   
   def receive_shipment
