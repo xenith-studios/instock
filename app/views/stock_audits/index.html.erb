@@ -1,7 +1,17 @@
+<p><%= link_to "Create new stock audit", url_for(:action => :new) %></p>
+
 <% if @audits.blank? %>
 
   <em class="note">You have not done any stock audits yet.</em>
 
 <% else %>
-  
+  <% @audits.each do |audit| %>
+    <div class="product box">
+      <div class="wrapper">
+        <h4><%= link_to "Audit ##{audit.id}", audit %></h4>
+        <p style="margin: 0">Created on: <%= audit.created_at %> by: <%= audit.created_by %></p>
+        <div style="clear:left"></div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
