@@ -1,14 +1,14 @@
 <% content_for(:custom_js, javascript_include_tag('enter_shipment')) %>
 <h1>Enter Shipment Data<h2>
 <div class"shipmentForm">
-	<% form_for(:shipment, :url => {:action => 'process_shipment'}) do |shipment_form| %>
+	<% form_for(@shipment, :url => {:action => 'process_shipment'}) do |shipment_form| %>
 		<table>
 			<thead>
 				<tr><td>Product Variant</td><td>Current Shopify Stock</td><td>Received</td><td>New Total</td></tr>
 		 	</thead>
 			<tbody>
 				<% @shipment.shipment_items.each do |si| %>
-					<% shipment_form.fields_for(:shipment_items) do |shipment_item_form| %>
+					<% shipment_form.fields_for(:shipment_items, si) do |shipment_item_form| %>
 					<tr class="shipmentItem">
 						<td><%= shipment_item_form.text_field(:title)%></td>
 						<td class="oldCount">
