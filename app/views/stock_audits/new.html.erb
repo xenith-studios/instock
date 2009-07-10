@@ -1,9 +1,4 @@
-<% if @products.blank? %>
-
-  <em class="note">There are no products in your store.</em>
-
-<% else %>
-  <%= error_messages_for :audit %>
+  <%= error_messages_for :stock_audit %>
   <% form_for @audit do |audit| %>
     <% @vendors.each do |vendor| %>
       <h2><%= vendor %></h2>
@@ -11,7 +6,7 @@
           <div class="product box">
             <div class="wrapper">
               <h2><%= link_to product.title, "http://#{current_shop.url}/admin/products/#{product.id}" %></h2>
-              <% product.variants.sort{|a,b| a.title.casecmp(b.title)}.each do |variant| %>
+              <% @variants[product].each do |variant| %>
                 <% audit.fields_for :stock_audit_items do |item| %>
                   <h4><%= variant.title %> <small>(sku: <%= variant.sku %>)</small></h4>
                   <p>
@@ -19,7 +14,13 @@
                     Pending order count: <%= 0 %><br />
                     Expected number on hand: <%= variant.inventory_quantity + 0 %><br />
                     Enter actual count: <%= item.text_field :actual_count, :size => 4 %>
+                    Difference: 0
                   </p>
+                  <%= item.hidden_field :product_id, :value => product.id %>
+                  <%= item.hidden_field :variant_id, :value => variant.id %>
+                  <%= item.hidden_field :title, :value => variant.title %>
+                  <%= item.hidden_field :sku, :value => variant.sku %>
+                  <%= item.hidden_field :expected_count, :value => variant.inventory_quantity %>
                   <div style="clear:left"></div>
                 <% end%>
               <% end %>
@@ -27,6 +28,6 @@
           </div>
         <% end %>
     <% end %>
+    Enter your name: <%= audit.text_field :created_by %>
     <%= submit_tag 'Complete Audit' %>
   <% end%>
-<% end %>
