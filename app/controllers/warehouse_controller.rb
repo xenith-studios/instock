@@ -6,6 +6,7 @@ class WarehouseController < ApplicationController
     if(request.post?)
       product_variant_ids = params['product_variant_ids']
       @shipment = Shipment.new()
+      @shipment.shipment_items.build()
       @variants = Hash.new()
       product_variant_ids.each do |pvid|
         pid, vid = pvid.split("|")

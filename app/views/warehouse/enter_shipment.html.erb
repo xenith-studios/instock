@@ -8,10 +8,12 @@
 		 	</thead>
 			<tbody>
 				<% @shipment.shipment_items.each do |si| %>
-					<% shipment_form.fields_for(:shipment_items, si) do |shipment_item_form| %>
+					<% shipment_form.fields_for(:shipment_items) do |shipment_item_form| %>
 					<tr class="shipmentItem">
 						<td><%= shipment_item_form.text_field(:title)%></td>
-						<td class="oldCount"><%= @variants[si.variant_id].inventory_quantity %></td>
+						<td class="oldCount">
+							<%= @variants[si.variant_id].inventory_quantity unless @variants[si.variant_id].blank?%>
+						</td>
 						<td class="newCount"><%= shipment_item_form.text_field(:count) %></td>
 						<td class="newTotal">&nbsp</td>
 					</tr>
