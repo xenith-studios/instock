@@ -1,4 +1,7 @@
 class ShipmentsController < ApplicationController
+  around_filter :shopify_session
+  layout 'warehouse'
+  
   def index
     @shipment = Shipment.find :all
 
@@ -18,12 +21,29 @@ class ShipmentsController < ApplicationController
   end
 
   def new
-    @shipment = Shipment.new
+    product_variant_ids = params['product_variant_ids']
+    @shipment = Shipment.new()
+    @variants = Hash.new()
+    product_variant_ids.each do |pvid|
+      pid, vid = pvid.split("|")
+      product = ShopifyAPI::Product.find(pid)
+      variant = ShopifyAPI::Variant.find(vid, :params => { :product_id => pid })
+      title = variant.title =~ /Default/ ? product.title : product.title + "(" + variant.title + ")"
+      @variants[vid.to_i] = variant unless variant.blank? 
+      @shipment.shipment_items << ShipmentItem.new(
+        :variant_id => vid, 
+        :product_id => pid, 
+        :title => title,
+        :sku => variant.sku)
+    end #each
 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @shipment }
     end
+    
+    rescue ActiveResource::ResourceNotFound => e
+      # Just ignore it ?!?
   end
 
   def edit
@@ -62,7 +82,7 @@ class ShipmentsController < ApplicationController
 
   def destroy
     @shipment = Shipment.find(params[:id])
-    @.destroy
+    @shipment.destroy
 
     respond_to do |format|
       format.html { redirect_to(admin_shipment_url) }
