@@ -9,8 +9,10 @@
 			<tbody>
 				<% @shipment.shipment_items.each do |si| %>
 					<% shipment_form.fields_for(:shipment_items, si) do |shipment_item_form| %>
+					<%= shipment_item_form.hidden_field(:variant_id) %>
+					<%= shipment_item_form.hidden_field(:product_id) %>
 					<tr class="shipmentItem">
-						<td><%= shipment_item_form.text_field(:title)%></td>
+						<td><%= shipment_item_form.text_field(:title, :disabled => "disabled", :size => si.title.length)%></td>
 						<td class="oldCount">
 							<%= @variants[si.variant_id].inventory_quantity unless @variants[si.variant_id].blank?%>
 						</td>
