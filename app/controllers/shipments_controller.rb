@@ -23,6 +23,7 @@ class ShipmentsController < ApplicationController
   def new
     product_variant_ids = params['product_variant_ids']
     @shipment = Shipment.new()
+    @shipment.shopify_store_id = current_shop.id
     @variants = Hash.new()
     product_variant_ids.each do |pvid|
       pid, vid = pvid.split("|")
