@@ -40,6 +40,17 @@ class StockAuditsController < ApplicationController
         format.html { redirect_to(@audit) }
         format.xml  { render :xml => @audit, :status => :created, :location => @audit }
       else
+        @products = {}
+        @variants = {}
+        all_products = ShopifyAPI::Product.find(:all, :sort => :title)
+        @vendors = all_products.map{|product| product.vendor}.uniq.sort{|a,b| a.casecmp(b)}
+        @vendors.each do |vendor|
+          @products[vendor] = all_products.select{|p| p.vendor == vendor}
+        end
+        all_products.each do |product|
+          @variants[product] = product.variants.sort{|a,b| a.title.casecmp(b.title)}
+        end
+        orders = ShopifyAPI::Order.find(:all, :conditions => 'financial_status = pending')
         format.html { render :action => "new" }
         format.xml  { render :xml => @audit.errors, :status => :unprocessable_entity }
       end

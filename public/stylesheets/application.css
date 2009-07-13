@@ -191,6 +191,10 @@ code { font-size: 140%; }
 
 /* CLASSES */
 
+.fieldWithErrors input {
+    border: 5px solid #f66;
+}
+
 .description {
 	margin: 0px 0px 0px 4px; 
 	font-weight: normal;
