@@ -1,11 +1,11 @@
 <% content_for(:custom_js, javascript_include_tag('enter_shipment')) %>
 <h1>Enter Shipment Data<h2>
-<div class"shipmentForm">
+<div class"shipmentForm box">
 	<% form_for(@shipment, :url => {:action => 'create'}) do |shipment_form| %>
 	<%= shipment_form.hidden_field(:shopify_store_id)%>
 		<table>
 			<thead>
-				<tr><td>Product Variant</td><td>Current Shopify Stock</td><td>Received</td><td>New Total</td></tr>
+				<tr><td>Product Variant</td><td>Current Shopify Stock</td><td>Received</td><td>New Total</td><td>&nbsp;</td></tr>
 		 	</thead>
 			<tbody>
 				<% @shipment.shipment_items.each do |si| %>
@@ -13,15 +13,29 @@
 					<%= shipment_item_form.hidden_field(:variant_id) %>
 					<%= shipment_item_form.hidden_field(:product_id) %>
 					<tr class="shipmentItem">
-						<td><%= shipment_item_form.text_field(:title, :disabled => "disabled", :size => si.title.length)%></td>
-						<td class="oldCount">
-							<%= @variants[si.variant_id].inventory_quantity unless @variants[si.variant_id].blank?%>
+						<td>
+						    <%= shipment_item_form.text_field(:title, :disabled => "disabled", :size => si.title.length) %>
+						    <%= shipment_item_form.hidden_field(:title) %>
 						</td>
-						<td class="newCount"><%= shipment_item_form.text_field(:count) %></td>
+						<td class="oldCount">
+							<%= ShopifyAPI::Variant.find(si.variant_id, :params => { :product_id => si.product_id }).inventory_quantity %>
+						</td>
+						<td class="newCount"><%= shipment_item_form.text_field(:count, :size => 4) %></td>
 						<td class="newTotal">&nbsp</td>
+						<td><%= error_message_on(si, :count) %></td>
 					</tr>
 					<% end #fields_for %>
 				<% end #each%>
+				<tr>
+				    <td><label for="shipment_po_number">Purchase Order #: </label></td>
+				    <td colspan="3"><%= shipment_form.text_field(:po_number)%></td>
+				    <td colspan="1"><%= error_message_on(@shipment, :po_number)%></td>
+				</tr>
+				<tr>
+				    <td><label for="shipment_created_by">Staff Member: </label></td>
+				    <td colspan="3"><%= shipment_form.text_field(:created_by)%></td>
+				    <td colspan="1"><%= error_message_on(@shipment, :created_by)%></td>
+				</tr>  
 			</tbody>
 		</table>
 		<%= submit_tag("Process Shipment") %>

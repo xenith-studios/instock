@@ -64,6 +64,8 @@ class ShipmentsController < ApplicationController
         format.xml  { render :xml => @shipment.errors, :status => :unprocessable_entity }
       end
     end
+    rescue ActiveResource::ResourceNotFound => e
+      # Just ignore it ?!?
   end
 
   def update

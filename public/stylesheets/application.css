@@ -283,3 +283,11 @@ h1.blue, h2.blue, h3.blue {
   color: #fff;
   padding: 10px;
 }
+
+.formError {
+  color: #ce6e21;
+}
+
+.fieldWithErrors input {
+  border: 2px solid #ce6e21;
+}
