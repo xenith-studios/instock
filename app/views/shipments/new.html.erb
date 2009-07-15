@@ -1,6 +1,6 @@
 <% content_for(:custom_js, javascript_include_tag('enter_shipment')) %>
 <h1>Enter Shipment Data<h2>
-<div class"shipmentForm box">
+<div class="shipmentForm box">
 	<% form_for(@shipment, :url => {:action => 'create'}) do |shipment_form| %>
 	<%= shipment_form.hidden_field(:shopify_store_id)%>
 		<table>
