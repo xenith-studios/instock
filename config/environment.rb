@@ -38,4 +38,8 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+
+  config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
+  config.gem "rspec", :lib => false, :version => ">= 1.2.0" 
+  config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0" 
 end
