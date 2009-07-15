@@ -3,7 +3,9 @@ class ShipmentItem < ActiveRecord::Base
   
   # Validations
   validates_presence_of(:count, :message => "'Stock Recieved' cannot be blank.")
-  #validates_presence_of(:count)
+  def validate
+    errors.add_to_base("Count cannot be negative") if(!@count.blank? && @count < 0)
+  end #validate
   
   # Filters
   after_create do |si|
