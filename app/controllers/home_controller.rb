@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  
+  layout "application"
   around_filter :shopify_session, :except => 'welcome'
   
   def welcome

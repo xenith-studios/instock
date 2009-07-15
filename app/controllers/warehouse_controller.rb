@@ -1,6 +1,7 @@
 class WarehouseController < ApplicationController
   around_filter :shopify_session
   protect_from_forgery :except => :vendor_products
+  layout "application"
   
   def enter_shipment
     if(request.post?)
