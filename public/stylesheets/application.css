@@ -287,3 +287,15 @@ h1.blue, h2.blue, h3.blue {
   color: #fff;
   padding: 10px;
 }
+
+/* From warehouse.cc */
+ul.variantList {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+ul.variantList li {
+	list-style-type: none;
+	margin: 0px 0px 0px 15px;
+	padding: 0px 0px 0px 0px;
+}

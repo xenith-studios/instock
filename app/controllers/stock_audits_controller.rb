@@ -1,6 +1,6 @@
 class StockAuditsController < ApplicationController
   around_filter :shopify_session
-  layout "warehouse"
+  layout "application"
   
   def index
     @audits = StockAudit.find :all
