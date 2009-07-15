@@ -9,3 +9,9 @@ two:
   shipment_id: 1
   variant_id: 1
   count: 1
+
+broken:
+  shipment_id: 2344
+  variant_id: 1234
+  product_id: 4321
+  count: -20
