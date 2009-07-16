@@ -1,6 +1,6 @@
 class ShipmentsController < ApplicationController
   around_filter :shopify_session
-  layout 'warehouse'
+  layout 'application'
   
   def index
     @shipments = Shipment.find :all
