@@ -1,0 +1,24 @@
+<h1>Shipment (<%= link_to("edit", {:action => 'edit', :id => @shipment.id}, :method => :get, :class => "light_bg")%>)</h1>
+<h2>PO #: <span class="highlight"><%= @shipment.po_number || "Unspecified" %></span></h2>
+<h2>Date: <span class="highlight"><%= @shipment.created_at %></span></h2>
+<h2>Staff Member: <span class="highlight"><%= @shipment.created_by || "Unknown" %></span></h2>
+
+<div class="box">
+    <h2>Recieved:</h2>
+    <table>
+    	<thead>
+    		<tr><td>Product Variant</td><td>Sku</td><td>Received</td></tr>
+     	</thead>
+    	<tbody>
+        <% @shipment.shipment_items.each do |si| %>
+            <tr>
+                <td><%= si.title %></td>
+                <td><%= si.sku || "(no sku?)" %></td>
+                <td><%= si.count %></td>
+            </tr>
+        <% end #each %>
+        <tbody>
+    </table>
+</div>
+
+<%= link_to("All Shipments", {:action => 'index'}, :method => :get) %>
