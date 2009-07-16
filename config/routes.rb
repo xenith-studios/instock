@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :stock_audits, :has_many => :stock_audit_items
-
+  
+  
   map.root :controller => 'home'
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -14,6 +14,8 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
+  map.resources :stock_audits, :has_many => :stock_audit_items
+  map.resources :shipments, :has_many => :shipment_items
 
   # Sample resource route with options:
   #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
