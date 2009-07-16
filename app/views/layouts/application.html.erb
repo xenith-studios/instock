@@ -6,8 +6,12 @@
 	<meta name="MSSmartTagsPreventParsing" content="true" />
 
   <title>inStock</title>
-
+  
+  <!-- Style Sheets -->
+  <%= stylesheet_link_tag 'shopify' %>
   <%= stylesheet_link_tag 'application' %>
+  
+  <!-- JavaScripts -->
   <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js' %>
   <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js' %>
   <%= javascript_include_tag 'jrails' %>
@@ -26,6 +30,12 @@
           <%= link_to 'logout', :controller => "login", :action => 'logout' %>
       <% end %>
     </p>
+    <h2 id="mainNav">
+    <%= nav({
+            "Shipments" => {:controller => 'shipments'}, 
+            "Stock Audits" => {:controller => 'stock_audits'}   
+        }) %>
+    </h2>
   </div>
 
   <div id="container" class="clearfix">
