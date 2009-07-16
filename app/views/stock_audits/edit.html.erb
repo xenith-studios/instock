@@ -1,0 +1,12 @@
+<h1>Editing stock_audit</h1>
+
+<% form_for(@audit) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @audit %> |
+<%= link_to 'Back', stock_audits_path %>
