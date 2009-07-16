@@ -1,5 +1,6 @@
 class StockAuditsController < ApplicationController
   around_filter :shopify_session
+  protect_from_forgery
   layout "application"
   
   def index
@@ -24,7 +25,7 @@ class StockAuditsController < ApplicationController
     all_products.each do |product|
       @variants[product] = product.variants.sort{|a,b| a.title.casecmp(b.title)}
     end
-    orders = ShopifyAPI::Order.find(:all, :conditions => 'financial_status = pending')
+    orders = ShopifyAPI::Order.find(:all, :params => { :status => "open", :fulfilment_status => "unshipped", :fulfilment_status => "partial"})
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @audit }
@@ -32,7 +33,7 @@ class StockAuditsController < ApplicationController
   end
   
   def create
-    @audit = StockAudit.new(params[:audit])
+    @audit = StockAudit.new(params[:stock_audit])
 
     respond_to do |format|
       if @audit.save

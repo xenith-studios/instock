@@ -8,7 +8,7 @@
             <div class="wrapper">
               <h2><%= link_to product.title, "http://#{current_shop.url}/admin/products/#{product.id}" %></h2>
               <% @variants[product].each do |variant| %>
-                <% audit.fields_for :stock_audit_items do |item| %>
+                <% audit.fields_for :stock_audit_items, @audit.stock_audit_items.select{|item| item.variant_id == variant.id}.first do |item| %>
                   <h4><%= variant.title %> <small>(sku: <%= variant.sku %>)</small></h4>
                   <p>
                     Shopify inventory count: <%= variant.inventory_quantity %><br />
