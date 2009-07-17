@@ -5,7 +5,7 @@
 	<%= shipment_form.hidden_field(:shopify_store_id)%>
 		<table>
 			<thead>
-				<tr><td>Product Variant</td><td>Current Shopify Stock</td><td>Received</td><td>New Total</td><td>&nbsp;</td></tr>
+				<tr><td>Product Variant</td><td>Current Shopify Stock</td><td>Received</td><td colspan="2">New Total</td></tr>
 		 	</thead>
 			<tbody>
 				<% @shipment.shipment_items.each do |si| %>
