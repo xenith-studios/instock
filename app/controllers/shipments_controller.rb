@@ -87,7 +87,7 @@ class ShipmentsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @shipment = Shipment.find(params[:id])
     @shipment.destroy
 
