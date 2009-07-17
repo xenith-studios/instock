@@ -12,7 +12,7 @@
  	        <td><%= shipment.po_number%></td>
  	        <td><%= shipment.created_by %></td>
  	        <td><%= link_to("Edit", {:action => 'edit', :id => shipment.id}, :method => :get) %> </td>
- 	        <td><%= link_to("X", {:action => 'delete', :id => shipment.id}, :confirm => message, :method => :delete) %></td>
+ 	        <td><%= link_to("X", {:action => 'destroy', :id => shipment.id}, :confirm => message, :method => :delete) %></td>
  	    </tr>
  	    <% end #each %>
  	</tbody>
