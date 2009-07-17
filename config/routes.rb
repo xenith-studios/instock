@@ -9,6 +9,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'warehouse/:action/:id.:format', :controller => 'warehouse'
 
   # See how all your routes lay out with "rake routes"
-  #map.connect ':controller/:action/:id'
-  #map.connect ':controller/:action/:id.:format'
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
 end
