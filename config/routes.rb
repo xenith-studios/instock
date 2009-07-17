@@ -1,27 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'home'
-  map.connect 'login/:action/:id', :controller => 'login'
-  map.connect 'warehouse/:action/:id', :controller => 'warehouse'
-  # The priority is based upon order of creation: first created -> highest priority.
 
-  # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
-  # Keep in mind you can assign values other than :controller and :action
-
-  # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
-  # This route can be invoked with purchase_url(:id => product.id)
-
-  # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
   map.resources :stock_audits, :has_many => :stock_audit_items
   map.resources :shipments, :has_many => :shipment_items
 
+  map.connect 'login/:action/:id', :controller => 'login'
+  map.connect 'warehouse/:action/:id', :controller => 'warehouse'
+  map.connect 'warehouse/:action/:id.:format', :controller => 'warehouse'
+
   # See how all your routes lay out with "rake routes"
-  
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via
-  # consider removing the them or commenting them out if you're using named routes
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  #map.connect ':controller/:action/:id'
+  #map.connect ':controller/:action/:id.:format'
 end
