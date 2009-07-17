@@ -1,5 +1,5 @@
-class ShipmentItem < ActiveRecord::Base
-  belongs_to :shipment
+class ReceivingItem < ActiveRecord::Base
+  belongs_to :receiving
   
   # Validations
   validates_presence_of(:count, :message => "'Stock Recieved' cannot be blank.")

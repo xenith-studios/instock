@@ -1,8 +1,8 @@
 $(document).ready(function() {
-	$('tr.shipmentItem input').change(function(){
+	$('tr.receivingItem input').change(function(){
 	    new_total(this);
 	})
-	$('tr.shipmentItem input').load(function(){
+	$('tr.receivingItem input').load(function(){
 	    new_total(this);
 	})
 

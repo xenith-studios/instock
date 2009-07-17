@@ -14,7 +14,7 @@ ActionController::Routing::Routes.draw do |map|
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   map.resources :products
   map.resources :stock_audits, :has_many => :stock_audit_items
-  map.resources :shipments, :has_many => :shipment_items
+  map.resources :receivings, :has_many => :receiving_items
 
   # See how all your routes lay out with "rake routes"
   

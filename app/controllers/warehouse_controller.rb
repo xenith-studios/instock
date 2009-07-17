@@ -3,7 +3,7 @@ class WarehouseController < ApplicationController
   protect_from_forgery :except => :vendor_products
   layout "application"
   
-  def receive_shipment
+  def receive_items
     @vendor_names = ShopifyAPI::Product.find(:all).map{|product| product.vendor}.uniq
   end
   
