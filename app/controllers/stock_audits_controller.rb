@@ -15,13 +15,12 @@ class StockAuditsController < ApplicationController
   def new
     # Set up the needed variables
     @audit = StockAudit.new
-    @audit.stock_audit_items.build
-    build_products_and_orders
     fulfillments = {}
+    @products = {}
     
     # Gather the data from Shopify
     products = ShopifyAPI::Product.find(:all, :sort => :title)
-    orders = ShopifyAPI::Order.find(:all, :params => { :status => "open", :fulfillment_status => "unshipped", :fulfillment_status => "partial"})
+    orders = ShopifyAPI::Order.find(:all, :params => { :status => "open", :fulfillment_status => "unshipped OR partial"})
     orders.each do |order|
       fulfillments[order] = ShopifyAPI::Fulfillment.find(:all, :params => { :order_id => order.id } )
     end
@@ -34,12 +33,18 @@ class StockAuditsController < ApplicationController
         item.product_id = product.object_id
         item.variant_id = variant.object_id
         item.title = variant.title
+        item.product_title = product.title
         item.sku = variant.sku
         item.shopify_count = variant.inventory_quantity
-        item.pending_count = orders.collect{|order| order.line_items.select{|i| i.variant_id == variant.object_id}.map{|i| i.quantity }}.flatten.inject{|sum,element| sum + element }
+        item.pending_count = orders.map{ |order| order.line_items.select{ |i| i.sku == item.sku }.map{|i| i.quantity }}.flatten.inject{|sum,element| sum + element }
         item.expected_count = item.shopify_count + (item.pending_count ? item.pending_count : 0)
-        #@audit.stock_audit_items << item
+        @audit.stock_audit_items << item
       end
+    end
+
+    @vendors = @audit.stock_audit_items.map{ |item| item.vendor}.uniq.sort{ |a,b| a.casecmp(b)}
+    @vendors.each do |vendor|
+      @products[vendor] = @audit.stock_audit_items.select{ |item| item.vendor == vendor }.map{ |item| [item.product_title, item.product_id] }.uniq.sort{ |a, b| a[0].casecmp(b[0]) }
     end
     
     respond_to do |format|
@@ -57,7 +62,12 @@ class StockAuditsController < ApplicationController
         format.html { redirect_to(@audit) }
         format.xml  { render :xml => @audit, :status => :created, :location => @audit }
       else
-        build_products_and_orders
+        @products = {}
+        @vendors = @audit.stock_audit_items.map{ |item| item.vendor}.uniq.sort{ |a,b| a.casecmp(b)}
+        @vendors.each do |vendor|
+          @products[vendor] = @audit.stock_audit_items.select{ |item| item.vendor == vendor }.map{ |item| [item.product_title, item.product_id] }.uniq.sort{ |a, b| a[0].casecmp(b[0]) }
+        end
+
         format.html { render :action => "new" }
         format.xml  { render :xml => @audit.errors, :status => :unprocessable_entity }
       end
