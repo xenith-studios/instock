@@ -4,7 +4,9 @@ class ReceivingItem < ActiveRecord::Base
   # Validations
   validates_presence_of(:count, :message => "'Stock Recieved' cannot be blank.")
   def validate
-    errors.add_to_base("Count cannot be negative") if(!@count.blank? && @count < 0)
+    unless(count.blank?) #this should be caught by validates_presence_of
+      errors.add_to_base("Count can't be negative.") if(count <= 0)
+    end
   end #validate
   
   # Filters

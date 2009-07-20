@@ -35,8 +35,9 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  def assert_not_valid(object, message=nil)
-    flunk(message || "Object is valid!") unless object.valid?
+  def assert_not_valid(object, msg="Object is valid when it should be invalid")
+      assert(!object.valid?, msg)
   end
+  alias :assert_invalid :assert_not_valid
   
 end
