@@ -1,5 +1,5 @@
 <% content_for(:custom_js, javascript_include_tag('enter_receiving')) %>
-<h1>Enter Receiving Data<h2>
+<h1>Enter Receiving Data</h1>
 <div class="receivingForm box">
 	<% form_for(@receiving, :url => {:action => 'create'}) do |receiving_form| %>
 	<%= receiving_form.hidden_field(:shopify_store_id)%>
