@@ -9,7 +9,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090714181727) do
+ActiveRecord::Schema.define(:version => 20090717224246) do
+
+  create_table "receiving_items", :force => true do |t|
+    t.integer  "receiving_id"
+    t.integer  "product_id"
+    t.integer  "variant_id"
+    t.string   "title"
+    t.string   "sku"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "receivings", :force => true do |t|
+    t.integer  "shopify_store_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "po_number"
+    t.string   "created_by"
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -20,25 +39,6 @@ ActiveRecord::Schema.define(:version => 20090714181727) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
-
-  create_table "shipment_items", :force => true do |t|
-    t.integer  "shipment_id"
-    t.integer  "product_id"
-    t.integer  "variant_id"
-    t.string   "title"
-    t.string   "sku"
-    t.integer  "count"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "shipments", :force => true do |t|
-    t.integer  "shopify_store_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "po_number"
-    t.string   "created_by"
-  end
 
   create_table "stock_audit_items", :force => true do |t|
     t.integer  "stock_audit_id"
