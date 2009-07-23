@@ -1,6 +1,11 @@
 <h1 class="blue"><strong>inStock</strong> Inventory Management System</h1>
 <div class="box wrapper">
   <p>
-    Welcome to <em>inStock</em> a more powerful way to manage you shopify inventory... More to come later...
+    Welcome to <em>inStock</em> a more powerful way to manage you shopify inventory. Here are some things you can do with inStock:
+    <ul>
+      <li>Use <%= link_to("Receivings", :controller => 'receivings') %> to track inventory you recieve from your vendors. (update stock counts quickly for all products recieved) </li>
+      <li>Periodicaly use <%= link_to("Stock Audits", :controller => 'stock_audits') %> to make sure the inventory count in Shopify matches up with how many item you actually have on hand. (better save than sorry)
+    </ul>
+    More to come later...
   </p>
 </div>
