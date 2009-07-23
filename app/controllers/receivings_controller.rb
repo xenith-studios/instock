@@ -21,33 +21,36 @@ class ReceivingsController < ApplicationController
   end
 
   def new
-    product_variant_ids = params['product_variant_ids']
-    if(product_variant_ids.blank?)
-          flash[:notice] = "No products were selected for this receiving. Please select at least one product to receive."
-          redirect_to(:action => 'receive_receiving',  :controller => 'warehouse')
-    else
-      @receiving = Receiving.new()
-      @receiving.shopify_store_id = current_shop.id
-      @variants = Hash.new()
-      product_variant_ids.each do |pvid|
-        pid, vid = pvid.split("|")
-        product = ShopifyAPI::Product.find(pid)
-        variant = ShopifyAPI::Variant.find(vid, :params => { :product_id => pid })
-        title = variant.title =~ /Default/ ? product.title : product.title + "(" + variant.title + ")" 
-        @receiving.receiving_items << ReceivingItem.new(
-          :variant_id => vid, 
-          :product_id => pid, 
-          :title => title,
-          :sku => variant.sku)
-      end #each
-
-      respond_to do |format|
-        format.html # new.html.erb
-        format.xml  { render :xml => @receiving }
-      end
-    end
+    @vendor_names = ShopifyAPI::Product.find(:all).map{|product| product.vendor}.uniq
+    @receiving = Receiving.new()
+    @receiving.shopify_store_id = current_shop.id
+    #product_variant_ids = params['product_variant_ids']
+    #if(product_variant_ids.blank?)
+    #      flash[:notice] = "No products were selected for this receiving. Please select at least one product to receive."
+    #      redirect_to(:action => 'receive_receiving',  :controller => 'warehouse')
+    #else
+    #  @receiving = Receiving.new()
+    #  @receiving.shopify_store_id = current_shop.id
+    #  @variants = Hash.new()
+    #  product_variant_ids.each do |pvid|
+    #    pid, vid = pvid.split("|")
+    #    product = ShopifyAPI::Product.find(pid)
+    #    variant = ShopifyAPI::Variant.find(vid, :params => { :product_id => pid })
+    #    title = variant.title =~ /Default/ ? product.title : product.title + "(" + variant.title + ")" 
+    #    @receiving.receiving_items << ReceivingItem.new(
+    #      :variant_id => vid, 
+    #      :product_id => pid, 
+    #      :title => title,
+    #      :sku => variant.sku)
+    #  end #each
+    #
+    #  respond_to do |format|
+    #    format.html # new.html.erb
+    #    format.xml  { render :xml => @receiving }
+    #  end
+    #end #if
     
-    rescue ActiveResource::ResourceNotFound => e
+    #rescue ActiveResource::ResourceNotFound => e
       # Just ignore it ?!?
   end
 
