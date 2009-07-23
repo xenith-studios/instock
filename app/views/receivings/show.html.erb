@@ -1,4 +1,4 @@
-<h1>Receiving (<%= link_to("edit", {:action => 'edit', :id => @receiving.id}, :method => :get, :class => "light_bg")%>)</h1>
+<h1 class="blue">Receiving</h1>
 <h2>PO #: <span class="highlight"><%= @receiving.po_number || "Unspecified" %></span></h2>
 <h2>Date: <span class="highlight"><%= @receiving.created_at %></span></h2>
 <h2>Staff Member: <span class="highlight"><%= @receiving.created_by || "Unknown" %></span></h2>
