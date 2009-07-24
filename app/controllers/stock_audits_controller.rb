@@ -4,7 +4,7 @@ class StockAuditsController < ApplicationController
   layout "application"
   
   def index
-    @audits = StockAudit.find :all
+    @audits = StockAudit.find :all, :conditions => ["shopify_store_id = ?", current_shop.id]
 
     respond_to do |format|
       format.html # index.html.erb

@@ -3,7 +3,7 @@ class ReceivingsController < ApplicationController
   layout 'application'
   
   def index
-    @receivings = Receiving.find :all
+    @receivings = Receiving.find :all, :conditions => ["shopify_store_id = ?", current_shop.id]
 
     respond_to do |format|
       format.html # index.html.erb

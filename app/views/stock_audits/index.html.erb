@@ -2,12 +2,12 @@
 
 
 <% if @audits.blank? %>
-
-  <em class="note">You have not done any stock audits yet.</em>
-
+  <div class="box wrapper">
+    <em class="note">You have not done any stock audits yet.</em>
+  </div>
 <% else %>
 
-<div class="box">
+<div class="box wrapper">
 <table>
 	<thead>
 		<tr><td>Date</td><td>Staff Member</td><td colspan="2">&nbsp;</td></tr>
