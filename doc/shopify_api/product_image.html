@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Shopify API Documentation</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />    
+
+  </head>
+  <body>
+    <a name="top" />
+    <div id="header">
+      <h1><a href="/developers">Shopify Developers</a></h1>
+    </div>
+    
+    <div id="subheader">
+      <ul>
+        <li onclick="document.location='http://www.shopify.com/developers'"><a href="http://www.shopify.com/developers" style="background: url('images/cog.png') center left no-repeat;padding-left:19px">Developers Home</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/api/'" class="current"><a href="http://www.shopify.com/developers/api/" style="background: url('images/help.png') center left no-repeat;padding-left:19px">Documentation</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/publishing'"><a href="http://www.shopify.com/developers/publishing/" style="background: url('images/group.png') center left no-repeat;padding-left:19px">Publishing your app</a></li>
+      </ul>
+    </div>
+
+    <div id="container" class="clearfix">
+
+      <!-- begin div.main-->
+      <div id="main">
+        
+        
+    <div id="page">
+      <div id="sidebar">
+        <div id="sidebar-items">                
+          <h3>Topics</h3>
+          <ul>           
+            <li><a href="index.html">Overview</a></li>      
+            <li><a href="authentication.html">Authentication</a></li> 
+            <li><a href="billing.html">Billing</a></li> 
+          </ul>
+               
+          <h3>Resources</h3>
+          <ul>
+            
+            <li>
+              <a href="applicationcharge.html" class="active">ApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="article.html" class="active">Article</a>
+              
+            </li>      
+            
+            <li>
+              <a href="blog.html" class="active">Blog</a>
+              
+            </li>      
+            
+            <li>
+              <a href="collect.html" class="active">Collect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="comment.html" class="active">Comment</a>
+              
+            </li>      
+            
+            <li>
+              <a href="country.html" class="active">Country</a>
+              
+            </li>      
+            
+            <li>
+              <a href="customcollection.html" class="active">CustomCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="fulfillments.html" class="active">Fulfillments</a>
+              
+            </li>      
+            
+            <li>
+              <a href="order.html" class="active">Order</a>
+              
+            </li>      
+            
+            <li>
+              <a href="page.html" class="active">Page</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product.html" class="active">Product</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_image.html" class="active">Product Image</a>
+              
+                <ul>
+                  
+                    <li><a href="product_image.html#index">Receive a list of all Product Images</a></li>           
+                  
+                    <li><a href="product_image.html#show">Receive a single Product Image</a></li>           
+                  
+                    <li><a href="product_image.html#create">Creating a new Product Image </a></li>           
+                  
+                    <li><a href="product_image.html#destroy">Removing a Product Image from the database</a></li>           
+                  
+                </ul>
+              
+            </li>      
+            
+            <li>
+              <a href="product_variant.html" class="active">Product Variant</a>
+              
+            </li>      
+            
+            <li>
+              <a href="province.html" class="active">Province</a>
+              
+            </li>      
+            
+            <li>
+              <a href="recurringapplicationcharge.html" class="active">RecurringApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="redirect.html" class="active">Redirect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="shop.html" class="active">Shop</a>
+              
+            </li>      
+            
+            <li>
+              <a href="smartcollection.html" class="active">SmartCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="transactions.html" class="active">Transactions</a>
+              
+            </li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="content">
+        <h1>Shopify API - Product Image</h1>
+
+
+<div class="example"> 
+  <a href="#top" style="float:right" name="index">top</a>
+
+  <h2>Receive a list of all Product Images</h2>  
+  
+  <p>            
+    Get all product images
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/products/#{id}/images.xml</legend>
+                                     
+     
+     <p>Get all product images for a product</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">product-images</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">product-image</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:55:00-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1924445013<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">position</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1<span class="punct">&lt;/</span><span class="tag">position</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">product-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1706652214<span class="punct">&lt;/</span><span class="tag">product-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:55:00-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">src</span><span class="punct">&gt;</span>http://static.shopify.com/s/files/1/6909/3384/products/ipod-nano.png?0<span class="punct">&lt;/</span><span class="tag">src</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">product-image</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">product-images</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="show">top</a>
+
+  <h2>Receive a single Product Image</h2>  
+  
+  <p>            
+    Get a single product image by id
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/products/#{id}/images/#{id}.xml</legend>
+                                     
+     
+     <p>Show product image</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">product-image</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:55:00-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1924445013<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">position</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1<span class="punct">&lt;/</span><span class="tag">position</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">product-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1706652214<span class="punct">&lt;/</span><span class="tag">product-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:55:00-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">src</span><span class="punct">&gt;</span>http://static.shopify.com/s/files/1/6909/3384/products/ipod-nano.png?0<span class="punct">&lt;/</span><span class="tag">src</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">product-image</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="create">top</a>
+
+  <h2>Creating a new Product Image </h2>  
+  
+  <p>            
+    Create a new product image
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/products/#{id}/images.xml</legend>
+                                     
+     
+     <p>Create a new product image using a source URL that will be downloaded by Shopify</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">image</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">src</span><span class="punct">&gt;</span>http://example.com/rails_logo.gif<span class="punct">&lt;/</span><span class="tag">src</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">image</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">product-image</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:55:02-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1924445095<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">position</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>2<span class="punct">&lt;/</span><span class="tag">position</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">product-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1706652214<span class="punct">&lt;/</span><span class="tag">product-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:55:02-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">src</span><span class="punct">&gt;</span>http://static.shopify.com/s/files/1/6909/3384/products/rails_logo.gif?0<span class="punct">&lt;/</span><span class="tag">src</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">product-image</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+   
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/products/#{id}/images.xml</legend>
+                                     
+     
+     <p>Create a new product image with included image data as attachment</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">image</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">filename</span><span class="punct">&gt;</span>rails_logo.gif<span class="punct">&lt;/</span><span class="tag">filename</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">attachment</span><span class="punct">&gt;</span>R0lGODlhbgCMAPf/APbr48VySrxTO7IgKt2qmKQdJeK8lsFjROG5p/nz7Zg3
+MNmnd7Q1MLNVS9GId71hSJMZIuzTu4UtKbeEeakhKMl8U8WYjfr18YQaIbAf
+KKwhKdKzqpQtLebFortOOejKrOjZ1Mt7aMNpVbAqLLV7bsNqR+3WwMqEWenN
+sZYxL/Ddy/Pm2e7ZxLlUQrIjNPXp3bU5MbhENbEtLtqhj5ZQTfHh0bMxL7Ip
+NsNyUYkZIrZJPcqGdYIUHb5aPKkeJnoUHd2yiJkiLKYiKLRFOsyJXKVDO8up
+osFaS+TBnK4kKti5sNaYg/z49aqYl5kqLrljUtORfMOlo/36+H4ZH8yDYq0f
+KKFYTaU9MrY8MrZBNXwXHpgaIdGVYu/byLZNP9SaZLIyOuXCtHkpJst+Wpcm
+LMyCa8BfP9GMb9KQdPDd1PPk1sd5VP79/L5dQZ0bI9+ymqssK9WcfIoXHdzG
+xdWWfteib79lSr1YP86MYurQxKdcUKdMQr5ZSfPs6YEZH8uhl4oWIenMuurQ
+ttmejaqoqsqBVaAcJLlJN5kvMLlZRMNsSL5fRak0LbdQQMVvSPjw6cJnRpkf
+Ktmjhvfu5cJtT7IuOMVvWLY/M/37+o0YH9ibhtSYdObErc6HarM9NnYSGNGR
+avLi09unje3WyeO8rsVrT7tdRtK3uffu6NWeaL9pTJIjJrM4NPbx8cdyX7M7
+PYYVHu7j4KgoNJAYIKtkV5o9MsOcldicis+RYNutfrhFOZ0hJbqinZ8bI8h5
+UObFuOfItJsfJrJfUOfIqc+PXqQtK8RnSbA4Mcd3Tm0SGbpXQ8aqp7RLNs+s
+ovHfzpVhV9iggMd1TLtbRKUdKXEQFsd4XrZRPLIgMZUeJ+jKvrAlK6AhJ65A
+MpMpKuC3j5obIsRwS7hAN8l/YtvDvnYXHbAoLI47SIUsOMenorF4gO/m4+fH
+po4vLZ8oKMukqp0cJbhVSMV2UuPR0bAfMLIrLrg/OcJwT8h+Vt+wn8eurLlh
+QrIfKHQOHHQOHf///////yH5BAEAAP8ALAAAAABuAIwAAAj/AP8JHDhQXjpz
+/PopXNiPn0OHDRMmbKhQIsOJFS1SxAhxI8SHFzVeDBnx48iNBAeeOkcxokeX
+FRdOnAlSokaaLXNujJkxo8iYHRkKtWkzZSsaOXkAWsoUECynsHgoqEW1qtVa
+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
+Gg4lOnRGDKRZsoS7pMPSA6YXNWLsKJLkSZOVwKhMGSTTrJf9ZNKcomXKTrQY
+evr02cSIvKJxi6aJkaVuXaZMs1ziO5UqPawnuXK9AWEW2Jhja9pMuzMd27YW
+LNga10fuZYUPkdZdqpTv575YbJQbkCHw1sEpb9wQMstwWLFkbfppjJPc/wTI
+hHhJ5r0BBGbMRzfb7ez5MwwbpTMsx5pa9eob2CBM5yETpmzGtTE8hrybN29b
+c1oBn6trc9K7nhmUy6BcOUrn0KHLcr0FQvWYMxdnb3w7t/fvwFMiFvKG0uw8
+4kRLYjkGG0RtMPlWc+GGdyCwbwtYrOsHu7K0a+K/AEO04K0CF8InBvPOg2GE
+KpZTrsHSUotwwgnnmW4LHGGBKbb9bMqhsSly082CW0QMkDLLSvQHFQFiOESX
+LGzQpkUY22swA8Lko9EFLqfBEcdvMhRrwx610OLHtJ5Rc01ahHnCzTeFkXNO
+OfWQkwQ6NNFzTz2X0GQJQAMVdJEYsBhBAyrbK/9tgBcbrCTCG7bkkstvvvwm
+zPzI7JEcNLXDCYICQhXVkAIMMdWQd0x1Y9VdiuHGA1hjhfWQQzyg9dZDYmBg
+yioSVfRKFwfYZ8ZIJ3XhGhe83OLSSwEZU78ea+pUO2wK8MFaUUMl9dReDOll
+1VXbuYIZWWOl1dZDLpGhV3YZXLTR9vZhUMJijUX2mmveYRZcQDLlsCZOp21s
+Cx+uLTjbbE/11ttv3diFkSHKRReGcthtN1hgrdxH2Awk5fJefK+ZZ9lvVvXW
+2cT+ZSwHgdHCpmCYDb4WYVNL7baXbsN9FdYYbKDA4otddBdYeffZx9iPjw35
+mmlKNtnUfmXSNNqAW9b/6eWYY8YWYW0V7tYQhxWAwwege61y6OXkbdDoSUFe
+WuR3wP3akKhjUtlHlqklG+YqsjaY620VNgQDMcQQouwrX3zR6KKFZfttyKtw
++utQnRUL2mjLYjnvtLDpu9e9/ZYZ8FK3maLwwn8OmlF3lWNc7df3gfzteaZZ
++NTKx5y6RxJ69/333mvBwHOLQ/fhiR2SV34HS47hmnAafJ9gh3AaDMcB7LE/
+IoPY441dhOzDz94VN3DPNmoeM5drAyfK7lWH34baYetVCidBIT6C5UMhB4r2
+n3FheSANRVGCwhBmObtlbgqXyYYNyuYFAMQFCtPwQf3spxAraGBRR+Af91wX
+/zsPoCIuCCAV13yAMsWo7zIOaJHFSHEZHZABdWK4X0JoIAENLIeDCXFA2rgX
+uwG8MC6kKGGoZuaDTEhtd/vBTBoyYLYqeAEzFpihGCagEBqIQQJVGMAOEdLD
+2L0uHJdBAMIOhsTELHExwLnS/i6zAQlIQItWxKIccejGL/4wjPvw4kHSQApA
+BhKQUDCiEWE2C93dTSEW2EMjaWABhbgnA3g8SAj4cElK+kMJWoyjBK6YECtw
+UgKZ7N8ejdZHfzjgGgNY5SpnZsisJXFHikwICTLBskzUECFtxJ/FFKKETmrx
+kwixQiclYAX+mfKUCpnBEZzpzHpkS2Yxm0ViMNcjhf+QABs5uKUuD9KoTOaP
+Qb80picxaExk8lCZfIxLNuBhrWnurZpjoiVCbAkBbnrTH2pbTjgZVAVyGnOY
+BylmJ9P5xXWOUS6WEB3ZqgmTazLxMk40WntQub3lbIOc7OjkQP1RUI4e9CCl
+fJ3jjCbEogDAE6KrAiKlVs+4gJF7GUDlDLLnUWCyg6Ps8GgxdyrSVK5zH/WI
+oARjZjFEQhSmRCEFg9SGSqIoQadT7alOJcAOoJJUmeFA6VBIETqk+ssPKizK
+Dorxwx9CdShSvapOqzpVoO7ApMocgAdcIb74HeSroEOqEn8w1mgVRR0KyEEw
+KqoctTZEquzggFsVooepskP/DwqZAAfmakpGvc4HXSXF54CWVLthALASRYhB
+FpmDd4QxsQxRQmNd61HITnWyCVHC9MTnCsY9U7dH4AM8spGQvVrsiRB4Fg/8
+cFxsJmQDHvUHLQyhWsy01rXs2MFj2ZGC6862KKRgHGY6K9zlEPdyP8AJcteo
+3ClsQCHq0AF0QdkN+HbjlxygL31hO13tMrW7lwkB0BiUoR3x4EfmrYlCNjAF
+CRAoIWmwQexQqQcyxHe+9eXAfVOQAg7k16v7jQsAHGi2Bv0gUzyQQ05Ga+Cy
+0MBEDsZgN8gQ4QnXt7oJ0QOGOZACDTeEu0aTCwC80EKhDcAHMDGHWATMsuMC
+FsVl/9GnP0Jg0kw24MUv/qUTOGDlCj8WETfGsVx2vI+UzsATIFZUaTIRk3QY
++ZYlFq0Ce5QJHBXgdU+MRCSwEYlVBCHPQZhyn7vhhD9fWdAc2DKhKXxhRCc6
+0Yi4LOPcl6hGVUFqc4gJLGaxufKO1s2VkrOj63znOkciCKMedZ+n7ARUp1rQ
+iLAyIlyNYURcONaInrWs9ci4JyJOaFYawDzP8Q+ZwAICLckbgd08i290eh9V
+CIadQw3qO5Oa1H1GNRlSjeorO2HLruZ2rLudAm+Dm9Gxcx/GXmSIMbnjH5W2
+zy2RbOzM+cENBRAWs0N9b3zXWdp8pra1r61tbXdb4N/2Nv8i5gzeIJd5Gjui
+wT+AzQ9YVGrYnNO0Agm27GBkvNnNzje+921qf/+b1QEfuMDFPe5lk/lspUG3
+WKbQCofLBBBuwNEs3C3aikcrB2TTeM81HgmOd3zf/PZ3yFPNaqSXfODF0EDK
+E9e6liZmCvJwOLD7AQhU2efSbG6zm7VgiG1ofBc+//nGgZ7vbYw67aVux4v/
+fXSSK53by/HVrzIwDZTBBANUrzpMeAAIWASeB4P/AQ9+cHjEJx7xWgDE5nLQ
+eMdHXvKbg/zkMZ23H/1oFRjYPOc9v3nQ58Aw0xn9LACvO7HQAOZVf/jl0ii1
+HcXe9bPX3euftaPL5R71tIf97nsy7/o0WlP2r4/JOU7B+r5nqva7jz1EdZ97
+4qNe+bonfvCfVXvly1762beOOdLBd+Q7PCAAOw==
+<span class="punct">&lt;/</span><span class="tag">attachment</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">image</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">product-image</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:55:05-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1924445096<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">position</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>2<span class="punct">&lt;/</span><span class="tag">position</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">product-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1706652214<span class="punct">&lt;/</span><span class="tag">product-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:55:05-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">src</span><span class="punct">&gt;</span>http://static.shopify.com/s/files/1/6909/3384/products/rails_logo.gif?0<span class="punct">&lt;/</span><span class="tag">src</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">product-image</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="destroy">top</a>
+
+  <h2>Removing a Product Image from the database</h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>DELETE /admin/products/#{id}/images/#{id}.xml</legend>
+                                     
+     
+     <p>Delete a product image</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK</code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+                   
+				
+          
+
+				<div id="outtro">         
+				  Last updated at Jun 2009 Jun:06 AM.
+				</div>
+      </div>
+      
+      <div id="footer">Shopify &copy; 2009</div>
+    </div>
+
+
+      </div>
+    </div>
+
+
+    </body>
+  </html>

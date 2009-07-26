@@ -1,0 +1,843 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Shopify API Documentation</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />    
+
+  </head>
+  <body>
+    <a name="top" />
+    <div id="header">
+      <h1><a href="/developers">Shopify Developers</a></h1>
+    </div>
+    
+    <div id="subheader">
+      <ul>
+        <li onclick="document.location='http://www.shopify.com/developers'"><a href="http://www.shopify.com/developers" style="background: url('images/cog.png') center left no-repeat;padding-left:19px">Developers Home</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/api/'" class="current"><a href="http://www.shopify.com/developers/api/" style="background: url('images/help.png') center left no-repeat;padding-left:19px">Documentation</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/publishing'"><a href="http://www.shopify.com/developers/publishing/" style="background: url('images/group.png') center left no-repeat;padding-left:19px">Publishing your app</a></li>
+      </ul>
+    </div>
+
+    <div id="container" class="clearfix">
+
+      <!-- begin div.main-->
+      <div id="main">
+        
+        
+    <div id="page">
+      <div id="sidebar">
+        <div id="sidebar-items">                
+          <h3>Topics</h3>
+          <ul>           
+            <li><a href="index.html">Overview</a></li>      
+            <li><a href="authentication.html">Authentication</a></li> 
+            <li><a href="billing.html">Billing</a></li> 
+          </ul>
+               
+          <h3>Resources</h3>
+          <ul>
+            
+            <li>
+              <a href="applicationcharge.html" class="active">ApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="article.html" class="active">Article</a>
+              
+            </li>      
+            
+            <li>
+              <a href="blog.html" class="active">Blog</a>
+              
+            </li>      
+            
+            <li>
+              <a href="collect.html" class="active">Collect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="comment.html" class="active">Comment</a>
+              
+                <ul>
+                  
+                    <li><a href="comment.html#index">Receive a list of all Comments</a></li>           
+                  
+                    <li><a href="comment.html#show">Receive a single Comment</a></li>           
+                  
+                    <li><a href="comment.html#create">Creating a new Comment </a></li>           
+                  
+                    <li><a href="comment.html#update">Modifying an existing Comment</a></li>           
+                  
+                    <li><a href="comment.html#spam">No heading specified for verb "spam"</a></li>           
+                  
+                    <li><a href="comment.html#approve">No heading specified for verb "approve"</a></li>           
+                  
+                </ul>
+              
+            </li>      
+            
+            <li>
+              <a href="country.html" class="active">Country</a>
+              
+            </li>      
+            
+            <li>
+              <a href="customcollection.html" class="active">CustomCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="fulfillments.html" class="active">Fulfillments</a>
+              
+            </li>      
+            
+            <li>
+              <a href="order.html" class="active">Order</a>
+              
+            </li>      
+            
+            <li>
+              <a href="page.html" class="active">Page</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product.html" class="active">Product</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_image.html" class="active">Product Image</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_variant.html" class="active">Product Variant</a>
+              
+            </li>      
+            
+            <li>
+              <a href="province.html" class="active">Province</a>
+              
+            </li>      
+            
+            <li>
+              <a href="recurringapplicationcharge.html" class="active">RecurringApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="redirect.html" class="active">Redirect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="shop.html" class="active">Shop</a>
+              
+            </li>      
+            
+            <li>
+              <a href="smartcollection.html" class="active">SmartCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="transactions.html" class="active">Transactions</a>
+              
+            </li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="content">
+        <h1>Shopify API - Comment</h1>
+
+
+<div class="example"> 
+  <a href="#top" style="float:right" name="index">top</a>
+
+  <h2>Receive a list of all Comments</h2>  
+  
+  <p>            
+    Get a list of all comments for an article
+  </p>               
+                
+  
+  <h3>Available URL Query parameters:</h3>
+  <ul>
+    
+    <li>
+      <strong>limit</strong> 
+      
+        &mdash; Amount of results 
+      
+      
+        <small>(default: 250)</small>
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>page</strong> 
+      
+        &mdash; Page to show 
+      
+      
+        <small>(default: 1)</small>
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>created_at_min</strong> 
+      
+        &mdash; Show comments created after date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>created_at_max</strong> 
+      
+        &mdash; Show comments created before date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>updated_at_min</strong> 
+      
+        &mdash; Show comments last updated after date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>updated_at_max</strong> 
+      
+        &mdash; Show comments last updated before date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>published_at_min</strong> 
+      
+        &mdash; Show comments published after date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>published_at_max</strong> 
+      
+        &mdash; Show comments published before date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>published_status</strong> 
+      
+      
+        
+                   
+      <ul>
+        
+        <li> 
+        <small>published - Show only published comments</small>                
+        </li>
+        
+        <li> 
+        <small>unpublished - Show only unpublished comments</small>                
+        </li>
+        
+        <li> 
+        <small>any - Show all comments (default)</small>                
+        </li>
+        
+      </ul>
+      
+    </li>
+    
+    <li>
+      <strong>status</strong> 
+      
+      
+        
+                   
+      <ul>
+        
+        <li> 
+        <small>pending - All pending comments</small>                
+        </li>
+        
+        <li> 
+        <small>published - Show only published comments</small>                
+        </li>
+        
+        <li> 
+        <small>unapproved - Show only unapproved comments</small>                
+        </li>
+        
+      </ul>
+      
+    </li>
+    
+  </ul>                              
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/comments.xml?article_id=1208387130&blog_id=1314995009</legend>
+                                     
+     
+     <p>Get all the comments for a certain article of a blog</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comments</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>653537639<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>unapproved<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Casino deluxe<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Check my casino at ...<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Check my casino at ...<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>register@mycasino.com<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1202072468<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>removed<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1192115357<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>published<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comments</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+   
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/comments.xml?blog_id=1314995009</legend>
+                                     
+     
+     <p>Get all the comments for all the articles of a certain blog</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comments</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>653537639<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>unapproved<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Casino deluxe<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Check my casino at ...<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Check my casino at ...<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>register@mycasino.com<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1202072468<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>removed<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1192115357<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>published<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comments</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+   
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/comments.xml</legend>
+                                     
+     
+     <p>Get all the comments for this shop</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comments</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>653537639<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>unapproved<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Casino deluxe<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Check my casino at ...<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Check my casino at ...<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>register@mycasino.com<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1202072468<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>removed<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1192115357<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>published<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comments</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="show">top</a>
+
+  <h2>Receive a single Comment</h2>  
+  
+  <p>            
+    Get a single comment by its ID
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/comments/#{id}.xml</legend>
+                                     
+     
+     <p>Get a single comment</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1192115357<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>published<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="create">top</a>
+
+  <h2>Creating a new Comment </h2>  
+  
+  <p>            
+    Create a new comment for an article
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/comments.xml</legend>
+                                     
+     
+     <p>Create a new comment with basic textile markup for a certain article of a blog</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>I like comments
+And I like posting them *RESTfully*.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Your name<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>your@email.com<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Your name<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>I like comments
+And I like posting them *RESTfully*.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>I like comments<span class="entity">&amp;lt;</span>br /<span class="entity">&amp;gt;</span>
+And I like posting them <span class="entity">&amp;lt;</span>strong<span class="entity">&amp;gt;</span>RESTfully<span class="entity">&amp;lt;</span>/strong<span class="entity">&amp;gt;.&amp;lt;</span>/p<span class="entity">&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:31-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>your@email.com<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1202072478<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">ip</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:31-04:00<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>pending<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:31-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">user-agent</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="update">top</a>
+
+  <h2>Modifying an existing Comment</h2>  
+  
+  <p>            
+    Update a comment of an article within a blog
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>PUT /admin/comments/#{id}.xml</legend>
+                                     
+     
+     <p>Update an exisiting comment body</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>You can even update through a web service.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Your new name<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1192115357<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T15:53:35Z<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>your@updated-email.com<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Your new name<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>You can even update through a web service.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>You can even update through a web service.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>your@updated-email.com<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1192115357<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:35-04:00<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>published<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:35-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="spam">top</a>
+
+  <h2>No heading specified for verb "spam"</h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/comments/#{id}/spam.xml</legend>
+                                     
+     
+     <p>Mark an comment as spam, this will help to train our spam detection as well as remove the comment sometime soon</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>unapproved<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T15:53:12Z<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>653537639<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T15:53:12Z<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>653537639<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:34-04:00<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>spam<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:34-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="approve">top</a>
+
+  <h2>No heading specified for verb "approve"</h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/comments/#{id}/approve.xml</legend>
+                                     
+     
+     <p>Approve a comment that is currently pending unapproved so that it will be published on the site</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>unapproved<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T15:53:12Z<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>653537639<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T15:53:12Z<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">comment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">article-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Soleone<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Hi author, I really _like_ what you're doing there.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Hi author, I really <span class="entity">&amp;lt;em&amp;gt;</span>like<span class="entity">&amp;lt;/em&amp;gt;</span> what you're doing there.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">email</span><span class="punct">&gt;</span>sole@one.de<span class="punct">&lt;/</span><span class="tag">email</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>653537639<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">ip</span><span class="punct">&gt;</span>127.0.0.1<span class="punct">&lt;/</span><span class="tag">ip</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:30-04:00<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>published<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:30-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">user-agent</span><span class="punct">&gt;</span>Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_4; en-us) AppleWebKit/525.18 (KHTML, like Gecko) Version/3.1.2 Safari/525.20.1<span class="punct">&lt;/</span><span class="tag">user-agent</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">comment</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+                   
+				
+          
+
+				<div id="outtro">         
+				  Last updated at Jun 2009 Jun:06 AM.
+				</div>
+      </div>
+      
+      <div id="footer">Shopify &copy; 2009</div>
+    </div>
+
+
+      </div>
+    </div>
+
+
+    </body>
+  </html>

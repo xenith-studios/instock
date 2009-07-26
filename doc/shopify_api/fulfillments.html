@@ -1,0 +1,505 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Shopify API Documentation</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />    
+
+  </head>
+  <body>
+    <a name="top" />
+    <div id="header">
+      <h1><a href="/developers">Shopify Developers</a></h1>
+    </div>
+    
+    <div id="subheader">
+      <ul>
+        <li onclick="document.location='http://www.shopify.com/developers'"><a href="http://www.shopify.com/developers" style="background: url('images/cog.png') center left no-repeat;padding-left:19px">Developers Home</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/api/'" class="current"><a href="http://www.shopify.com/developers/api/" style="background: url('images/help.png') center left no-repeat;padding-left:19px">Documentation</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/publishing'"><a href="http://www.shopify.com/developers/publishing/" style="background: url('images/group.png') center left no-repeat;padding-left:19px">Publishing your app</a></li>
+      </ul>
+    </div>
+
+    <div id="container" class="clearfix">
+
+      <!-- begin div.main-->
+      <div id="main">
+        
+        
+    <div id="page">
+      <div id="sidebar">
+        <div id="sidebar-items">                
+          <h3>Topics</h3>
+          <ul>           
+            <li><a href="index.html">Overview</a></li>      
+            <li><a href="authentication.html">Authentication</a></li> 
+            <li><a href="billing.html">Billing</a></li> 
+          </ul>
+               
+          <h3>Resources</h3>
+          <ul>
+            
+            <li>
+              <a href="applicationcharge.html" class="active">ApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="article.html" class="active">Article</a>
+              
+            </li>      
+            
+            <li>
+              <a href="blog.html" class="active">Blog</a>
+              
+            </li>      
+            
+            <li>
+              <a href="collect.html" class="active">Collect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="comment.html" class="active">Comment</a>
+              
+            </li>      
+            
+            <li>
+              <a href="country.html" class="active">Country</a>
+              
+            </li>      
+            
+            <li>
+              <a href="customcollection.html" class="active">CustomCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="fulfillments.html" class="active">Fulfillments</a>
+              
+                <ul>
+                  
+                    <li><a href="fulfillments.html#index">Receive a list of all Fulfillments</a></li>           
+                  
+                    <li><a href="fulfillments.html#show">Receive a single Fulfillments</a></li>           
+                  
+                    <li><a href="fulfillments.html#create">Creating a new Fulfillments </a></li>           
+                  
+                    <li><a href="fulfillments.html#update">Modifying an existing Fulfillments</a></li>           
+                  
+                </ul>
+              
+            </li>      
+            
+            <li>
+              <a href="order.html" class="active">Order</a>
+              
+            </li>      
+            
+            <li>
+              <a href="page.html" class="active">Page</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product.html" class="active">Product</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_image.html" class="active">Product Image</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_variant.html" class="active">Product Variant</a>
+              
+            </li>      
+            
+            <li>
+              <a href="province.html" class="active">Province</a>
+              
+            </li>      
+            
+            <li>
+              <a href="recurringapplicationcharge.html" class="active">RecurringApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="redirect.html" class="active">Redirect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="shop.html" class="active">Shop</a>
+              
+            </li>      
+            
+            <li>
+              <a href="smartcollection.html" class="active">SmartCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="transactions.html" class="active">Transactions</a>
+              
+            </li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="content">
+        <h1>Shopify API - Fulfillments</h1>
+
+
+<div class="example"> 
+  <a href="#top" style="float:right" name="index">top</a>
+
+  <h2>Receive a list of all Fulfillments</h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  <h3>Available URL Query parameters:</h3>
+  <ul>
+    
+    <li>
+      <strong>limit</strong> 
+      
+        &mdash; Amount of results 
+      
+      
+        <small>(default: 250)</small>
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>page</strong> 
+      
+        &mdash; Page to show 
+      
+      
+        <small>(default: 1)</small>
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>created_at_min</strong> 
+      
+        &mdash; Show fulfillments created after date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>created_at_max</strong> 
+      
+        &mdash; Show fulfillments created before date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>updated_at_min</strong> 
+      
+        &mdash; Show fulfillments last updated after date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>updated_at_max</strong> 
+      
+        &mdash; Show fulfillments last updated before date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+  </ul>                              
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/orders/#{id}/fulfillments.xml</legend>
+                                     
+     
+     <p>Get the XML Representation of all money transfers on a given order.</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">fulfillments</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">fulfillment</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1329599868<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">order-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1524531292<span class="punct">&lt;/</span><span class="tag">order-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>failed<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>1Z2345<span class="punct">&lt;/</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">line-items</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">fulfillment-service</span><span class="punct">&gt;</span>manual<span class="punct">&lt;/</span><span class="tag">fulfillment-service</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">grams</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>200<span class="punct">&lt;/</span><span class="tag">grams</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1539898872<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">price</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>199.00<span class="punct">&lt;/</span><span class="tag">price</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">quantity</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1<span class="punct">&lt;/</span><span class="tag">quantity</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">sku</span><span class="punct">&gt;</span>IPOD2008GREEN<span class="punct">&lt;/</span><span class="tag">sku</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>IPod Nano - 8gb<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">variant-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1112814679<span class="punct">&lt;/</span><span class="tag">variant-id</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">variant-title</span><span class="punct">&gt;</span>green<span class="punct">&lt;/</span><span class="tag">variant-title</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">vendor</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">vendor</span><span class="punct">&gt;</span>
+        <span class="punct">&lt;</span><span class="tag">name</span><span class="punct">&gt;</span>IPod Nano - 8gb - green<span class="punct">&lt;/</span><span class="tag">name</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;/</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;/</span><span class="tag">line-items</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">receipt</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">yaml</span><span class="punct">&quot;&gt;</span>--- 
+testcase: true
+authorization: <span class="entity">&amp;quot;</span>123456<span class="entity">&amp;quot;</span>
+<span class="punct">&lt;/</span><span class="tag">receipt</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">fulfillment</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">fulfillments</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="show">top</a>
+
+  <h2>Receive a single Fulfillments</h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/orders/#{id}/fulfillments/#{id}.xml</legend>
+                                     
+     
+     <p>Get the XML Representation of a specific fulfillment.</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">fulfillment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1329599868<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">order-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1524531292<span class="punct">&lt;/</span><span class="tag">order-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>failed<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>1Z2345<span class="punct">&lt;/</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">line-items</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">fulfillment-service</span><span class="punct">&gt;</span>manual<span class="punct">&lt;/</span><span class="tag">fulfillment-service</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">grams</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>200<span class="punct">&lt;/</span><span class="tag">grams</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1539898872<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">price</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>199.00<span class="punct">&lt;/</span><span class="tag">price</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">quantity</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1<span class="punct">&lt;/</span><span class="tag">quantity</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">sku</span><span class="punct">&gt;</span>IPOD2008GREEN<span class="punct">&lt;/</span><span class="tag">sku</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>IPod Nano - 8gb<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">variant-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1112814679<span class="punct">&lt;/</span><span class="tag">variant-id</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">variant-title</span><span class="punct">&gt;</span>green<span class="punct">&lt;/</span><span class="tag">variant-title</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">vendor</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">vendor</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">name</span><span class="punct">&gt;</span>IPod Nano - 8gb - green<span class="punct">&lt;/</span><span class="tag">name</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;/</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">line-items</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">receipt</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">yaml</span><span class="punct">&quot;&gt;</span>--- 
+testcase: true
+authorization: <span class="entity">&amp;quot;</span>123456<span class="entity">&amp;quot;</span>
+<span class="punct">&lt;/</span><span class="tag">receipt</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">fulfillment</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="create">top</a>
+
+  <h2>Creating a new Fulfillments </h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/orders/#{id}/fulfillments.xml</legend>
+                                     
+     
+     <p>Fulfill line items for an order</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">fulfillment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>123456789<span class="punct">&lt;/</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">line-items</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1539898872<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;/</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">line-items</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">fulfillment</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">fulfillment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1697463711<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">order-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1524531292<span class="punct">&lt;/</span><span class="tag">order-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>success<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>123456789<span class="punct">&lt;/</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">line-items</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">fulfillment-service</span><span class="punct">&gt;</span>manual<span class="punct">&lt;/</span><span class="tag">fulfillment-service</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">grams</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>200<span class="punct">&lt;/</span><span class="tag">grams</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1539898872<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">price</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>199.00<span class="punct">&lt;/</span><span class="tag">price</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">quantity</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1<span class="punct">&lt;/</span><span class="tag">quantity</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">sku</span><span class="punct">&gt;</span>IPOD2008GREEN<span class="punct">&lt;/</span><span class="tag">sku</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>IPod Nano - 8gb<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">variant-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1112814679<span class="punct">&lt;/</span><span class="tag">variant-id</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">variant-title</span><span class="punct">&gt;</span>green<span class="punct">&lt;/</span><span class="tag">variant-title</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">vendor</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">vendor</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">name</span><span class="punct">&gt;</span>IPod Nano - 8gb - green<span class="punct">&lt;/</span><span class="tag">name</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;/</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">line-items</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">receipt</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">yaml</span><span class="punct">&quot;&gt;</span>--- {}
+
+<span class="punct">&lt;/</span><span class="tag">receipt</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">fulfillment</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="update">top</a>
+
+  <h2>Modifying an existing Fulfillments</h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>PUT /admin/orders/#{id}/fulfillments/#{id}.xml</legend>
+                                     
+     
+     <p>Update tracking number for a fulfillment</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">fulfillment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1329599868<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>987654321<span class="punct">&lt;/</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">fulfillment</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">fulfillment</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1329599868<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">order-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1524531292<span class="punct">&lt;/</span><span class="tag">order-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>failed<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>987654321<span class="punct">&lt;/</span><span class="tag">tracking-number</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">line-items</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">fulfillment-service</span><span class="punct">&gt;</span>manual<span class="punct">&lt;/</span><span class="tag">fulfillment-service</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">grams</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>200<span class="punct">&lt;/</span><span class="tag">grams</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1539898872<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">price</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>199.00<span class="punct">&lt;/</span><span class="tag">price</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">quantity</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1<span class="punct">&lt;/</span><span class="tag">quantity</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">sku</span><span class="punct">&gt;</span>IPOD2008GREEN<span class="punct">&lt;/</span><span class="tag">sku</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>IPod Nano - 8gb<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">variant-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1112814679<span class="punct">&lt;/</span><span class="tag">variant-id</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">variant-title</span><span class="punct">&gt;</span>green<span class="punct">&lt;/</span><span class="tag">variant-title</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">vendor</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">vendor</span><span class="punct">&gt;</span>
+      <span class="punct">&lt;</span><span class="tag">name</span><span class="punct">&gt;</span>IPod Nano - 8gb - green<span class="punct">&lt;/</span><span class="tag">name</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;/</span><span class="tag">line-item</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">line-items</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">receipt</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">yaml</span><span class="punct">&quot;&gt;</span>--- 
+testcase: true
+authorization: <span class="entity">&amp;quot;</span>123456<span class="entity">&amp;quot;</span>
+<span class="punct">&lt;/</span><span class="tag">receipt</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">fulfillment</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+                   
+				
+          
+
+				<div id="outtro">         
+				  Last updated at Jun 2009 Jun:06 AM.
+				</div>
+      </div>
+      
+      <div id="footer">Shopify &copy; 2009</div>
+    </div>
+
+
+      </div>
+    </div>
+
+
+    </body>
+  </html>

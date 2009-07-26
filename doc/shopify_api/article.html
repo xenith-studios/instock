@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Shopify API Documentation</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />    
+
+  </head>
+  <body>
+    <a name="top" />
+    <div id="header">
+      <h1><a href="/developers">Shopify Developers</a></h1>
+    </div>
+    
+    <div id="subheader">
+      <ul>
+        <li onclick="document.location='http://www.shopify.com/developers'"><a href="http://www.shopify.com/developers" style="background: url('images/cog.png') center left no-repeat;padding-left:19px">Developers Home</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/api/'" class="current"><a href="http://www.shopify.com/developers/api/" style="background: url('images/help.png') center left no-repeat;padding-left:19px">Documentation</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/publishing'"><a href="http://www.shopify.com/developers/publishing/" style="background: url('images/group.png') center left no-repeat;padding-left:19px">Publishing your app</a></li>
+      </ul>
+    </div>
+
+    <div id="container" class="clearfix">
+
+      <!-- begin div.main-->
+      <div id="main">
+        
+        
+    <div id="page">
+      <div id="sidebar">
+        <div id="sidebar-items">                
+          <h3>Topics</h3>
+          <ul>           
+            <li><a href="index.html">Overview</a></li>      
+            <li><a href="authentication.html">Authentication</a></li> 
+            <li><a href="billing.html">Billing</a></li> 
+          </ul>
+               
+          <h3>Resources</h3>
+          <ul>
+            
+            <li>
+              <a href="applicationcharge.html" class="active">ApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="article.html" class="active">Article</a>
+              
+                <ul>
+                  
+                    <li><a href="article.html#index">Receive a list of all Articles</a></li>           
+                  
+                    <li><a href="article.html#show">Receive a single Article</a></li>           
+                  
+                    <li><a href="article.html#create">Creating a new Article </a></li>           
+                  
+                    <li><a href="article.html#update">Modifying an existing Article</a></li>           
+                  
+                    <li><a href="article.html#update">Modifying an existing Article</a></li>           
+                  
+                    <li><a href="article.html#destroy">Removing a Article from the database</a></li>           
+                  
+                </ul>
+              
+            </li>      
+            
+            <li>
+              <a href="blog.html" class="active">Blog</a>
+              
+            </li>      
+            
+            <li>
+              <a href="collect.html" class="active">Collect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="comment.html" class="active">Comment</a>
+              
+            </li>      
+            
+            <li>
+              <a href="country.html" class="active">Country</a>
+              
+            </li>      
+            
+            <li>
+              <a href="customcollection.html" class="active">CustomCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="fulfillments.html" class="active">Fulfillments</a>
+              
+            </li>      
+            
+            <li>
+              <a href="order.html" class="active">Order</a>
+              
+            </li>      
+            
+            <li>
+              <a href="page.html" class="active">Page</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product.html" class="active">Product</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_image.html" class="active">Product Image</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_variant.html" class="active">Product Variant</a>
+              
+            </li>      
+            
+            <li>
+              <a href="province.html" class="active">Province</a>
+              
+            </li>      
+            
+            <li>
+              <a href="recurringapplicationcharge.html" class="active">RecurringApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="redirect.html" class="active">Redirect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="shop.html" class="active">Shop</a>
+              
+            </li>      
+            
+            <li>
+              <a href="smartcollection.html" class="active">SmartCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="transactions.html" class="active">Transactions</a>
+              
+            </li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="content">
+        <h1>Shopify API - Article</h1>
+
+
+<div class="example"> 
+  <a href="#top" style="float:right" name="index">top</a>
+
+  <h2>Receive a list of all Articles</h2>  
+  
+  <p>            
+    Get a list of all articles from a certain blog
+  </p>               
+                
+  
+  <h3>Available URL Query parameters:</h3>
+  <ul>
+    
+    <li>
+      <strong>limit</strong> 
+      
+        &mdash; Amount of results 
+      
+      
+        <small>(default: 250)</small>
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>page</strong> 
+      
+        &mdash; Page to show 
+      
+      
+        <small>(default: 1)</small>
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>created_at_min</strong> 
+      
+        &mdash; Show articles created after date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>created_at_max</strong> 
+      
+        &mdash; Show articles created before date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>updated_at_min</strong> 
+      
+        &mdash; Show articles last updated after date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>updated_at_max</strong> 
+      
+        &mdash; Show articles last updated before date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>published_at_min</strong> 
+      
+        &mdash; Show articles published after date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>published_at_max</strong> 
+      
+        &mdash; Show articles published before date (format: 2008-01-01 03:00) 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>published_status</strong> 
+      
+      
+        
+                   
+      <ul>
+        
+        <li> 
+        <small>published - Show only published articles</small>                
+        </li>
+        
+        <li> 
+        <small>unpublished - Show only unpublished articles</small>                
+        </li>
+        
+        <li> 
+        <small>any - Show all articles (default)</small>                
+        </li>
+        
+      </ul>
+      
+    </li>
+    
+  </ul>                              
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/blogs/#{id}/articles.xml</legend>
+                                     
+     
+     <p>Get all the articles</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">articles</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>John<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>I have no idea what to write about, but it's going to rock!<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span>I have no idea what to write about, but it's going to rock!<span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-12-31T19:00:00-05:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>2062775878<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>Some crazy article I'm coming up with<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-01-31T19:00:00-05:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">article</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">article</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Dennis<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Do _you_ have an *IPod* yet?<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Do <span class="entity">&amp;lt;em&amp;gt;</span>you<span class="entity">&amp;lt;/em&amp;gt;</span> have an <span class="entity">&amp;lt;</span>strong<span class="entity">&amp;gt;IPod&amp;lt;</span>/strong<span class="entity">&amp;gt;</span> yet?<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>get on the train now<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">article</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">articles</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="show">top</a>
+
+  <h2>Receive a single Article</h2>  
+  
+  <p>            
+    Get a single article by its ID and the ID of the parent blog
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/blogs/#{id}/articles/#{id}.xml</legend>
+                                     
+     
+     <p>Get a single article</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">article</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Dennis<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Do _you_ have an *IPod* yet?<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Do <span class="entity">&amp;lt;em&amp;gt;</span>you<span class="entity">&amp;lt;/em&amp;gt;</span> have an <span class="entity">&amp;lt;</span>strong<span class="entity">&amp;gt;IPod&amp;lt;</span>/strong<span class="entity">&amp;gt;</span> yet?<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>get on the train now<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">article</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="create">top</a>
+
+  <h2>Creating a new Article </h2>  
+  
+  <p>            
+    Create a new article for a blog
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/blogs/#{id}/articles.xml</legend>
+                                     
+     
+     <p>Create a new article with textile markup and upload it to a blog.</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">article</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>My new Article title<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>h1. I like articles
+
+*Yea*, I like posting them through REST.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">article</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">article</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span> Shopify API<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>h1. I like articles
+
+*Yea*, I like posting them through REST.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;h1&amp;gt;</span>I like articles<span class="entity">&amp;lt;/h1&amp;gt;</span>
+<span class="entity">&amp;lt;p&amp;gt;&amp;lt;</span>strong<span class="entity">&amp;gt;Yea&amp;lt;</span>/strong<span class="entity">&amp;gt;</span>, I like posting them through <span class="entity">&amp;lt;</span>span class=<span class="entity">&amp;quot;</span>caps<span class="entity">&amp;quot;&amp;gt;</span>REST<span class="entity">&amp;lt;</span>/span<span class="entity">&amp;gt;.&amp;lt;</span>/p<span class="entity">&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:17-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>2062775917<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:17-04:00<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>My new Article title<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:17-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">article</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="update">top</a>
+
+  <h2>Modifying an existing Article</h2>  
+  
+  <p>            
+    Update an article of a blog
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>PUT /admin/blogs/#{id}/articles/#{id}.xml</legend>
+                                     
+     
+     <p>Update an exisiting article body</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">article</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>My new Title<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Look, I can even update through a web service.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Your name<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">article</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">article</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Your name<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Look, I can even update through a web service.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Look, I can even update through a web service.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>My new Title<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:21-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">article</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="update">top</a>
+
+  <h2>Modifying an existing Article</h2>  
+  
+  <p>            
+    Update all of a certain article data for a blog
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>PUT /admin/blogs/#{id}/articles/#{id}.xml</legend>
+                                     
+     
+     <p>Update an exisiting article of a blog</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">article</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>My new Title<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Look, I can even update through a web service.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Your name<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">article</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">article</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">author</span><span class="punct">&gt;</span>Your name<span class="punct">&lt;/</span><span class="tag">author</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">blog-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1314995009<span class="punct">&lt;/</span><span class="tag">blog-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body</span><span class="punct">&gt;</span>Look, I can even update through a web service.<span class="punct">&lt;/</span><span class="tag">body</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">body-html</span><span class="punct">&gt;</span><span class="entity">&amp;lt;p&amp;gt;</span>Look, I can even update through a web service.<span class="entity">&amp;lt;/p&amp;gt;</span><span class="punct">&lt;/</span><span class="tag">body-html</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1208387130<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">published-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2008-07-31T20:00:00-04:00<span class="punct">&lt;/</span><span class="tag">published-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">title</span><span class="punct">&gt;</span>My new Title<span class="punct">&lt;/</span><span class="tag">title</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:21-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">article</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="destroy">top</a>
+
+  <h2>Removing a Article from the database</h2>  
+  
+  <p>            
+    Delete an article of a blog
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>DELETE /admin/blogs/#{id}/articles/#{id}.xml</legend>
+                                     
+     
+     <p>Remove an exisiting article from a blog</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK</code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+                   
+				
+          
+
+				<div id="outtro">         
+				  Last updated at Jun 2009 Jun:06 AM.
+				</div>
+      </div>
+      
+      <div id="footer">Shopify &copy; 2009</div>
+    </div>
+
+
+      </div>
+    </div>
+
+
+    </body>
+  </html>

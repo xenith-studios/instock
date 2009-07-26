@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Shopify API Documentation</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />    
+
+  </head>
+  <body>
+    <a name="top" />
+    <div id="header">
+      <h1><a href="/developers">Shopify Developers</a></h1>
+    </div>
+    
+    <div id="subheader">
+      <ul>
+        <li onclick="document.location='http://www.shopify.com/developers'"><a href="http://www.shopify.com/developers" style="background: url('images/cog.png') center left no-repeat;padding-left:19px">Developers Home</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/api/'" class="current"><a href="http://www.shopify.com/developers/api/" style="background: url('images/help.png') center left no-repeat;padding-left:19px">Documentation</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/publishing'"><a href="http://www.shopify.com/developers/publishing/" style="background: url('images/group.png') center left no-repeat;padding-left:19px">Publishing your app</a></li>
+      </ul>
+    </div>
+
+    <div id="container" class="clearfix">
+
+      <!-- begin div.main-->
+      <div id="main">
+        
+        
+    <div id="page">
+      <div id="sidebar">
+        <div id="sidebar-items">                
+          <h3>Topics</h3>
+          <ul>           
+            <li><a href="index.html">Overview</a></li>      
+            <li><a href="authentication.html">Authentication</a></li> 
+          </ul>
+               
+          <h3>Resources</h3>
+          <ul>
+            
+            <li>
+              <a href="applicationcharge.html" class="active">ApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="article.html" class="active">Article</a>
+              
+            </li>      
+            
+            <li>
+              <a href="blog.html" class="active">Blog</a>
+              
+            </li>      
+            
+            <li>
+              <a href="collect.html" class="active">Collect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="comment.html" class="active">Comment</a>
+              
+            </li>      
+            
+            <li>
+              <a href="country.html" class="active">Country</a>
+              
+            </li>      
+            
+            <li>
+              <a href="customcollection.html" class="active">CustomCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="fulfillments.html" class="active">Fulfillments</a>
+              
+            </li>      
+            
+            <li>
+              <a href="order.html" class="active">Order</a>
+              
+            </li>      
+            
+            <li>
+              <a href="page.html" class="active">Page</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product.html" class="active">Product</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_image.html" class="active">Product Image</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_variant.html" class="active">Product Variant</a>
+              
+            </li>      
+            
+            <li>
+              <a href="province.html" class="active">Province</a>
+              
+            </li>      
+            
+            <li>
+              <a href="recurringapplicationcharge.html" class="active">RecurringApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="redirect.html" class="active">Redirect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="shop.html" class="active">Shop</a>
+              
+            </li>      
+            
+            <li>
+              <a href="smartcollection.html" class="active">SmartCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="transactions.html" class="active">Transactions</a>
+              
+            </li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="content">
+                <h1>Shopify API Billing</h1>
+
+                <p>The Shopify API has a unique billing mechanism whereby you create the charges for your application programatically, through our API. So if you want to charge for your application, you would do it the same way that you create a new product, by making an API call.</p>
+
+                <p>This mechanism is very powerful because it gives you full flexibility in creating your billing system. You can easily include free trials, discount codes, comped subscriptions, and upgrading/downgrading plans.</p>
+
+                <p>So, you create the charges, the merchant accepts, then we do the rest. We invoice the merchant and charge their credit card, we handle billing cycles if you are using recurring charges. And in the end, you get 80% of those charges back through our Partner program.</p>
+
+                <p>The Shopify API allows you to create two kind of charges. Let's look at the simpler of the two first, one time charges.</p>
+
+                <h2>One Time Charges</h2>
+
+                <h3>Creating</h3>
+
+                <p>
+                  If you are using ActiveResource, you can create a charge with something like this:
+                  <code>ShopifyAPI::ApplicationCharge.create(:name => 'Usage fee for a cool app', :price => 4.99)</code>
+                </p>
+
+                <p>
+                  Creating a one time charge in this way will instantiate a new ApplicationCharge for that shop, but the process isn't done yet. The shop must actually agree to the charge before it will appear on their invoice and most importantly, before you get your share.
+                </p>
+
+                <h3>Confirming</h3>
+
+                <p>
+                  After creating a charge it goes into a pending state. At this point, it has an attribute called <strong>confirmation_url</strong>. You must redirect the user to this URL after creating the charge in order for them to accept it.
+                </p>
+
+                <p>
+                  Once they have accepted the charge, that fee will be added to their next invoice. Then we will redirect them back to your app. If you have specified a return_url when creating your app, we will redirect them there, otherwise we will simply send the user back to the login url specified by your app. You can specify a return URL when creating the charge, like so:
+                  <pre><code>ShopifyAPI::ApplicationCharge.create(
+              :name => 'Usage fee for a cool app', 
+              :price => 4.99, 
+              :return_url => 'http://yourapp.com/charges/confirm')</code></pre>          
+                </p>
+
+                <p>
+                  When we do redirect the user back to your app, we pass a parameter called 'accepted'. If this parameter exists and is set to true, then the user has accepted your charge. If we redirect the user back to your app without this parameter, then they have not declined your charge. If you have specified a return_url of <code>http://yourapp.com/charges/confirm</code> 
+                  when creating your charge, the response from Shopify may look like: <code>http://yourapp.com/charges/confirm?accepted=true&amp;signature=12345abcde</code>
+                </p>
+
+                <h3>Typical One Time Charge Workflow</h3>
+                <p>
+                  <pre><code>class ApplicationController < ActionController::Base
+          before_filter :charge_merchant              
+          ....
+          def charge_merchant
+            unless merchant_has_paid?
+              charge = ShopifyAPI::ApplicationCharge.create(
+                  :name => 'One Time Charge', 
+                  :price => 4.99, 
+                  :return_url => 'http://myapp.com/home/confirm_charge)
+
+              redirect_to charge.confirmation_url
+            end
+          end
+        end
+
+        class HomeController < ApplicationController
+          ...
+          def confirm_charge
+            if params[:accepted]
+              # update local data store
+            end
+          end
+        end</code></pre>
+                </p>
+
+                <h3>Testing One Time Charges</h3>
+                <p>
+                  In case you want to test this system without actually having your credit card charged, you can just set the 'test' attribute to true when you are creating the charge.
+                      <pre><code>ShopifyAPI::ApplicationCharge.create(
+                  :name => 'Usage fee for a cool app', 
+                  :price => 4.99, 
+                  :return_url => 'http://yourapp.com/charges/confirm',
+                  :test => true)</code></pre>
+
+                  This will simply ensure that you are never billed through Shopify for this charge. All other behaviour will remain the same, including emails being sent and the charge needing to be accepted.
+                </p>
+
+                        <h2>Recurring Charges</h2>
+
+                        <h3>Creating</h3>
+
+                        <p>
+                          If you are using ActiveResource, you can create a recurring application charge with something like this:
+                          <code>
+                            ShopifyAPI::RecurringApplicationCharge.create(:name => 'Basic plan for a cool app', :price => 4.99)
+                          </code>
+                        </p>
+
+                        <p>
+                          Creating a one time charge in this way will instantiate a new RecurringApplicationCharge for that shop, but the process isn't done yet. The shop must actually agree to the charge before it will appear on their invoice and most importantly, before you get your cut.
+                        </p>
+
+                        <h3>Confirming</h3>
+
+                        <p>
+                          After creating a charge it goes into a pending state. At this point, it has an attribute called <strong>confirmation_url</strong>. You must redirect the user to this URL after creating the charge in order for them to accept it.
+                        </p>
+
+                        <p>
+                          Once this charge has been accepted, it will be charged to the merchant's account on a monthly basis, until they remove the application. Then we will redirect them back to your app. If you like, you can specify a return URL when creating the charge, like so:
+                          <pre><code>ShopifyAPI::ApplicationCharge.create(
+                      :name => 'Usage fee for a cool app', 
+                      :price => 4.99, 
+                      :return_url => 'http://yourapp.com/charges/confirm')</code></pre>
+
+                          If you don't specify a return_url, we will simply send the user back to the login url specified for your app.
+                        </p>
+
+                        <h3>Multiple Plans</h3>
+
+                        <p>
+                          It's very easy to allow merchants to upgrade or downgrade their subscription through the API. One rule with Recurring Application Charges is that each shop can have only one recurring charge per application. In this way, if you try to create a new recurring charge for a shop that already has one recurring charge with you, we will cancel and prorate the old one, and assign them the new one. </p>
+
+                        <p>
+                          In this way, you get upgrading and downgrading for free. If a merchant wants to upgrade their recurring charge, just create a new one for them, and we'll take care of canceling and charging the old one appropriately.
+                        </p>
+
+                        <h3>Accessing the Current Plan</h3>
+                        <p>
+                          If you are using our ActiveResource plugin to access the API, we have added some helpers to help you deal with these recurring charges. You can access the shop's current plan by calling:
+                          <code>ShopifyAPI::RecurringApplicationCharge.current</code>
+
+                          If you are not using ActiveResource you can make a call like:
+                          <code>GET /admin/application_charges.xml</code>
+                          which will return the list of all recurring application charges for this application, but since there can only be one, that call should only ever return one object.
+                        </p>
+
+                        <h3>Typical Recurring Charge Workflow</h3>
+                        <p>
+                          <pre><code>class ApplicationController < ActionController::Base
+            before_filter :ensure_merchant_has_paid              
+            ....
+            def ensure_merchant_has_paid
+              unless ShopifyAPI::RecurringApplicationCharge.current
+                charge = ShopifyAPI::RecurringApplicationCharge.create(
+                    :name => 'Basic plan', 
+                    :price => 4.99)
+
+                redirect_to charge.confirmation_url
+              end
+            end
+          end</code></pre>
+                        </p>
+
+                        <h3>Testing Recurring Charges</h3>
+                        <p>
+                          In case you want to test this system without actually having your credit card charged, you can just set the 'test' attribute to true when you are creating the charge.
+                              <pre><code>ShopifyAPI::RecurringApplicationCharge.create(
+                          :name => 'Basic plan', 
+                          :price => 4.99, 
+                          :test => true)</code></pre>
+
+                          This will simply ensure that you are never billed through Shopify for this charge. All other behaviour will remain the same, including emails being sent and the charge needing to be accepted.
+                        </p>
+          
+
+				<div id="outtro">         
+				  Last updated at Jun 2009 Jun:06 AM.
+				</div>
+      </div>
+      
+      <div id="footer">Shopify &copy; 2009</div>
+    </div>
+
+
+      </div>
+    </div>
+
+
+    </body>
+  </html>

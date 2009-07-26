@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Shopify API Documentation</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />    
+
+  </head>
+  <body>
+    <a name="top" />
+    <div id="header">
+      <h1><a href="/developers">Shopify Developers</a></h1>
+    </div>
+    
+    <div id="subheader">
+      <ul>
+        <li onclick="document.location='http://www.shopify.com/developers'"><a href="http://www.shopify.com/developers" style="background: url('images/cog.png') center left no-repeat;padding-left:19px">Developers Home</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/api/'" class="current"><a href="http://www.shopify.com/developers/api/" style="background: url('images/help.png') center left no-repeat;padding-left:19px">Documentation</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/publishing'"><a href="http://www.shopify.com/developers/publishing/" style="background: url('images/group.png') center left no-repeat;padding-left:19px">Publishing your app</a></li>
+      </ul>
+    </div>
+
+    <div id="container" class="clearfix">
+
+      <!-- begin div.main-->
+      <div id="main">
+        
+        
+    <div id="page">
+      <div id="sidebar">
+        <div id="sidebar-items">                
+          <h3>Topics</h3>
+          <ul>           
+            <li><a href="index.html">Overview</a></li>      
+            <li><a href="authentication.html">Authentication</a></li> 
+            <li><a href="billing.html">Billing</a></li> 
+          </ul>
+               
+          <h3>Resources</h3>
+          <ul>
+            
+            <li>
+              <a href="applicationcharge.html" class="active">ApplicationCharge</a>
+              
+                <ul>
+                  
+                    <li><a href="applicationcharge.html#create">Creating a new ApplicationCharge </a></li>           
+                  
+                    <li><a href="applicationcharge.html#index">Receive a list of all ApplicationCharges</a></li>           
+                  
+                </ul>
+              
+            </li>      
+            
+            <li>
+              <a href="article.html" class="active">Article</a>
+              
+            </li>      
+            
+            <li>
+              <a href="blog.html" class="active">Blog</a>
+              
+            </li>      
+            
+            <li>
+              <a href="collect.html" class="active">Collect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="comment.html" class="active">Comment</a>
+              
+            </li>      
+            
+            <li>
+              <a href="country.html" class="active">Country</a>
+              
+            </li>      
+            
+            <li>
+              <a href="customcollection.html" class="active">CustomCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="fulfillments.html" class="active">Fulfillments</a>
+              
+            </li>      
+            
+            <li>
+              <a href="order.html" class="active">Order</a>
+              
+            </li>      
+            
+            <li>
+              <a href="page.html" class="active">Page</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product.html" class="active">Product</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_image.html" class="active">Product Image</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_variant.html" class="active">Product Variant</a>
+              
+            </li>      
+            
+            <li>
+              <a href="province.html" class="active">Province</a>
+              
+            </li>      
+            
+            <li>
+              <a href="recurringapplicationcharge.html" class="active">RecurringApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="redirect.html" class="active">Redirect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="shop.html" class="active">Shop</a>
+              
+            </li>      
+            
+            <li>
+              <a href="smartcollection.html" class="active">SmartCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="transactions.html" class="active">Transactions</a>
+              
+            </li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="content">
+        <h1>Shopify API - ApplicationCharge</h1>
+
+
+<div class="example"> 
+  <a href="#top" style="float:right" name="create">top</a>
+
+  <h2>Creating a new ApplicationCharge </h2>  
+  
+  <p>            
+    Create a new charge for a shop
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/application_charges.xml</legend>
+                                     
+     
+     <p>Create a one-time charge called 'Super Duper Expensive action' for $100.00 USD</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">application-charge</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">name</span><span class="punct">&gt;</span>Super Duper Expensive action<span class="punct">&lt;/</span><span class="tag">name</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">price</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">float</span><span class="punct">&quot;&gt;</span>100.0<span class="punct">&lt;/</span><span class="tag">price</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">return-url</span><span class="punct">&gt;</span>http://super-duper.shopifyapps.com<span class="punct">&lt;/</span><span class="tag">return-url</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">application-charge</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">application-charge</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:15-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1749673021<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">name</span><span class="punct">&gt;</span>Super Duper Expensive action<span class="punct">&lt;/</span><span class="tag">name</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">price</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>100.00<span class="punct">&lt;/</span><span class="tag">price</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>pending<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">test</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">boolean</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">test</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:15-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">confirmation-url</span><span class="punct">&gt;</span>http://apple.myshopify.com/admin/subscriptions/confirm_application_charge/1749673021?signature=BAhsKwc95Elo--e57cd41233a72e9cb92de7a10989dd9d9bbaa91e<span class="punct">&lt;/</span><span class="tag">confirmation-url</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">application-charge</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="index">top</a>
+
+  <h2>Receive a list of all ApplicationCharges</h2>  
+  
+  <p>            
+    List all charges created by your application for a shop
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/application_charges.xml</legend>
+                                     
+     
+     <p>List charges</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">application-charges</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">application-charge</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1749673015<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">name</span><span class="punct">&gt;</span>iPod Cleaning<span class="punct">&lt;/</span><span class="tag">name</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">price</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>0.00<span class="punct">&lt;/</span><span class="tag">price</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>accepted<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">test</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">boolean</span><span class="punct">&quot;</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">test</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">updated-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:53:12-04:00<span class="punct">&lt;/</span><span class="tag">updated-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">application-charge</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">application-charges</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+                   
+				
+          
+
+				<div id="outtro">         
+				  Last updated at Jun 2009 Jun:06 AM.
+				</div>
+      </div>
+      
+      <div id="footer">Shopify &copy; 2009</div>
+    </div>
+
+
+      </div>
+    </div>
+
+
+    </body>
+  </html>

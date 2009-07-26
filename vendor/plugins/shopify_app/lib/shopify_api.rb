@@ -2,13 +2,20 @@ require 'ostruct'
 require 'digest/md5'
 
 module ShopifyAPI
+
+  module Countable
+    def count(options = {})
+      Integer(get(:count, options))
+    end
+  end
+  
   # 
   #  The Shopify API authenticates each call via HTTP Authentication, using
   #    * the application's API key as the username, and
   #    * a hex digest of the application's shared secret and an 
   #      authentication token as the password.
   #  
-  #  Generation & acquisition of the beforementioned looks like this (assuming the ):
+  #  Generation & acquisition of the beforementioned looks like this:
   # 
   #    0. Developer (that's you) registers Application (and provides a
   #       callback url) and receives an API key and a shared secret
@@ -33,7 +40,7 @@ module ShopifyAPI
   #       (API calls can now authenticate through HTTP using the API key, and
   #       computed password)
   # 
-  #  LoginController and ShopifyLoginProtection use the Session class to set ActiveResource::Base.site
+  #  LoginController and ShopifyLoginProtection use the Session class to set Shopify::Base.site
   #  so that all API calls are authorized transparently and end up just looking like this:
   # 
   #    # get 3 products
@@ -116,7 +123,7 @@ module ShopifyAPI
 
     # Used by ActiveResource::Base to make all non-authentication API calls
     # 
-    # (ActiveResource::Base.site set in ShopifyLoginProtection#shopify_session)
+    # (Shopify::Base.site set in ShopifyLoginProtection#shopify_session)
     def site
       "#{protocol}://#{api_key}:#{computed_password}@#{url}/admin"
     end
@@ -146,12 +153,16 @@ module ShopifyAPI
       Digest::MD5.hexdigest(secret + sorted_params) == signature
     end
   end
+  
+  class Base < ActiveResource::Base
+    extend Countable
+  end
 
   # Shop object. Use Shop.current to receive 
   # the shop. Since you can only ever reference your own
   # shop this model does not have a .find method.
   #
-  class Shop
+  class Shop < Base
     def self.current
       ActiveResource::Base.find(:one, :from => "/admin/shop.xml")
     end
@@ -159,7 +170,7 @@ module ShopifyAPI
 
   # Custom collection
   #
-  class CustomCollection < ActiveResource::Base
+  class CustomCollection < Base
     def products
       Product.find(:all, :params => {:collection_id => self.id})
     end
@@ -174,30 +185,29 @@ module ShopifyAPI
     end
   end                                                                 
   
-  class SmartCollection < ActiveResource::Base
+  class SmartCollection < Base
     def products
       Product.find(:all, :params => {:collection_id => self.id})
     end
   end                                                                 
 
   # For adding/removing products from custom collections
-  class Collect < ActiveResource::Base
+  class Collect < Base
   end
 
-  class ShippingAddress < ActiveResource::Base
+  class ShippingAddress < Base
   end
 
-  class BillingAddress < ActiveResource::Base
+  class BillingAddress < Base
   end         
 
-  class LineItem < ActiveResource::Base 
+  class LineItem < Base 
   end       
 
-  class ShippingLine < ActiveResource::Base
+  class ShippingLine < Base
   end  
 
-  class Order < ActiveResource::Base  
-
+  class Order < Base
     def close; load_attributes_from_response(post(:close)); end
 
     def open; load_attributes_from_response(post(:open)); end
@@ -211,7 +221,7 @@ module ShopifyAPI
     end
   end
   
-  class Product < ActiveResource::Base
+  class Product < Base
 
     # Share all items of this store with the 
     # shopify marketplace
@@ -246,11 +256,11 @@ module ShopifyAPI
     end
   end
   
-  class Variant < ActiveResource::Base
+  class Variant < Base
     self.prefix = "/admin/products/:product_id/"
   end
   
-  class Image < ActiveResource::Base
+  class Image < Base
     self.prefix = "/admin/products/:product_id/"
     
     # generate a method for each possible image variant
@@ -260,46 +270,143 @@ module ShopifyAPI
     end
     
     def attach_image(data, filename = nil)
-      attributes[:attachment] = Base64.encode64(data)
-      attributes[:filename] = filename unless filename.nil?
+      attributes['attachment'] = Base64.encode64(data)
+      attributes['filename'] = filename unless filename.nil?
     end
   end
 
-  class Transaction < ActiveResource::Base
+  class Transaction < Base
     self.prefix = "/admin/orders/:order_id/"
   end
   
-  class Fulfillment < ActiveResource::Base
+  class Fulfillment < Base
     self.prefix = "/admin/orders/:order_id/"
   end
 
-  class Country < ActiveResource::Base
+  class Country < Base
   end
 
-  class Page < ActiveResource::Base
+  class Page < Base
   end
   
-  class Blog < ActiveResource::Base
+  class Blog < Base
     def articles
       Article.find(:all, :params => { :blog_id => id })
     end
   end
   
-  class Article < ActiveResource::Base
+  class Article < Base
     self.prefix = "/admin/blogs/:blog_id/"
   end
 
-  class Comment < ActiveResource::Base 
+  class Comment < Base 
     def remove; load_attributes_from_response(post(:remove)); end
     def ham; load_attributes_from_response(post(:ham)); end
     def spam; load_attributes_from_response(post(:spam)); end
     def approve; load_attributes_from_response(post(:approve)); end        
   end
   
-  class Province < ActiveResource::Base
+  class Province < Base
     self.prefix = "/admin/countries/:country_id/"
   end
   
-  class Redirect < ActiveResource::Base
+  class Redirect < Base
+  end
+  
+  
+  # Assets represent the files that comprise your theme.
+  # There are different buckets which hold different kinds
+  # of assets, each corresponding to one of the folders
+  # within a theme's zip file: layout, templates, and
+  # assets. The full key of an asset always starts with the
+  # bucket name, and the path separator is a forward slash,
+  # like layout/theme.liquid or assets/bg-body.gif.
+  #
+  # Initialize with a key:
+  #   asset = ShopifyAPI::Asset.new(:key => 'assets/special.css')
+  # 
+  # Find by key:
+  #   asset = ShopifyAPI::Asset.find('assets/image.png')
+  # 
+  # Get the text or binary value:
+  #   asset.value # decodes from attachment attribute if necessary
+  # 
+  # You can provide new data for assets in a few different ways:
+  # 
+  #   * assign text data for the value directly:
+  #       asset.value = "div.special {color:red;}"
+  #     
+  #   * provide binary data for the value:
+  #       asset.attach(File.read('image.png'))
+  #     
+  #   * set a URL from which Shopify will fetch the value:
+  #       asset.src = "http://mysite.com/image.png"
+  #     
+  #   * set a source key of another of your assets from which
+  #     the value will be copied:
+  #       asset.source_key = "assets/another_image.png"
+  class Asset < ActiveResource::Base
+    self.primary_key = 'key'
+    
+    # find an asset by key:
+    #   ShopifyAPI::Asset.find('layout/theme.liquid')
+    def self.find(*args)
+      if args[0].is_a?(Symbol)
+        super
+      else
+        find(:one, :from => "/admin/assets.xml", :params => {:asset => {:key => args[0]}})
+      end
+    end
+    
+    # For text assets, Shopify returns the data in the 'value' attribute.
+    # For binary assets, the data is base-64-encoded and returned in the
+    # 'attachment' attribute. This accessor returns the data in both cases.
+    def value
+      attributes['value'] ||
+      (attributes['attachment'] ? Base64.decode64(attributes['attachment']) : nil)
+    end
+    
+    def attach(data)
+      self.attachment = Base64.encode64(data)
+    end
+    
+    def destroy #:nodoc:
+      connection.delete(element_path(:asset => {:key => key}), self.class.headers)
+    end
+    
+    def new? #:nodoc:
+      false
+    end
+    
+    def self.element_path(id, prefix_options = {}, query_options = nil) #:nodoc:
+      prefix_options, query_options = split_options(prefix_options) if query_options.nil?
+      "#{prefix(prefix_options)}#{collection_name}.#{format.extension}#{query_string(query_options)}"
+    end
+    
+    def method_missing(method_symbol, *arguments) #:nodoc:
+      if %w{value= attachment= src= source_key=}.include?(method_symbol)
+        wipe_value_attributes
+      end
+      super
+    end
+    
+    private
+    
+    def wipe_value_attributes
+      %w{value attachment src source_key}.each do |attr|
+        attributes.delete(attr)
+      end
+    end
+  end
+  
+  class RecurringApplicationCharge < ActiveResource::Base
+    def self.current
+      find(:all).find{|charge| charge.status == 'active'}
+    end
+    
+    def cancel; load_attributes_from_response(post(:cancel)); end
+  end
+
+  class ApplicationCharge < ActiveResource::Base
   end
 end

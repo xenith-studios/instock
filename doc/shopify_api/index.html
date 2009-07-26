@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Shopify API Documentation</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />    
+
+  </head>
+  <body>
+    <a name="top" />
+    <div id="header">
+      <h1><a href="/developers">Shopify Developers</a></h1>
+    </div>
+    
+    <div id="subheader">
+      <ul>
+        <li onclick="document.location='http://www.shopify.com/developers'"><a href="http://www.shopify.com/developers" style="background: url('images/cog.png') center left no-repeat;padding-left:19px">Developers Home</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/api/'" class="current"><a href="http://www.shopify.com/developers/api/" style="background: url('images/help.png') center left no-repeat;padding-left:19px">Documentation</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/publishing'"><a href="http://www.shopify.com/developers/publishing/" style="background: url('images/group.png') center left no-repeat;padding-left:19px">Publishing your app</a></li>
+      </ul>
+    </div>
+
+    <div id="container" class="clearfix">
+
+      <!-- begin div.main-->
+      <div id="main">
+        
+        
+    <div id="page">
+      <div id="sidebar">
+        <div id="sidebar-items">                
+          <h3>Topics</h3>
+          <ul>           
+            <li><a href="index.html">Overview</a></li>      
+            <li><a href="authentication.html">Authentication</a></li> 
+            <li><a href="billing.html">Billing</a></li> 
+          </ul>
+               
+          <h3>Resources</h3>
+          <ul>
+            
+            <li>
+              <a href="applicationcharge.html" class="active">ApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="article.html" class="active">Article</a>
+              
+            </li>      
+            
+            <li>
+              <a href="blog.html" class="active">Blog</a>
+              
+            </li>      
+            
+            <li>
+              <a href="collect.html" class="active">Collect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="comment.html" class="active">Comment</a>
+              
+            </li>      
+            
+            <li>
+              <a href="country.html" class="active">Country</a>
+              
+            </li>      
+            
+            <li>
+              <a href="customcollection.html" class="active">CustomCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="fulfillments.html" class="active">Fulfillments</a>
+              
+            </li>      
+            
+            <li>
+              <a href="order.html" class="active">Order</a>
+              
+            </li>      
+            
+            <li>
+              <a href="page.html" class="active">Page</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product.html" class="active">Product</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_image.html" class="active">Product Image</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_variant.html" class="active">Product Variant</a>
+              
+            </li>      
+            
+            <li>
+              <a href="province.html" class="active">Province</a>
+              
+            </li>      
+            
+            <li>
+              <a href="recurringapplicationcharge.html" class="active">RecurringApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="redirect.html" class="active">Redirect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="shop.html" class="active">Shop</a>
+              
+            </li>      
+            
+            <li>
+              <a href="smartcollection.html" class="active">SmartCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="transactions.html" class="active">Transactions</a>
+              
+            </li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="content">
+        <h1>API Docs Introduction</h1>
+
+<p>The Shopify API is implemented as XML over HTTP using all four verbs (GET/POST/PUT/DELETE). Each resource, like Order, Product, or Collection, has its own URL and is manipulated in isolation. In other words, we&rsquo;ve tried to make the API follow the <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">REST</a> principles as much as possible.</p>
+
+<p>All API usage happens through Shopify applications, created by either shop owners for their own shops, or by <a href="http://www.shopify.com/developers">Shopify Partners</a> for use by shop owners.</p>
+
+<p>Shop owners can create applications for themselves through their own admin (under the Preferences > Applications tab).</p>
+
+<p><a href="http://www.shopify.com/developers">Shopify Partners</a> create applications through their admin.</p>
+
+  <h2><a href="applicationcharge.html">ApplicationCharges</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="applicationcharge.html#create">Creating a new ApplicationCharge </a></li>           
+  
+    <li><a href="applicationcharge.html#index">Receive a list of all ApplicationCharges</a></li>           
+  
+  </ul>
+  <h2><a href="article.html">Articles</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="article.html#index">Receive a list of all Articles</a></li>           
+  
+    <li><a href="article.html#show">Receive a single Article</a></li>           
+  
+    <li><a href="article.html#create">Creating a new Article </a></li>           
+  
+    <li><a href="article.html#update">Modifying an existing Article</a></li>           
+  
+    <li><a href="article.html#update">Modifying an existing Article</a></li>           
+  
+    <li><a href="article.html#destroy">Removing a Article from the database</a></li>           
+  
+  </ul>
+  <h2><a href="blog.html">Blogs</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="blog.html#index">Receive a list of all Blogs</a></li>           
+  
+    <li><a href="blog.html#show">Receive a single Blog</a></li>           
+  
+    <li><a href="blog.html#create">Creating a new Blog </a></li>           
+  
+    <li><a href="blog.html#update">Modifying an existing Blog</a></li>           
+  
+    <li><a href="blog.html#destroy">Removing a Blog from the database</a></li>           
+  
+  </ul>
+  <h2><a href="collect.html">Collects</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="collect.html#create">Creating a new Collect </a></li>           
+  
+    <li><a href="collect.html#destroy">Removing a Collect from the database</a></li>           
+  
+    <li><a href="collect.html#index">Receive a list of all Collects</a></li>           
+  
+    <li><a href="collect.html#show">Receive a single Collect</a></li>           
+  
+  </ul>
+  <h2><a href="comment.html">Comments</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="comment.html#index">Receive a list of all Comments</a></li>           
+  
+    <li><a href="comment.html#show">Receive a single Comment</a></li>           
+  
+    <li><a href="comment.html#create">Creating a new Comment </a></li>           
+  
+    <li><a href="comment.html#update">Modifying an existing Comment</a></li>           
+  
+    <li><a href="comment.html#spam">No heading specified for verb "spam"</a></li>           
+  
+    <li><a href="comment.html#approve">No heading specified for verb "approve"</a></li>           
+  
+  </ul>
+  <h2><a href="country.html">Countries</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="country.html#index">Receive a list of all Countries</a></li>           
+  
+    <li><a href="country.html#show">Receive a single Country</a></li>           
+  
+    <li><a href="country.html#create">Creating a new Country </a></li>           
+  
+    <li><a href="country.html#update">Modifying an existing Country</a></li>           
+  
+    <li><a href="country.html#destroy">Removing a Country from the database</a></li>           
+  
+  </ul>
+  <h2><a href="customcollection.html">CustomCollections</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="customcollection.html#index">Receive a list of all CustomCollections</a></li>           
+  
+    <li><a href="customcollection.html#show">Receive a single CustomCollection</a></li>           
+  
+    <li><a href="customcollection.html#create">Creating a new CustomCollection </a></li>           
+  
+    <li><a href="customcollection.html#update">Modifying an existing CustomCollection</a></li>           
+  
+    <li><a href="customcollection.html#destroy">Removing a CustomCollection from the database</a></li>           
+  
+  </ul>
+  <h2><a href="fulfillments.html">Fulfillments</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="fulfillments.html#index">Receive a list of all Fulfillments</a></li>           
+  
+    <li><a href="fulfillments.html#show">Receive a single Fulfillments</a></li>           
+  
+    <li><a href="fulfillments.html#create">Creating a new Fulfillments </a></li>           
+  
+    <li><a href="fulfillments.html#update">Modifying an existing Fulfillments</a></li>           
+  
+  </ul>
+  <h2><a href="order.html">Orders</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="order.html#show">Receive a single Order</a></li>           
+  
+    <li><a href="order.html#index">Receive a list of all Orders</a></li>           
+  
+    <li><a href="order.html#close">Closing an Order</a></li>           
+  
+    <li><a href="order.html#open">Opening an previously closed Order</a></li>           
+  
+    <li><a href="order.html#update">Modifying an existing Order</a></li>           
+  
+    <li><a href="order.html#destroy">Removing a Order from the database</a></li>           
+  
+  </ul>
+  <h2><a href="page.html">Pages</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="page.html#index">Receive a list of all Pages</a></li>           
+  
+    <li><a href="page.html#show">Receive a single Page</a></li>           
+  
+    <li><a href="page.html#create">Creating a new Page </a></li>           
+  
+    <li><a href="page.html#update">Modifying an existing Page</a></li>           
+  
+    <li><a href="page.html#update">Modifying an existing Page</a></li>           
+  
+    <li><a href="page.html#destroy">Removing a Page from the database</a></li>           
+  
+  </ul>
+  <h2><a href="product.html">Products</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="product.html#index">Receive a list of all Products</a></li>           
+  
+    <li><a href="product.html#show">Receive a single Product</a></li>           
+  
+    <li><a href="product.html#create">Creating a new Product </a></li>           
+  
+    <li><a href="product.html#update">Modifying an existing Product</a></li>           
+  
+    <li><a href="product.html#destroy">Removing a Product from the database</a></li>           
+  
+  </ul>
+  <h2><a href="product_image.html">Product Images</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="product_image.html#index">Receive a list of all Product Images</a></li>           
+  
+    <li><a href="product_image.html#show">Receive a single Product Image</a></li>           
+  
+    <li><a href="product_image.html#create">Creating a new Product Image </a></li>           
+  
+    <li><a href="product_image.html#destroy">Removing a Product Image from the database</a></li>           
+  
+  </ul>
+  <h2><a href="product_variant.html">Product Variants</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="product_variant.html#index">Receive a list of all Product Variants</a></li>           
+  
+    <li><a href="product_variant.html#show">Receive a single Product Variant</a></li>           
+  
+    <li><a href="product_variant.html#create">Creating a new Product Variant </a></li>           
+  
+    <li><a href="product_variant.html#update">Modifying an existing Product Variant</a></li>           
+  
+    <li><a href="product_variant.html#destroy">Removing a Product Variant from the database</a></li>           
+  
+  </ul>
+  <h2><a href="province.html">Provinces</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="province.html#index">Receive a list of all Provinces</a></li>           
+  
+    <li><a href="province.html#show">Receive a single Province</a></li>           
+  
+    <li><a href="province.html#update">Modifying an existing Province</a></li>           
+  
+  </ul>
+  <h2><a href="recurringapplicationcharge.html">RecurringApplicationCharges</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="recurringapplicationcharge.html#create">Creating a new RecurringApplicationCharge </a></li>           
+  
+    <li><a href="recurringapplicationcharge.html#index">Receive a list of all RecurringApplicationCharges</a></li>           
+  
+    <li><a href="recurringapplicationcharge.html#cancel">No heading specified for verb "cancel"</a></li>           
+  
+  </ul>
+  <h2><a href="redirect.html">Redirects</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="redirect.html#index">Receive a list of all Redirects</a></li>           
+  
+    <li><a href="redirect.html#show">Receive a single Redirect</a></li>           
+  
+    <li><a href="redirect.html#create">Creating a new Redirect </a></li>           
+  
+    <li><a href="redirect.html#update">Modifying an existing Redirect</a></li>           
+  
+    <li><a href="redirect.html#destroy">Removing a Redirect from the database</a></li>           
+  
+  </ul>
+  <h2><a href="shop.html">Shops</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="shop.html#show">Receive a single Shop</a></li>           
+  
+  </ul>
+  <h2><a href="smartcollection.html">SmartCollections</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="smartcollection.html#index">Receive a list of all SmartCollections</a></li>           
+  
+    <li><a href="smartcollection.html#show">Receive a single SmartCollection</a></li>           
+  
+    <li><a href="smartcollection.html#create">Creating a new SmartCollection </a></li>           
+  
+    <li><a href="smartcollection.html#update">Modifying an existing SmartCollection</a></li>           
+  
+    <li><a href="smartcollection.html#destroy">Removing a SmartCollection from the database</a></li>           
+  
+  </ul>
+  <h2><a href="transactions.html">Transactions</a></h2>      
+                              
+  <ul class="actions">
+  
+    <li><a href="transactions.html#index">Receive a list of all Transactions</a></li>           
+  
+    <li><a href="transactions.html#show">Receive a single Transactions</a></li>           
+  
+    <li><a href="transactions.html#create">Creating a new Transactions </a></li>           
+  
+  </ul>
+          
+
+				<div id="outtro">         
+				  Last updated at Jun 2009 Jun:06 AM.
+				</div>
+      </div>
+      
+      <div id="footer">Shopify &copy; 2009</div>
+    </div>
+
+
+      </div>
+    </div>
+
+
+    </body>
+  </html>

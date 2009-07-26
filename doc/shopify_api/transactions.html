@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Shopify API Documentation</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />    
+
+  </head>
+  <body>
+    <a name="top" />
+    <div id="header">
+      <h1><a href="/developers">Shopify Developers</a></h1>
+    </div>
+    
+    <div id="subheader">
+      <ul>
+        <li onclick="document.location='http://www.shopify.com/developers'"><a href="http://www.shopify.com/developers" style="background: url('images/cog.png') center left no-repeat;padding-left:19px">Developers Home</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/api/'" class="current"><a href="http://www.shopify.com/developers/api/" style="background: url('images/help.png') center left no-repeat;padding-left:19px">Documentation</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/publishing'"><a href="http://www.shopify.com/developers/publishing/" style="background: url('images/group.png') center left no-repeat;padding-left:19px">Publishing your app</a></li>
+      </ul>
+    </div>
+
+    <div id="container" class="clearfix">
+
+      <!-- begin div.main-->
+      <div id="main">
+        
+        
+    <div id="page">
+      <div id="sidebar">
+        <div id="sidebar-items">                
+          <h3>Topics</h3>
+          <ul>           
+            <li><a href="index.html">Overview</a></li>      
+            <li><a href="authentication.html">Authentication</a></li> 
+            <li><a href="billing.html">Billing</a></li> 
+          </ul>
+               
+          <h3>Resources</h3>
+          <ul>
+            
+            <li>
+              <a href="applicationcharge.html" class="active">ApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="article.html" class="active">Article</a>
+              
+            </li>      
+            
+            <li>
+              <a href="blog.html" class="active">Blog</a>
+              
+            </li>      
+            
+            <li>
+              <a href="collect.html" class="active">Collect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="comment.html" class="active">Comment</a>
+              
+            </li>      
+            
+            <li>
+              <a href="country.html" class="active">Country</a>
+              
+            </li>      
+            
+            <li>
+              <a href="customcollection.html" class="active">CustomCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="fulfillments.html" class="active">Fulfillments</a>
+              
+            </li>      
+            
+            <li>
+              <a href="order.html" class="active">Order</a>
+              
+            </li>      
+            
+            <li>
+              <a href="page.html" class="active">Page</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product.html" class="active">Product</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_image.html" class="active">Product Image</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_variant.html" class="active">Product Variant</a>
+              
+            </li>      
+            
+            <li>
+              <a href="province.html" class="active">Province</a>
+              
+            </li>      
+            
+            <li>
+              <a href="recurringapplicationcharge.html" class="active">RecurringApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="redirect.html" class="active">Redirect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="shop.html" class="active">Shop</a>
+              
+            </li>      
+            
+            <li>
+              <a href="smartcollection.html" class="active">SmartCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="transactions.html" class="active">Transactions</a>
+              
+                <ul>
+                  
+                    <li><a href="transactions.html#index">Receive a list of all Transactions</a></li>           
+                  
+                    <li><a href="transactions.html#show">Receive a single Transactions</a></li>           
+                  
+                    <li><a href="transactions.html#create">Creating a new Transactions </a></li>           
+                  
+                </ul>
+              
+            </li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="content">
+        <h1>Shopify API - Transactions</h1>
+
+
+<div class="example"> 
+  <a href="#top" style="float:right" name="index">top</a>
+
+  <h2>Receive a list of all Transactions</h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/orders/#{id}/transactions.xml</legend>
+                                     
+     
+     <p>Get the XML Representation of all money transfers on a given order.</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">transactions</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">transaction</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">amount</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>210.94<span class="punct">&lt;/</span><span class="tag">amount</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">authorization</span><span class="punct">&gt;</span>authorization-key<span class="punct">&lt;/</span><span class="tag">authorization</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2005-08-01T11:57:11-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">kind</span><span class="punct">&gt;</span>authorization<span class="punct">&lt;/</span><span class="tag">kind</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">order-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1524531292<span class="punct">&lt;/</span><span class="tag">order-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>success<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">receipt</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">yaml</span><span class="punct">&quot;&gt;</span>--- 
+testcase: true
+authorization: <span class="entity">&amp;quot;</span>123456<span class="entity">&amp;quot;</span>
+<span class="punct">&lt;/</span><span class="tag">receipt</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">transaction</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">transactions</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="show">top</a>
+
+  <h2>Receive a single Transactions</h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/orders/#{id}/transactions/#{id}.xml</legend>
+                                     
+     
+     <p>Get the XML Representation of a specific transaction.</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">transaction</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">amount</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>210.94<span class="punct">&lt;/</span><span class="tag">amount</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">authorization</span><span class="punct">&gt;</span>authorization-key<span class="punct">&lt;/</span><span class="tag">authorization</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2005-08-01T11:57:11-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">kind</span><span class="punct">&gt;</span>authorization<span class="punct">&lt;/</span><span class="tag">kind</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">order-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1524531292<span class="punct">&lt;/</span><span class="tag">order-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>success<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">receipt</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">yaml</span><span class="punct">&quot;&gt;</span>--- 
+testcase: true
+authorization: <span class="entity">&amp;quot;</span>123456<span class="entity">&amp;quot;</span>
+<span class="punct">&lt;/</span><span class="tag">receipt</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">transaction</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="create">top</a>
+
+  <h2>Creating a new Transactions </h2>  
+  
+  <p>            
+    no description
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/orders/#{id}/transactions.xml</legend>
+                                     
+     
+     <p>Capture a previously authorized order for the full amount</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">transaction</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">kind</span><span class="punct">&gt;</span>capture<span class="punct">&lt;/</span><span class="tag">kind</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">transaction</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">transaction</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">amount</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>210.94<span class="punct">&lt;/</span><span class="tag">amount</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">authorization</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">authorization</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:56:48-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">kind</span><span class="punct">&gt;</span>capture<span class="punct">&lt;/</span><span class="tag">kind</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">order-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1524531292<span class="punct">&lt;/</span><span class="tag">order-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>success<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">receipt</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">yaml</span><span class="punct">&quot;&gt;</span>--- 
+paid_amount: <span class="entity">&amp;quot;</span>210.94<span class="entity">&amp;quot;</span>
+<span class="punct">&lt;/</span><span class="tag">receipt</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">transaction</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+   
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/orders/#{id}/transactions.xml</legend>
+                                     
+     
+     <p>Capture a specified amount on a previously authorized order.</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">transaction</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">kind</span><span class="punct">&gt;</span>capture<span class="punct">&lt;/</span><span class="tag">kind</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">amount</span><span class="punct">&gt;</span>10.00<span class="punct">&lt;/</span><span class="tag">amount</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">transaction</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">transaction</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">amount</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">decimal</span><span class="punct">&quot;&gt;</span>10.00<span class="punct">&lt;/</span><span class="tag">amount</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">authorization</span> <span class="attribute">nil</span><span class="punct">=&quot;</span><span class="string">true</span><span class="punct">&quot;&gt;&lt;/</span><span class="tag">authorization</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">created-at</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">datetime</span><span class="punct">&quot;&gt;</span>2009-06-24T11:56:51-04:00<span class="punct">&lt;/</span><span class="tag">created-at</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">kind</span><span class="punct">&gt;</span>capture<span class="punct">&lt;/</span><span class="tag">kind</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">order-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1524531292<span class="punct">&lt;/</span><span class="tag">order-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">status</span><span class="punct">&gt;</span>success<span class="punct">&lt;/</span><span class="tag">status</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">receipt</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">yaml</span><span class="punct">&quot;&gt;</span>--- 
+paid_amount: <span class="entity">&amp;quot;</span>10.00<span class="entity">&amp;quot;</span>
+<span class="punct">&lt;/</span><span class="tag">receipt</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">transaction</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+                   
+				
+          
+
+				<div id="outtro">         
+				  Last updated at Jun 2009 Jun:06 AM.
+				</div>
+      </div>
+      
+      <div id="footer">Shopify &copy; 2009</div>
+    </div>
+
+
+      </div>
+    </div>
+
+
+    </body>
+  </html>

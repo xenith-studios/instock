@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Shopify API Documentation</title>
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" />    
+
+  </head>
+  <body>
+    <a name="top" />
+    <div id="header">
+      <h1><a href="/developers">Shopify Developers</a></h1>
+    </div>
+    
+    <div id="subheader">
+      <ul>
+        <li onclick="document.location='http://www.shopify.com/developers'"><a href="http://www.shopify.com/developers" style="background: url('images/cog.png') center left no-repeat;padding-left:19px">Developers Home</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/api/'" class="current"><a href="http://www.shopify.com/developers/api/" style="background: url('images/help.png') center left no-repeat;padding-left:19px">Documentation</a></li>
+        <li onclick="document.location='http://www.shopify.com/developers/publishing'"><a href="http://www.shopify.com/developers/publishing/" style="background: url('images/group.png') center left no-repeat;padding-left:19px">Publishing your app</a></li>
+      </ul>
+    </div>
+
+    <div id="container" class="clearfix">
+
+      <!-- begin div.main-->
+      <div id="main">
+        
+        
+    <div id="page">
+      <div id="sidebar">
+        <div id="sidebar-items">                
+          <h3>Topics</h3>
+          <ul>           
+            <li><a href="index.html">Overview</a></li>      
+            <li><a href="authentication.html">Authentication</a></li> 
+            <li><a href="billing.html">Billing</a></li> 
+          </ul>
+               
+          <h3>Resources</h3>
+          <ul>
+            
+            <li>
+              <a href="applicationcharge.html" class="active">ApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="article.html" class="active">Article</a>
+              
+            </li>      
+            
+            <li>
+              <a href="blog.html" class="active">Blog</a>
+              
+            </li>      
+            
+            <li>
+              <a href="collect.html" class="active">Collect</a>
+              
+            </li>      
+            
+            <li>
+              <a href="comment.html" class="active">Comment</a>
+              
+            </li>      
+            
+            <li>
+              <a href="country.html" class="active">Country</a>
+              
+            </li>      
+            
+            <li>
+              <a href="customcollection.html" class="active">CustomCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="fulfillments.html" class="active">Fulfillments</a>
+              
+            </li>      
+            
+            <li>
+              <a href="order.html" class="active">Order</a>
+              
+            </li>      
+            
+            <li>
+              <a href="page.html" class="active">Page</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product.html" class="active">Product</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_image.html" class="active">Product Image</a>
+              
+            </li>      
+            
+            <li>
+              <a href="product_variant.html" class="active">Product Variant</a>
+              
+            </li>      
+            
+            <li>
+              <a href="province.html" class="active">Province</a>
+              
+            </li>      
+            
+            <li>
+              <a href="recurringapplicationcharge.html" class="active">RecurringApplicationCharge</a>
+              
+            </li>      
+            
+            <li>
+              <a href="redirect.html" class="active">Redirect</a>
+              
+                <ul>
+                  
+                    <li><a href="redirect.html#index">Receive a list of all Redirects</a></li>           
+                  
+                    <li><a href="redirect.html#show">Receive a single Redirect</a></li>           
+                  
+                    <li><a href="redirect.html#create">Creating a new Redirect </a></li>           
+                  
+                    <li><a href="redirect.html#update">Modifying an existing Redirect</a></li>           
+                  
+                    <li><a href="redirect.html#destroy">Removing a Redirect from the database</a></li>           
+                  
+                </ul>
+              
+            </li>      
+            
+            <li>
+              <a href="shop.html" class="active">Shop</a>
+              
+            </li>      
+            
+            <li>
+              <a href="smartcollection.html" class="active">SmartCollection</a>
+              
+            </li>      
+            
+            <li>
+              <a href="transactions.html" class="active">Transactions</a>
+              
+            </li>      
+            
+          </ul>
+        </div>
+      </div>
+
+      <div id="content">
+        <h1>Shopify API - Redirect</h1>
+
+
+<div class="example"> 
+  <a href="#top" style="float:right" name="index">top</a>
+
+  <h2>Receive a list of all Redirects</h2>  
+  
+  <p>            
+    Get a list of all URL redirects for your shop.
+  </p>               
+                
+  
+  <h3>Available URL Query parameters:</h3>
+  <ul>
+    
+    <li>
+      <strong>limit</strong> 
+      
+        &mdash; Amount of results 
+      
+      
+        <small>(default: 250)</small>
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>page</strong> 
+      
+        &mdash; Page to show 
+      
+      
+        <small>(default: 1)</small>
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>path</strong> 
+      
+        &mdash; Show Redirects with given path 
+      
+      
+        
+      
+    </li>
+    
+    <li>
+      <strong>target</strong> 
+      
+        &mdash; Show Redirects with given target 
+      
+      
+        
+      
+    </li>
+    
+  </ul>                              
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/redirects.xml</legend>
+                                     
+     
+     <p>A redirect's "path" attribute is the path which activates this redirect when visited, and a shop cannot have more than one redirect with the same path. The "target" attribute is the URL which the visitor is redirected to when they try to access the associated path. The target could either be a path or a full URL, possibly even for a different domain.</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirects</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">array</span><span class="punct">&quot;&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>950115853<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/ibook<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">shop-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>690933841<span class="punct">&lt;/</span><span class="tag">shop-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>/products/macbook<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1742551077<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/leopard<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">shop-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>690933841<span class="punct">&lt;/</span><span class="tag">shop-id</span><span class="punct">&gt;</span>
+    <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>/pages/macosx<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirects</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="show">top</a>
+
+  <h2>Receive a single Redirect</h2>  
+  
+  <p>            
+    Get a single redirect.
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>GET /admin/redirects/#{id}.xml</legend>
+                                     
+     
+     <p>Get a single redirect by its ID.</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1742551077<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/leopard<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">shop-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>690933841<span class="punct">&lt;/</span><span class="tag">shop-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>/pages/macosx<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="create">top</a>
+
+  <h2>Creating a new Redirect </h2>  
+  
+  <p>            
+    Create a new redirect.
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/redirects.xml</legend>
+                                     
+     
+     <p>We expect users might try going to /ipod in order to find about one of our popular products, but we want to redirect them to /itunes because that's where we have the information they're looking for.</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/ipod<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>/pages/itunes<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1742551087<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/ipod<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">shop-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>690933841<span class="punct">&lt;/</span><span class="tag">shop-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>/pages/itunes<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+   
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>POST /admin/redirects.xml</legend>
+                                     
+     
+     <p>We have a separate forums site that is on a different subdomain. The "path" is always converted to an absolute path without a domain, but the "target" can be a full URL.</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>http://www.apple.com/forums<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>http://forums.apple.com<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 201 Created
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1742551088<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/forums<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">shop-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>690933841<span class="punct">&lt;/</span><span class="tag">shop-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>http://forums.apple.com<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="update">top</a>
+
+  <h2>Modifying an existing Redirect</h2>  
+  
+  <p>            
+    Update a redirect's path and/or target URIs.
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>PUT /admin/redirects/#{id}.xml</legend>
+                                     
+     
+     <p>Change a redirect so that it activates for a different request path:</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1742551077<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/tiger<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>1742551077<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/tiger<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">shop-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>690933841<span class="punct">&lt;/</span><span class="tag">shop-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>/pages/macosx<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+   
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>PUT /admin/redirects/#{id}.xml</legend>
+                                     
+     
+     <p>Change both the path and target URIs for an exisiting redirect</p>
+     
+
+<h4>Request</h4>
+<pre><code>           
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>950115853<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/powermac<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>/pages/macpro<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span>      
+</code></pre>
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK
+<span class="punct">&lt;?</span><span class="tag">xml</span> <span class="attribute">version</span><span class="punct">=&quot;</span><span class="string">1.0</span><span class="punct">&quot;</span> <span class="attribute">encoding</span><span class="punct">=&quot;</span><span class="string">UTF-8</span><span class="punct">&quot;?&gt;</span>
+<span class="punct">&lt;</span><span class="tag">redirect</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>950115853<span class="punct">&lt;/</span><span class="tag">id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">path</span><span class="punct">&gt;</span>/powermac<span class="punct">&lt;/</span><span class="tag">path</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">shop-id</span> <span class="attribute">type</span><span class="punct">=&quot;</span><span class="string">integer</span><span class="punct">&quot;&gt;</span>690933841<span class="punct">&lt;/</span><span class="tag">shop-id</span><span class="punct">&gt;</span>
+  <span class="punct">&lt;</span><span class="tag">target</span><span class="punct">&gt;</span>/pages/macpro<span class="punct">&lt;/</span><span class="tag">target</span><span class="punct">&gt;</span>
+<span class="punct">&lt;/</span><span class="tag">redirect</span><span class="punct">&gt;</span></code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+<div class="example"> 
+  <a href="#top" style="float:right" name="destroy">top</a>
+
+  <h2>Removing a Redirect from the database</h2>  
+  
+  <p>            
+    Delete a redirect
+  </p>               
+                
+  
+  
+  <div style="clear:left"></div>
+
+  
+   <div class="example">  
+                                                  
+     <fieldset>
+     <legend>DELETE /admin/redirects/#{id}.xml</legend>
+                                     
+     
+     <p>Remove an exisiting redirect from a shop</p>
+     
+
+
+
+<h4>Response</h4>
+<pre><code>           
+HTTP/1.1 200 OK</code></pre>
+              
+     </fieldset>
+   </div>
+                      
+  
+</div>
+                   
+				
+          
+
+				<div id="outtro">         
+				  Last updated at Jun 2009 Jun:06 AM.
+				</div>
+      </div>
+      
+      <div id="footer">Shopify &copy; 2009</div>
+    </div>
+
+
+      </div>
+    </div>
+
+
+    </body>
+  </html>
