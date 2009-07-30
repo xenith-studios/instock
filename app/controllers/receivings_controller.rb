@@ -12,51 +12,29 @@ class ReceivingsController < ApplicationController
   end
 
   def show
-    @receiving = Receiving.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @receiving }
-    end
+    begin
+    @receiving = Receiving.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.id])
+    rescue ActiveRecord::RecordNotFound
+      logger.error("Attempt to access a recieving that doesnt exist (#{params[:id]}) for the current shop (#{current_shop.url}).")
+      flash[:error] = "Could not find that receiving!"
+      redirect_to(:action => 'index')
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @receiving }
+      end
+    end #begin   
   end
 
   def new
     @vendor_names = ShopifyAPI::Product.find(:all).map{|product| product.vendor}.uniq
     @receiving = Receiving.new()
     @receiving.shopify_store_id = current_shop.id
-    #product_variant_ids = params['product_variant_ids']
-    #if(product_variant_ids.blank?)
-    #      flash[:notice] = "No products were selected for this receiving. Please select at least one product to receive."
-    #      redirect_to(:action => 'receive_receiving',  :controller => 'warehouse')
-    #else
-    #  @receiving = Receiving.new()
-    #  @receiving.shopify_store_id = current_shop.id
-    #  @variants = Hash.new()
-    #  product_variant_ids.each do |pvid|
-    #    pid, vid = pvid.split("|")
-    #    product = ShopifyAPI::Product.find(pid)
-    #    variant = ShopifyAPI::Variant.find(vid, :params => { :product_id => pid })
-    #    title = variant.title =~ /Default/ ? product.title : product.title + "(" + variant.title + ")" 
-    #    @receiving.receiving_items << ReceivingItem.new(
-    #      :variant_id => vid, 
-    #      :product_id => pid, 
-    #      :title => title,
-    #      :sku => variant.sku)
-    #  end #each
-    #
-    #  respond_to do |format|
-    #    format.html # new.html.erb
-    #    format.xml  { render :xml => @receiving }
-    #  end
-    #end #if
-    
-    #rescue ActiveResource::ResourceNotFound => e
-      # Just ignore it ?!?
   end
 
-  def edit
-    @receiving = Receiving.find(params[:id])
-  end
+  #def edit
+  #  @receiving = Receiving.find(params[:id])
+  #end
 
   def create
     @receiving = Receiving.new(params[:receiving])
@@ -75,20 +53,20 @@ class ReceivingsController < ApplicationController
       # Just ignore it ?!?
   end
 
-  def update
-    @receiving = Receiving.find(params[:id])
-
-    respond_to do |format|
-      if @receiving.update_attributes(params[:receiving])
-        flash[:notice] = 'Receiving was successfully updated.'
-        format.html { redirect_to(:action => 'index') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @receiving.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+  #def update
+  #  @receiving = Receiving.find(params[:id])
+  #
+  #  respond_to do |format|
+  #    if @receiving.update_attributes(params[:receiving])
+  #      flash[:notice] = 'Receiving was successfully updated.'
+  #      format.html { redirect_to(:action => 'index') }
+  #      format.xml  { head :ok }
+  #    else
+  #      format.html { render :action => "edit" }
+  #      format.xml  { render :xml => @receiving.errors, :status => :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   def destroy
     @receiving = Receiving.find(params[:id])
