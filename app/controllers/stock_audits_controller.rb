@@ -15,14 +15,18 @@ class StockAuditsController < ApplicationController
   def new
     # Set up the needed variables
     @audit = StockAudit.new
-    fulfillments = {}
+    fulfillments = []
     @products = {}
     
     # Gather the data from Shopify
     products = ShopifyAPI::Product.find(:all, :sort => :title)
     orders = ShopifyAPI::Order.find(:all, :params => { :status => "open", :fulfillment_status => "unshipped OR partial"})
     orders.each do |order|
-      fulfillments[order] = ShopifyAPI::Fulfillment.find(:all, :params => { :order_id => order.id } )
+      ShopifyAPI::Fulfillment.find(:all, :params => { :order_id => order.id } ).each do |f|
+        unless f.nil?
+          fulfillments << f
+        end
+      end
     end
 
     # Build all the StockAuditItems with data and insert them into @audit
@@ -30,14 +34,15 @@ class StockAuditsController < ApplicationController
       product.variants.each do |variant|
         item = StockAuditItem.new
         item.vendor = product.vendor
-        item.product_id = product.object_id
-        item.variant_id = variant.object_id
+        item.product_id = product.id
+        item.variant_id = variant.id
         item.title = variant.title
         item.product_title = product.title
         item.sku = variant.sku ? variant.sku : "none"
         item.shopify_count = variant.inventory_quantity
-        item.pending_count = orders.map{ |order| order.line_items.select{ |i| i.variant_id == item.variant_id }.map{|i| i.quantity }}.flatten.inject{|sum,element| sum + element }
-        item.expected_count = item.shopify_count + (item.pending_count ? item.pending_count : 0)
+        item.pending_count = orders.map{ |order| order.line_items.select{ |i| i.variant_id == item.variant_id }.map{|i| i.quantity }}.flatten.inject(0) {|sum,element| sum + element }
+        item.pending_count = item.pending_count - fulfillments.map { |fulfillment| fulfillment.line_items.select { |i| i.variant_id == item.variant_id }.map { |i| i.quantity }}.flatten.inject(0) { |sum, element| sum + element }
+        item.expected_count = item.shopify_count + item.pending_count
         @audit.stock_audit_items << item
       end
     end

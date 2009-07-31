@@ -27,7 +27,7 @@
                   <tr>
                     <td><%= variant.title %> <small>(sku: <%= variant.sku %>)</small></td>
                     <td><%= variant.shopify_count %></td>
-                    <td><%= variant.pending_count ? variant.pending_count : 0 %></td>
+                    <td><%= variant.pending_count %></td>
                     <td class="expected"><%= variant.expected_count %></td>
                     <td class="actual"><%= item.text_field :actual_count, :size => 4, :onchange => "calculate_difference(this)" %></td>
                     <td class="difference">0</td>
