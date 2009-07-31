@@ -1,3 +1,4 @@
+<% content_for(:custom_js, javascript_include_tag('stock_audit_new')) %>
 <h1 class="blue">Enter Stock Audit</h1>
   <%= error_messages_for :audit %>
   <table>
@@ -27,9 +28,9 @@
                     <td><%= variant.title %> <small>(sku: <%= variant.sku %>)</small></td>
                     <td><%= variant.shopify_count %></td>
                     <td><%= variant.pending_count ? variant.pending_count : 0 %></td>
-                    <td><%= variant.expected_count %></td>
-                    <td><%= item.text_field :actual_count, :size => 4 %></td>
-                    <td><%= 0 %></td>
+                    <td class="expected"><%= variant.expected_count %></td>
+                    <td class="actual"><%= item.text_field :actual_count, :size => 4, :onchange => "calculate_difference(this)" %></td>
+                    <td class="difference">0</td>
                   </tr>
                   <%= item.hidden_field :product_id, :value => variant.product_id %>
                   <%= item.hidden_field :variant_id, :value => variant.variant_id %>
@@ -46,5 +47,6 @@
         </tbody>
     </table>
     Enter your name: <%= audit.text_field :created_by %>
+    <%= audit.hidden_field :shopify_store_id, :value => current_shop.shop.id %>
     <%= submit_tag 'Complete Audit' %>
   <% end %>
