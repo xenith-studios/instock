@@ -80,7 +80,7 @@ class StockAuditsController < ApplicationController
   end
   
   def show
-    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id], :include => [:stock_audit_items])
+    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id], :include => :stock_audit_items)
     @products = {}
     @vendors = @audit.stock_audit_items.map{ |item| item.vendor}.uniq.sort{ |a,b| a.casecmp(b)}
     @vendors.each do |vendor|
@@ -92,25 +92,26 @@ class StockAuditsController < ApplicationController
       format.xml  { render :xml => @audit }
     end
   end
-  
-  def edit
-    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
-  end
-  
-  def update
-    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
 
-    respond_to do |format|
-      if @audit.update_attributes(params[:audit])
-        flash[:notice] = 'StockAudit was successfully updated.'
-        format.html { redirect_to(@audit) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @audit.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+  # Disable editing of stock audits
+  #def edit
+  #  @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id], :include => :stock_audit_items )
+  #end
+  
+  #def update
+  #  @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
+
+  #  respond_to do |format|
+  #    if @audit.update_attributes(params[:audit])
+  #      flash[:notice] = 'StockAudit was successfully updated.'
+  #      format.html { redirect_to(@audit) }
+  #      format.xml  { head :ok }
+  #    else
+  #      format.html { render :action => "edit" }
+  #      format.xml  { render :xml => @audit.errors, :status => :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   def destroy
     @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
@@ -120,7 +121,7 @@ class StockAuditsController < ApplicationController
     @audit.save
 
     respond_to do |format|
-      format.html { redirect_to(admin_audits_url) }
+      format.html { redirect_to :action => "index" }
       format.xml  { head :ok }
     end
   end

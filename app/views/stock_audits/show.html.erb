@@ -1,4 +1,6 @@
 <h1 class="blue">Stock Audit</h1>
+<small><%= link_to 'Back', stock_audits_path %></small>
+<div>Created by <%= @audit.created_by %> on <%= @audit.created_at %><br/></div>
 <table>
   <thead>
     <tr>
@@ -29,7 +31,3 @@
           <% end %>
       </tbody>
   </table>
-  Created by <%= @audit.created_by %><br/>
-
-<%= link_to 'Edit', edit_stock_audit_path(@audit) %> |
-<%= link_to 'Back', stock_audits_path %>
