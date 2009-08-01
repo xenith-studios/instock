@@ -1,3 +1,35 @@
 <h1 class="blue">Stock Audit</h1>
+<table>
+  <thead>
+    <tr>
+      <td>Variant</td>
+      <td>Expected On Hand</td>
+      <td>Actual Count</td>
+      <td>Difference</td>
+    </tr>
+  </thead>
+  <tbody>
+      <% @vendors.each do |vendor| %>
+        <tr><td colspan="6" class="dark"><%= vendor %></td></tr>
+          <% @products[vendor].each do |product| %>
+            <tr>
+              <td colspan="6" class="light">
+                <%= link_to product[0], "http://#{current_shop.url}/admin/products/#{product[1]}" %>
+              </td>
+            </tr>
+            <% @audit.stock_audit_items.select{ |item| item.product_title == product[0] }.each do |variant| %>
+                <tr>
+                  <td><%= variant.title %> <small>(sku: <%= variant.sku %>)</small></td>
+                  <td class="expected"><%= variant.expected_count %></td>
+                  <td class="actual"><%= variant.actual_count %></td>
+                  <td class="difference"><%= variant.actual_count - variant.expected_count %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          <% end %>
+      </tbody>
+  </table>
+  Created by <%= @audit.created_by %><br/>
+
 <%= link_to 'Edit', edit_stock_audit_path(@audit) %> |
 <%= link_to 'Back', stock_audits_path %>

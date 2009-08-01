@@ -41,7 +41,7 @@ class StockAuditsController < ApplicationController
         item.sku = variant.sku ? variant.sku : "none"
         item.shopify_count = variant.inventory_quantity
         item.pending_count = orders.map{ |order| order.line_items.select{ |i| i.variant_id == item.variant_id }.map{|i| i.quantity }}.flatten.inject(0) {|sum,element| sum + element }
-        item.pending_count = item.pending_count - fulfillments.map { |fulfillment| fulfillment.line_items.select { |i| i.variant_id == item.variant_id }.map { |i| i.quantity }}.flatten.inject(0) { |sum, element| sum + element }
+        item.pending_count -= fulfillments.map { |fulfillment| fulfillment.line_items.select { |i| i.variant_id == item.variant_id }.map { |i| i.quantity }}.flatten.inject(0) { |sum, element| sum + element }
         item.expected_count = item.shopify_count + item.pending_count
         @audit.stock_audit_items << item
       end
@@ -80,7 +80,12 @@ class StockAuditsController < ApplicationController
   end
   
   def show
-    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
+    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id], :include => [:stock_audit_items])
+    @products = {}
+    @vendors = @audit.stock_audit_items.map{ |item| item.vendor}.uniq.sort{ |a,b| a.casecmp(b)}
+    @vendors.each do |vendor|
+      @products[vendor] = @audit.stock_audit_items.select{ |item| item.vendor == vendor }.map{ |item| [item.product_title, item.product_id] }.uniq.sort{ |a, b| a[0].casecmp(b[0]) }
+    end
 
     respond_to do |format|
       format.html # show.html.erb
