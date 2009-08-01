@@ -19,8 +19,7 @@ class AjaxController < ApplicationController
   def receiving_items
     product_variant_ids = params['product_variant_ids']
     if(product_variant_ids.blank?)
-          flash[:notice] = "No products were selected for this receiving. Please select at least one product to receive."
-          redirect_to(:action => 'receive_receiving',  :controller => 'warehouse')
+      render :text => "No products were selected for this receiving. Please select at least one product to receive."
     else
       @receiving = Receiving.new()
       @receiving.shopify_store_id = current_shop.id
@@ -37,11 +36,32 @@ class AjaxController < ApplicationController
           :sku => variant.sku)
       end #each
       render(:layout => false)
+    end #if
     
-      #respond_to do |format|
-      #  format.html # new.html.erb
-      #  format.xml  { render :xml => @receiving }
-      #end
+    rescue ActiveResource::ResourceNotFound => e
+      # Just ignore it ?!?
+  end
+  
+  def stock_adjustment_items
+    product_variant_ids = params['product_variant_ids']
+    if(product_variant_ids.blank?)
+      render :text => "No products were selected for this stock adjustment. Please select at least one product to adjust stock for."
+    else
+      @stock_adjustment = StockAdjustment.new()
+      @stock_adjustment.shopify_store_id = current_shop.id
+      @variants = Hash.new()
+      product_variant_ids.each do |pvid|
+        pid, vid = pvid.split("|")
+        product = ShopifyAPI::Product.find(pid)
+        variant = ShopifyAPI::Variant.find(vid, :params => { :product_id => pid })
+        title = variant.title =~ /Default/ ? product.title : product.title + "(" + variant.title + ")" 
+        @stock_adjustment.stock_adjustment_items << StockAdjustmentItem.new(
+          :variant_id => vid, 
+          :product_id => pid, 
+          :title => title,
+          :sku => variant.sku)
+      end #each
+      render(:layout => false)
     end #if
     
     rescue ActiveResource::ResourceNotFound => e

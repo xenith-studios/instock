@@ -1,12 +1,12 @@
 <% content_for(:custom_js, javascript_include_tag('variant_select')) %>
-<h1 class="blue">Enter Receiving Data</h1>
+<h1 class="blue">Enter Stock Adjustment Data</h1>
 
-<% form_remote_tag :url => "/ajax/receiving_items", :update => 'receivingForm' do %>
+<% form_remote_tag :url => "/ajax/stock_adjustment_items", :update => 'stockAdjustmentForm' do %>
   <div class="box">
 	  <table>
   	    <tr>
   		    <td valign="top">
-      			<label for="vendors">From:</label>
+      			<label for="vendors">Vendor:</label>
       		</td>
       		<td>
       			<select id="vendors" name="vendors" size="10">
@@ -25,14 +25,13 @@
   	</table>
   </div>
   <br />
-  <%= submit_tag("Use Checked Variants", :onclick => "start_spinner($('#receivingForm .box .wrapper'))")%>
+  <%= submit_tag("Use Checked Variants", :onclick => "start_spinner($('#stockAdjustmentForm .box .wrapper'))")%>
 <% end #form_remote %>
 <br />
-<div id="receivingForm">
+<div id="stockAdjustmentForm">
   <div class="box">
     <div class="wrapper">
     <span class="highlight">Select a vendor and at least one variant</span>
     </div>
   </div>
 </div>
-

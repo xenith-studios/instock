@@ -9,6 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20090801002302) do
 
   create_table "receiving_items", :force => true do |t|
@@ -39,6 +40,25 @@ ActiveRecord::Schema.define(:version => 20090801002302) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "stock_adjustment_items", :force => true do |t|
+    t.integer  "stock_adjustment_id"
+    t.integer  "product_id"
+    t.integer  "variant_id"
+    t.string   "title"
+    t.string   "sku"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stock_adjustments", :force => true do |t|
+    t.integer  "shopify_store_id"
+    t.string   "reason"
+    t.string   "created_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stock_audit_items", :force => true do |t|
     t.integer  "stock_audit_id"

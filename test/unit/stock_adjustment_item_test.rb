@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class ReceivingItemTest < ActiveSupport::TestCase
-  context "A ReceivingItem" do
+class StockAdjustmentItemTest < ActiveSupport::TestCase
+  context "A Stock Adjustment Item" do
     setup do
-      @invalid = ReceivingItem.new()
+      @invalid = StockAdjustmentItem.new()
       @invalid.count = -20
     end
     should "not allow a negative :count" do

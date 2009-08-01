@@ -3,7 +3,7 @@ class ReceivingsController < ApplicationController
   layout 'application'
   
   def index
-    @receivings = Receiving.find :all, :conditions => ["shopify_store_id = ?", current_shop.id]
+    @receivings = Receiving.find(:all, :conditions => ["shopify_store_id = ?", current_shop.shop.id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class ReceivingsController < ApplicationController
 
   def show
     begin
-    @receiving = Receiving.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.id])
+    @receiving = Receiving.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access a recieving that doesnt exist (#{params[:id]}) for the current shop (#{current_shop.url}).")
       flash[:error] = "Could not find that receiving!"
@@ -29,7 +29,6 @@ class ReceivingsController < ApplicationController
   def new
     @vendor_names = ShopifyAPI::Product.find(:all).map{|product| product.vendor}.uniq
     @receiving = Receiving.new()
-    @receiving.shopify_store_id = current_shop.id
   end
 
   #def edit
@@ -38,6 +37,7 @@ class ReceivingsController < ApplicationController
 
   def create
     @receiving = Receiving.new(params[:receiving])
+    @receiving.shopify_store_id = current_shop.shop.id
 
     respond_to do |format|
       if @receiving.save
@@ -45,7 +45,8 @@ class ReceivingsController < ApplicationController
         format.html { redirect_to(:action => 'index') }
         format.xml  { render :xml => @receiving, :status => :created, :location => @receiving }
       else
-        format.html { render :action => "new" }
+        flash[:notice] = 'Could not create Receiving. Fix the errors below and try again.'
+        format.html { render :action => "create" }
         format.xml  { render :xml => @receiving.errors, :status => :unprocessable_entity }
       end
     end

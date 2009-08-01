@@ -1,0 +1,7 @@
+<% content_for(:custom_js, javascript_include_tag('variant_select')) %>
+<h1 class="blue">Enter Receiving Data</h1>
+<div id="stockAdjustmentForm">
+  <div class="box">
+    <%= render(:file => "ajax/stock_adjustment_items.html.erb")%>
+  </div>
+</div>

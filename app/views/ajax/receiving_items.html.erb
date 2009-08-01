@@ -1,5 +1,5 @@
-<% form_for(@receiving, :url => {:action => 'create'}) do |receiving_form| %>
-  <div class="box">
+<% form_for(@receiving, :url => {:controller => 'receivings', :action => 'create'}) do |receiving_form| %>
+  <div class="box"><div class="wrapper">
 	<%= receiving_form.hidden_field(:shopify_store_id)%>
 		<table>
 			<thead>
@@ -37,7 +37,7 @@
 			</tbody>
 		</table>
 	
-  </div>
+  </div></div>
   <br />
   <%= submit_tag("Process Receiving") %>
 <% end #form_for %>

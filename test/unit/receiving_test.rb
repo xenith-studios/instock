@@ -12,6 +12,5 @@ class ReceivingTest < ActiveSupport::TestCase
       @receiving.created_by = "Bob"
       assert_valid(@receiving)
     end
-    
   end #context
 end

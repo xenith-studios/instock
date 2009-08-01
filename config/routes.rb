@@ -1,8 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.root :controller => 'home'
 
   map.resources :stock_audits, :has_many => :stock_audit_items
   map.resources :receivings, :has_many => :receiving_items
+  map.resources :stock_adjustments, :has_many => :stock_adjustment_items
 
   map.connect 'login/:action/:id', :controller => 'login'
 

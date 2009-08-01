@@ -1,0 +1,2 @@
+module StockAdjustmentsHelper
+end

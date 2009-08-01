@@ -6,17 +6,27 @@ $(document).ready(function() {
 		$('#productVariants').load("/ajax/vendor_products", {vendor_name: vendor}, null, stop_spinner($('#productVariants')));
 		start_spinner($('#productVariants'));
 	})
-	
 })
 
 function new_total(item)
 {
   var grandparent = $(item).parent().parent();
-	new_count = Number($(item).val());
-	old_count = Number(grandparent.children('td.oldCount').text());
-	if(!isNaN(old_count + new_count)){
+	var new_count = Number($(item).val());
+	var old_count = Number(grandparent.children('td.oldCount').text());
+	var reason = $("#stock_adjustment_reason").val();
+	switch(reason)
+	{
+	  case "Defective":
+	  case "Donation":
+	    var total = old_count - new_count;
+	    break;
+	  default:
+	    var total = old_count + new_count;
+	    break;
+	}
+	if(!isNaN(total)){
 	  grandparent.children('td.newTotal').empty();
-	  grandparent.children('td.newTotal').text(old_count + new_count);
+	  grandparent.children('td.newTotal').text(total);
 	}
 }
 
@@ -28,4 +38,9 @@ function start_spinner(element)
 function stop_spinner(element)
 {
   $(element).html('');
+}
+
+function update_all_totals()
+{
+  $('.newCount input').trigger('change');
 }
