@@ -8,4 +8,17 @@ class HomeController < ApplicationController
   def design
   end
   
+  def contact
+  end
+  
+  def about
+    
+  end
+  
+  def support
+    
+  end
+  
+  def preferences
+  end
 end

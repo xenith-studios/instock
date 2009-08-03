@@ -24,8 +24,7 @@
     <h1><%= link_to 'inStock', '/' %></h1>      
     <p id="login-link">  
       <% if current_shop %>
-          <span class="note"><%= current_shop.url %></span> 
-          <%= current_shop.shop.id %>
+          <span class="note"><%= current_shop.url %></span>
 		  <%= link_to "Store", "http://#{current_shop.url}", :class => 'shop_name' %> <span class="note">|</span> 
 		  <%= link_to "Admin", "http://#{current_shop.url}/admin/products", :class => 'shop_name' %> <span class="note">|</span>
           <%= link_to 'logout', :controller => "login", :action => 'logout' %>
