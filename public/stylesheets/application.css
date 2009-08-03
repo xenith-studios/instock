@@ -73,15 +73,3 @@ ul.variantList li {
   margin-right:auto;
   width:750px;
 }
-
-#footer {
-    color: #fffad5;
-    background: #2d3337;
-    padding: 5px 5px 5px 70px;
-    border-bottom: 5px solid #1f2326;
-    border-top: 1px solid #252a2e;
-}
-
-#footer ul.footer-list { list-style:none; margin: 0; padding: 0; }
-#footer ul.footer-list li { display:inline; margin: 0; padding-right: 1em; font-size: 11px;}
-#footer strong { color: #999;}
