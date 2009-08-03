@@ -9,7 +9,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20090801002302) do
 
   create_table "receiving_items", :force => true do |t|
