@@ -21,7 +21,7 @@
 <body>
   
   <div id="header">
-    <h1><%= link_to 'inStock', '/' %></h1>      
+    <h1><%= link_to 'inStock', '/' %><span class="beta"><small>beta</small></span></h1>      
     <p id="login-link">  
       <% if current_shop %>
           <span class="note"><%= current_shop.url %></span>
@@ -57,7 +57,7 @@
     <div id="footer">
       <ul class="footer-list">
         <li><strong>inStock</strong> is copyright © 2009 <strong><a href="http://www.bazaarconsulting.com/">Bazaar Consulting</a></strong></li>
-        <li><%= link_to "Contact", :contact %> | <%= link_to "About", :about %> | <a href="http://getsatisfaction.com/bazaar_consulting">Support</a></li>
+        <li><%= link_to "Contact", :contact %> | <%= link_to "About", :about %> | <a href="http://getsatisfaction.com/bazaar_consulting/products/bazaar_consulting_instock">Support</a></li>
       </ul>
     </div>
 

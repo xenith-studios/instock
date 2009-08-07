@@ -1,3 +1,8 @@
+div.forReading {
+  border-right : dashed 2px #ccc;
+  width: 700px;
+  margin-left: 5px;
+}
 h1 a.light_bg {
   color: #333;
 }
@@ -53,6 +58,9 @@ ul.variantList li {
   border: 2px solid #ce6e21;
 }
 
+.beta {
+  color: #ce6e21;
+}
 
 
 /* IDs */
