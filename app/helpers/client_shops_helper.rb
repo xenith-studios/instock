@@ -1,0 +1,2 @@
+module ClientShopsHelper
+end

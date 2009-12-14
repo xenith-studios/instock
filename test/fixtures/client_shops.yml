@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  domain: MyString
+  name: MyString
+  shopify_store_id: 1
+  email: MyString
+  name: MyString
+  shop-owner: MyString
+  active-subscription-id: 1
+
+two:
+  domain: MyString
+  name: MyString
+  shopify_store_id: 1
+  email: MyString
+  name: MyString
+  shop-owner: MyString
+  active-subscription-id: 1
