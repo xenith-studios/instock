@@ -1,4 +1,4 @@
-RAILS_DEFAULT_LOGGER.debug "message"class ClientShopsController < ApplicationController
+class ClientShopsController < ApplicationController
   # GET /client_shops
   # GET /client_shops.xml
   def index

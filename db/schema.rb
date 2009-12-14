@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090801002302) do
+ActiveRecord::Schema.define(:version => 20091212033118) do
+
+  create_table "client_shops", :force => true do |t|
+    t.string   "domain"
+    t.string   "name"
+    t.integer  "shopify_store_id"
+    t.string   "email"
+    t.string   "shop_owner"
+    t.integer  "active_subscription_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "receiving_items", :force => true do |t|
     t.integer  "receiving_id"
