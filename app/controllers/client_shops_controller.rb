@@ -1,4 +1,5 @@
 class ClientShopsController < ApplicationController
+  before_filter :require_admin
   # GET /client_shops
   # GET /client_shops.xml
   def index
