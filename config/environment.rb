@@ -43,4 +43,5 @@ Rails::Initializer.run do |config|
   config.gem "rspec", :lib => false, :version => ">= 1.2.0" 
   config.gem "rspec-rails", :lib => false, :version => ">= 1.2.0" 
   config.gem "rack", :lib => false, :version => ">= 1.0.0" 
+  config.gem 'hoptoad_notifier'
 end
