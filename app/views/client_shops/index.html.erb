@@ -1,4 +1,4 @@
-<h1>Listing client_shops</h1>
+<h1>Listing Client Shops</h1>
 
 <table>
   <tr>
@@ -18,8 +18,8 @@
     <td><%=h client_shop.shopify_store_id %></td>
     <td><%=h client_shop.email %></td>
     <td><%=h client_shop.name %></td>
-    <td><%=h client_shop.shop-owner %></td>
-    <td><%=h client_shop.active-subscription-id %></td>
+    <td><%=h client_shop.shop_owner %></td>
+    <td><%=h client_shop.active_subscription_id %></td>
     <td><%= link_to 'Show', client_shop %></td>
     <td><%= link_to 'Edit', edit_client_shop_path(client_shop) %></td>
     <td><%= link_to 'Destroy', client_shop, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -27,6 +27,3 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New client_shop', new_client_shop_path %>

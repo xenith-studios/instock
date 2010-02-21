@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_admin_session, :current_admin
-
+  
   private
     def current_admin_session
       return @current_admin_session if defined?(@current_admin_session)

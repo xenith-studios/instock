@@ -9,7 +9,11 @@ ActionController::Routing::Routes.draw do |map|
   map.about 'about', :controller => :home, :action => "about"
   map.support 'support', :controller => :home, :action => "support"
 
+  #Admin
+  map.admin_logout "admin_logout", :controller => "admin_sessions", :action => "destroy"
   #Resources
+  map.resource :account, :controller => "admins"
+  map.resources :admins 
   map.resource :admin_session
     map.root :controller => "admin_session_sessions", :action => "new"
     

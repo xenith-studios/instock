@@ -5,9 +5,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>ClientShops: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'admin' %>
 </head>
 <body>
+  <div id="admin_management"><%= link_to("Logout", admin_logout_url) if current_admin %></div>
 
 <p style="color: green"><%= flash[:notice] %></p>
 
