@@ -1,2 +1,4 @@
 rack --version '>= 1.0.0'
 rails --version 2.3.3
+shopify_api --version 1.0.2
+hoptoad_notifier --version 2.1.3

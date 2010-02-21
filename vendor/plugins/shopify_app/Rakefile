@@ -5,7 +5,7 @@ require 'rake/rdoctask'
 require 'rake/gempackagetask'
 require 'ftools'
 
-#VERSION = '0.0.1'
+VERSION = '0.0.1'
 
 puts 'Starting to build a new Gem...'
 spec = Gem::Specification.new do |s|
