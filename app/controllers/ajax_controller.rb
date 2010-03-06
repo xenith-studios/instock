@@ -1,6 +1,6 @@
 class AjaxController < ApplicationController
   around_filter :shopify_session
-  protect_from_forgery :except => [:vendor_products, :receiving_item]
+  protect_from_forgery :except => [:vendor_products, :receiving_item, :methods]
   
   def receiving_item
     pvid = params['pvid']
@@ -75,5 +75,17 @@ class AjaxController < ApplicationController
       render(:layout => false)
     #end #if
   end
-
+  
+  def methods
+    @vendor_names = ShopifyAPI::Product.find(:all).map{|product| product.vendor}.uniq
+    case params['method']
+    when 'vendors'
+      render(:partial => 'vendor_select')
+    when 'collections'
+      render(:partial => 'collection_select')
+    else
+      render(:text => "params say #{params.inspect}")
+    end
+  end
+  
 end

@@ -1,28 +1,38 @@
 <% content_for(:custom_js, javascript_include_tag('variant_select')) %>
 <h1 class="blue">Enter Receiving Data</h1>
-
+<% form_tag "javascrkpt:void(0)", {:id => :method_select} do %>
+  <div class="box">
+    <h2 class="blue">Step One</h2>
+    <div class="wrapper">
+      <span class="highlight">Choose how you want to make this receiving: </span>
+      <br /> <br />
+      <%= select_tag :method, options_for_select({"By Vendors" => 'vendors', "By Collections" => 'collections'}, {:selected => 'vendors'})%>
+      <br />
+    </div>
+  </div>
+<% end #form_tag %>
+<%= observe_field :method_select, :url => "/ajax/methods", :update => 'selector'%>
 <% form_remote_tag :url => "/ajax/receiving_items", :update => 'receivingForm' do %>
   <div class="box">
-	  <table>
-  	    <tr>
-  		    <td valign="top">
-      			<label for="vendors">From:</label>
-      		</td>
-      		<td>
-      			<select id="vendors" name="vendors" size="10">
-      				<% @vendor_names.each do |vn| %>
-      				<option value="<%= vn %>"><%= vn %></p>
-      				<% end #each %>
-      			</select>
-      		</td>
-      		<td valign="top">
-      			<label for="product_variants">Variants:</label>
-      		</td>
-      		<td>
-      			<div id="productVariants"></div>
-      	    </td>
-  	    </tr>
-  	</table>
+    <h2 class="blue">Step Two</h2>
+    <div class="wrapper">
+	    <table>
+    	    <tr>
+    		    <td valign="top">
+        			<label for="vendors">From:</label>
+        		</td>
+        		<td id="selector">
+              <span class="highlight">Select a method from above.</span>
+        		</td>
+        		<td valign="top">
+        			<label for="product_variants">Variants:</label>
+        		</td>
+        		<td>
+        			<div id="productVariants"></div>
+        	    </td>
+    	    </tr>
+    	</table>
+  	</div>
   </div>
   <br />
   <%= submit_tag("Use Checked Variants", :onclick => "start_spinner($('#receivingForm .box .wrapper'))")%>
@@ -31,7 +41,7 @@
 <div id="receivingForm">
   <div class="box">
     <div class="wrapper">
-    <span class="highlight">Select a vendor and at least one variant</span>
+    <span class="highlight">Select at least one variant.</span>
     </div>
   </div>
 </div>

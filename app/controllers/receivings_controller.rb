@@ -27,7 +27,6 @@ class ReceivingsController < ApplicationController
   end
 
   def new
-    @vendor_names = ShopifyAPI::Product.find(:all).map{|product| product.vendor}.uniq
     @receiving = Receiving.new()
   end
 
