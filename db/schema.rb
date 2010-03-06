@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(:version => 20091220210417) do
     t.datetime "updated_at"
   end
 
+  create_table "merchants", :force => true do |t|
+    t.string   "store_url"
+    t.boolean  "paid",       :default => false
+    t.integer  "store_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "receiving_items", :force => true do |t|
     t.integer  "receiving_id"
     t.integer  "product_id"
