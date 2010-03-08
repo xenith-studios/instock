@@ -50,6 +50,10 @@ ul.variantList li {
 
 /* Classes */
 
+.beta {
+  color: #ce6e21;
+}
+
 .formError {
   color: #ce6e21;
 }
@@ -58,8 +62,10 @@ ul.variantList li {
   border: 2px solid #ce6e21;
 }
 
-.beta {
-  color: #ce6e21;
+.firstCol {
+  min-width: 150px;
+  height: 150px;
+  /* background: orange; */
 }
 
 

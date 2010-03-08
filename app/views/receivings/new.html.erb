@@ -6,12 +6,15 @@
     <div class="wrapper">
       <span class="highlight">Choose how you want to make this receiving: </span>
       <br /> <br />
-      <%= select_tag :method, options_for_select({"By Vendors" => 'vendors', "By Collections" => 'collections'}, {:selected => 'vendors'})%>
+      <%= select_tag :method, options_for_select(
+        {"Select a Method" => 'choose', "By Vendors" => 'vendors', "By Collections" => 'collections'}, 
+        {:selected => 'choose', :disabled => 'choose'}
+      )%>
       <br />
     </div>
   </div>
 <% end #form_tag %>
-<%= observe_field :method_select, :url => "/ajax/methods", :update => 'selector'%>
+<%= observe_field :method_select, :url => "/ajax/methods", :update => 'selector', :loading => "start_spinner($('#selector'));"%>
 <% form_remote_tag :url => "/ajax/receiving_items", :update => 'receivingForm' do %>
   <div class="box">
     <h2 class="blue">Step Two</h2>
@@ -21,8 +24,8 @@
     		    <td valign="top">
         			<label for="vendors">From:</label>
         		</td>
-        		<td id="selector">
-              <span class="highlight">Select a method from above.</span>
+        		<td id="selector" class="firstCol">
+        		  <span class="highlight">Please select a method for choosing products from above.</span>
         		</td>
         		<td valign="top">
         			<label for="product_variants">Variants:</label>

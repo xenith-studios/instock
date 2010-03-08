@@ -1,0 +1,8 @@
+<% form_tag "javascrkpt:void(0)", {:id => :collection_select} do %>
+  <select id="collections" name="collections" size="10" class="tenSelector">
+  	<% @collection_names.each do |cn| %>
+    	<option value="<%= cn %>"><%= cn %></p>
+  	<% end #each %>
+  </select>
+<% end #form_tag %>
+<%= observe_field :collection_select, :url => "/ajax/vendor_products", :update => 'productVariants', :loading => "start_spinner($('#productVariants'));"%>

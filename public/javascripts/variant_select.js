@@ -1,11 +1,13 @@
 $(document).ready(function() {
   /* Populate product variant checkboxes. */
+  /* Now handled by observe_form
   $('#vendors').click(function() {
 		var vendor = $(this).val();
 		$('#productVariants').empty();
 		$('#productVariants').load("/ajax/vendor_products", {vendor_name: vendor}, null, stop_spinner($('#productVariants')));
 		start_spinner($('#productVariants'));
 	})
+	*/
 })
 
 function new_total(item)

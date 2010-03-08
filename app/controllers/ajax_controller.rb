@@ -77,14 +77,13 @@ class AjaxController < ApplicationController
   end
   
   def methods
-    @vendor_names = ShopifyAPI::Product.find(:all).map{|product| product.vendor}.uniq
     case params['method']
     when 'vendors'
+      @vendor_names = ShopifyAPI::Product.find(:all).map{|product| product.vendor}.uniq
       render(:partial => 'vendor_select')
     when 'collections'
+      @collection_names = ShopifyAPI::CustomCollection.find(:all).map{|collection| collection.title}.uniq
       render(:partial => 'collection_select')
-    else
-      render(:text => "params say #{params.inspect}")
     end
   end
   
