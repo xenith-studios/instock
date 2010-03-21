@@ -1,6 +1,19 @@
 class AjaxController < ApplicationController
   around_filter :shopify_session
-  protect_from_forgery :except => [:vendor_products, :receiving_item, :methods]
+  protect_from_forgery :except => [:vendor_products, :receiving_item, :methods, :collection_products]
+  
+  def collection_products
+    #if(request.post?)
+      collection_ids = params['collection_ids'].to_a
+      @products = []
+      collection_ids.each do |col_id| 
+        ShopifyAPI::Collect.find(:all, :params => {:collection_id => col_id}).map do |collect| 
+          @products << ShopifyAPI::Product.find(collect.product_id)
+        end #map
+      end #each
+      render(:partial => 'product_checkboxes')
+    #end #if
+  end
   
   def receiving_item
     pvid = params['pvid']
@@ -72,7 +85,7 @@ class AjaxController < ApplicationController
     #if(request.post?)
       vendor_name = params['vendor_name']
       @products = ShopifyAPI::Product.find(:all, :params => {:vendor => vendor_name})
-      render(:layout => false)
+      render(:partial => 'product_checkboxes')
     #end #if
   end
   
@@ -82,7 +95,7 @@ class AjaxController < ApplicationController
       @vendor_names = ShopifyAPI::Product.find(:all).map{|product| product.vendor}.uniq
       render(:partial => 'vendor_select')
     when 'collections'
-      @collection_names = ShopifyAPI::CustomCollection.find(:all).map{|collection| collection.title}.uniq
+      @collections = ShopifyAPI::CustomCollection.find(:all) + ShopifyAPI::SmartCollection.find(:all)
       render(:partial => 'collection_select')
     end
   end
