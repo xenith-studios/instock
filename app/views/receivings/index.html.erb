@@ -6,22 +6,21 @@
 <% else %>
   <div class="box wrapper">
   <table>
-  	<thead>
-  		<tr><td>Date</td><td>PO #</td><td>Staff Member</td><td colspan="2">&nbsp;</td></tr>
-   	</thead>
-   	<tbody>
-   	    <% message = "Are you sure you want to delete this receiving?" %>
-   	    <% @receivings.each do |receiving| %>
-   	    <tr>
-   	        <td><%= link_to(receiving.created_at, :action => 'show', :id => receiving.id) %></td>
-   	        <td><%= receiving.po_number%></td>
-   	        <td><%= receiving.created_by %></td>
-   	        <td><%#= link_to("Edit", {:action => 'edit', :id => receiving.id}, :method => :get) %> </td>
-   	        <td><%= link_to("X", {:action => 'destroy', :id => receiving.id}, :confirm => message, :method => :delete) %></td>
-   	    </tr>
-   	    <% end #each %>
-   	</tbody>
+    <thead>
+      <tr><td>Date</td><td>PO #</td><td>Employee</td><td colspan="2">&nbsp;</td></tr>
+    </thead>
+    <tbody>
+    <% @receivings.each do |receiving| %>
+      <tr>
+        <td><%= link_to(receiving.created_at , {:action => 'show', :id => receiving.id}) %></td>
+        <td><%=h receiving.po_number %></td>
+        <td><%=h receiving.created_by %></td>
+        <td><%= link_to 'X', receiving, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
   </table>
   </div>
 <% end #if %>
-<p><%= link_to("Add Receiving", {:action => 'new', :controller => 'receivings'}, :method => :get) %></p>
+<p><%= link_to("Add a Receiving", {:action => 'new', :controller => 'receivings'}, :method => :get) %></p>
+
