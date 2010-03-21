@@ -1,6 +1,6 @@
-<% @products.each do |product| %>
+<% @products.flatten.uniq.each do |product| %>
 	<div class="productCheckboxes">
-		<h2><%= product.title %></h2>
+		<h3><%= product.title %></h3>
 		<ul class="variantList">
 			<% variant_count = product.variants.length %>
 			<% product.variants.each do |variant| %>
@@ -10,7 +10,7 @@
 					<% title = (variant.title == "Default") ? product.title : variant.title %>
 					<label for="product_variants"><%= title %></label>
 				</div>
-			</link>
+			</li>
 			<% end #each %>
 		</ul>
 	</div>
