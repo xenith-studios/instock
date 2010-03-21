@@ -15,19 +15,20 @@ class AjaxController < ApplicationController
     #end #if
   end
   
-  def receiving_item
-    pvid = params['pvid']
-    pid, vid = pvid.split("|")
-    product = ShopifyAPI::Product.find(pid)
-    variant = ShopifyAPI::Variant.find(vid, :params => { :product_id => pid })
-    title = variant.title =~ /Default/ ? product.title : product.title + "(" + variant.title + ")"
-    @receiving_item = ReceivingItem.new(
-      :variant_id => vid, 
-      :product_id => pid, 
-      :title => title,
-      :sku => variant.sku)
-    render(:layout => false)
-  end
+  #no longer used?
+  #def receiving_item
+  #  pvid = params['pvid']
+  #  pid, vid = pvid.split("|")
+  #  product = ShopifyAPI::Product.find(pid)
+  #  variant = ShopifyAPI::Variant.find(vid, :params => { :product_id => pid })
+  #  title = variant.title =~ /Default/ ? product.title : product.title + "(" + variant.title + ")"
+  #  @receiving_item = ReceivingItem.new(
+  #    :variant_id => vid, 
+  #    :product_id => pid, 
+  #    :title => title,
+  #    :sku => variant.sku)
+  #  render(:layout => false)
+  #end
   
   def receiving_items
     product_variant_ids = params['product_variant_ids']

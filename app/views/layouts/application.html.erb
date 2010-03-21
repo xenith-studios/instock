@@ -38,22 +38,16 @@
             "Stock Audits" => {:controller => 'stock_audits'}   
         }) %>
     </h2>
-  </div>
-
-  <div id="container" class="clearfix">
-    
- 
+  <!-- end div#header -->
+  </div> 
     <!-- Flash error & notice-->
     <% if flash[:error] %> <div id="flasherrors"><%= flash[:error] %></div><% end %>
     <% if flash[:notice] %><div id="flashnotices"><%= flash[:notice] %></div><% end %>
   
-    <!-- begin div.main-->
     <div id="main">
-      <%= @content_for_layout %>   
+      <%= yield %>  
     </div>
-    <!-- end div.main -->
-    </div>
-
+    
     <div id="footer">
       <ul class="footer-list">
         <li><strong>inStock</strong> is copyright © 2009-2010 <strong>Bazaar Consulting</strong></li>

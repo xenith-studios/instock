@@ -15,6 +15,7 @@
   </div>
 <% end #form_tag %>
 <%= observe_field :method_select, :url => "/ajax/methods", :update => 'selector', :loading => "start_spinner($('#selector'));"%>
+
 <% form_remote_tag :url => "/ajax/receiving_items", :update => 'receivingForm' do %>
   <div class="box">
     <h2 class="blue">Step Two</h2>
@@ -32,7 +33,7 @@
         		</td>
         		<td>
         			<div id="productVariants"></div>
-        	    </td>
+        	  </td>
     	    </tr>
     	</table>
   	</div>

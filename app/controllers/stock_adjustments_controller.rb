@@ -1,7 +1,6 @@
 class StockAdjustmentsController < ApplicationController
   around_filter :shopify_session
-  layout 'application'
-  
+
   def index
     @stock_adjustments = StockAdjustment.find(:all, :conditions => ["shopify_store_id = ?", current_shop.shop.id])
 

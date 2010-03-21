@@ -1,6 +1,5 @@
 class ReceivingsController < ApplicationController
   around_filter :shopify_session
-  layout 'application'
   
   def index
     @receivings = Receiving.find(:all, :conditions => ["shopify_store_id = ?", current_shop.shop.id])
