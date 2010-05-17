@@ -13,34 +13,34 @@
       <br />
     </div>
   </div>
-<% end #form_tag %>
+<% end %>
 <%= observe_field :method_select, :url => "/ajax/methods", :update => 'selector', :loading => "start_spinner($('#selector'));"%>
 
 <% form_remote_tag :url => "/ajax/receiving_items", :update => 'receivingForm' do %>
   <div class="box">
     <h2 class="blue">Step Two</h2>
     <div class="wrapper">
-	    <table>
-    	    <tr>
-    		    <td valign="top">
-        			<label for="vendors">From:</label>
-        		</td>
-        		<td id="selector" class="firstCol">
-        		  <span class="highlight">Please select a method for choosing products from above.</span>
-        		</td>
-        		<td valign="top">
-        			<label for="product_variants">Variants:</label>
-        		</td>
-        		<td>
-        			<div id="productVariants"></div>
-        	  </td>
-    	    </tr>
-    	</table>
-  	</div>
+      <table>
+          <tr>
+            <td valign="top">
+              <label for="vendors">From:</label>
+            </td>
+            <td id="selector" class="firstCol">
+              <span class="highlight">Please select a method for choosing products from above.</span>
+            </td>
+            <td valign="top">
+              <label for="product_variants">Variants:</label>
+            </td>
+            <td>
+              <div id="productVariants"></div>
+            </td>
+          </tr>
+      </table>
+    </div>
   </div>
   <br />
   <%= submit_tag("Use Checked Variants", :onclick => "start_spinner($('#receivingForm .box .wrapper'))")%>
-<% end #form_remote %>
+<% end %>
 <br />
 <div id="receivingForm">
   <div class="box">

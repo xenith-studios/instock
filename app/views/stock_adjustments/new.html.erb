@@ -12,7 +12,7 @@
       			<select id="vendors" name="vendors" size="10">
       				<% @vendor_names.each do |vn| %>
       				<option value="<%= vn %>"><%= vn %></p>
-      				<% end #each %>
+      				<% end %>
       			</select>
       		</td>
       		<td valign="top">
@@ -26,7 +26,7 @@
   </div>
   <br />
   <%= submit_tag("Use Checked Variants", :onclick => "start_spinner($('#stockAdjustmentForm .box .wrapper'))")%>
-<% end #form_remote %>
+<% end %>
 <br />
 <div id="stockAdjustmentForm">
   <div class="box">
