@@ -1,42 +1,42 @@
 <% form_for(@stock_adjustment, :url => {:controller => 'stock_adjustments', :action => 'create'}) do |stock_adjustment_form| %>
   <div class="box"><div class="wrapper">
-	<%= stock_adjustment_form.hidden_field(:shopify_store_id)%>
-		<table>
-			<thead>
-				<tr><td>Product Variant</td><td>Current Shopify Stock</td><td>Count</td><td colspan="2">New Total</td></tr>
-		 	</thead>
-			<tbody>
-				<% @stock_adjustment.stock_adjustment_items.each do |si| %>
-					<% stock_adjustment_form.fields_for(:stock_adjustment_items, si) do |stock_adjustment_item_form| %>
-					<%= stock_adjustment_item_form.hidden_field(:variant_id) %>
-					<%= stock_adjustment_item_form.hidden_field(:product_id) %>
-					<tr class="stock_adjustmentItem">
-						<td>
-						    <%= stock_adjustment_item_form.text_field(:title, :disabled => "disabled", :size => si.title.length) %>
-						    <%= stock_adjustment_item_form.hidden_field(:title) %>
-						</td>
-						<td class="oldCount">
-							<%= ShopifyAPI::Variant.find(si.variant_id, :params => { :product_id => si.product_id }).inventory_quantity %>
-						</td>
-						<td class="newCount"><%= stock_adjustment_item_form.text_field(:count, :size => 4, :onchange => 'new_total(this);') %></td>
-						<td class="newTotal">&nbsp;</td>
-						<td><%= error_message_on(si, :count) %></td>
-					</tr>
-					<% end #fields_for %>
-				<% end #each%>
-				<tr>
-				    <td><label for="stock_adjustment_po_number">Reason: </label></td>
-				    <td colspan="3"><%= stock_adjustment_form.select(:reason, ["Defective", "Donation", "Found"], {}, {:onchange => "update_all_totals();"})%></td>
-				    <td colspan="1"><%= error_message_on(@stock_adjustment, :reason)%></td>
-				</tr>
-				<tr>
-				    <td><label for="stock_adjustment_created_by">Staff Member: </label></td>
-				    <td colspan="3"><%= stock_adjustment_form.text_field(:created_by)%></td>
-				    <td colspan="1"><%= error_message_on(@stock_adjustment, :created_by)%></td>
-				</tr>  
-			</tbody>
-		</table>
-	
+  <%= stock_adjustment_form.hidden_field(:shopify_store_id)%>
+    <table>
+      <thead>
+        <tr><td>Product Variant</td><td>Current Shopify Stock</td><td>Count</td><td colspan="2">New Total</td></tr>
+      </thead>
+      <tbody>
+        <% @stock_adjustment.stock_adjustment_items.each do |si| %>
+          <% stock_adjustment_form.fields_for(:stock_adjustment_items, si) do |stock_adjustment_item_form| %>
+          <%= stock_adjustment_item_form.hidden_field(:variant_id) %>
+          <%= stock_adjustment_item_form.hidden_field(:product_id) %>
+          <tr class="stock_adjustmentItem">
+            <td>
+                <%= stock_adjustment_item_form.text_field(:title, :disabled => "disabled", :size => si.title.length) %>
+                <%= stock_adjustment_item_form.hidden_field(:title) %>
+            </td>
+            <td class="oldCount">
+              <%= ShopifyAPI::Variant.find(si.variant_id, :params => { :product_id => si.product_id }).inventory_quantity %>
+            </td>
+            <td class="newCount"><%= stock_adjustment_item_form.text_field(:count, :size => 4, :onchange => 'new_total(this);') %></td>
+            <td class="newTotal">&nbsp;</td>
+            <td><%= error_message_on(si, :count) %></td>
+          </tr>
+          <% end #fields_for %>
+        <% end #each%>
+        <tr>
+            <td><label for="stock_adjustment_po_number">Reason: </label></td>
+            <td colspan="3"><%= stock_adjustment_form.select(:reason, ["Defective", "Donation", "Found"], {}, {:onchange => "update_all_totals();"})%></td>
+            <td colspan="1"><%= error_message_on(@stock_adjustment, :reason)%></td>
+        </tr>
+        <tr>
+            <td><label for="stock_adjustment_created_by">Staff Member: </label></td>
+            <td colspan="3"><%= stock_adjustment_form.text_field(:created_by)%></td>
+            <td colspan="1"><%= error_message_on(@stock_adjustment, :created_by)%></td>
+        </tr>  
+      </tbody>
+    </table>
+  
   </div></div>
   <br />
   <%= submit_tag("Process Stock Adjustment") %>

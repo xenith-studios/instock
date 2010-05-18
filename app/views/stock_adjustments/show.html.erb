@@ -6,26 +6,26 @@
 <div class="box">
     <h2>Adjusted Stock:</h2>
     <table>
-    	<thead>
-    	  <% 
-    	    reason_heading = case(@stock_adjustment.reason)
-  	      when "Defective" : "Defectives"
-	        when "Donation"  : "Donated"
-	        when "Found"     : "Found"
+      <thead>
+        <% 
+          reason_heading = case(@stock_adjustment.reason)
+          when "Defective" : "Defectives"
+          when "Donation"  : "Donated"
+          when "Found"     : "Found"
           else
             "Adjusted"
-  	      end #case
-    	  %>
-    		<tr><td>Product Variant</td><td>Sku</td><td><%= reason_heading %></td></tr>
-     	</thead>
-    	<tbody>
+          end #case
+        %>
+        <tr><td>Product Variant</td><td>Sku</td><td><%= reason_heading %></td></tr>
+      </thead>
+      <tbody>
         <% @stock_adjustment.stock_adjustment_items.each do |si| %>
             <tr>
                 <td><%= si.title %></td>
                 <td><%= si.sku || "(no sku?)" %></td>
                 <td><%= si.count %></td>
             </tr>
-        <% end #each %>
+        <% end %>
         <tbody>
     </table>
 </div>

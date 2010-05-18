@@ -51,7 +51,7 @@ class StockAdjustmentsController < ApplicationController
         format.html { redirect_to(@stock_adjustment) }
         format.xml  { render :xml => @stock_adjustment, :status => :created, :location => @stock_adjustment }
       else
-        flash[:notice] = "Could not save this Stock Adjustment. Fix the errors below and try again."
+        flash[:warn] = "Could not save this Stock Adjustment. Please try again."
         format.html { render :action => "create" }
         format.xml  { render :xml => @stock_adjustment.errors, :status => :unprocessable_entity }
       end

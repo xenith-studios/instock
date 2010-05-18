@@ -1,6 +1,6 @@
 <% content_for(:custom_js, javascript_include_tag('variant_select')) %>
 <h1 class="blue">Enter Receiving Data</h1>
-<% form_tag "javascrkpt:void(0)", {:id => :method_select} do %>
+<% form_tag "javascript:void(0)", {:id => :method_select} do %>
   <div class="box">
     <h2 class="blue">Step One</h2>
     <div class="wrapper">
@@ -16,7 +16,7 @@
 <% end %>
 <%= observe_field :method_select, :url => "/ajax/methods", :update => 'selector', :loading => "start_spinner($('#selector'));"%>
 
-<% form_remote_tag :url => "/ajax/receiving_items", :update => 'receivingForm' do %>
+<% form_remote_tag :url => "/ajax/receiving_items", :update => "stepThree" do %>
   <div class="box">
     <h2 class="blue">Step Two</h2>
     <div class="wrapper">
@@ -44,7 +44,8 @@
 <br />
 <div id="receivingForm">
   <div class="box">
-    <div class="wrapper">
+    <h2 class="blue">Step Three</h2>
+    <div class="wrapper" id="stepThree">
     <span class="highlight">Select at least one variant.</span>
     </div>
   </div>

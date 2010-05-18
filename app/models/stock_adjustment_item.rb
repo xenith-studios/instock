@@ -5,7 +5,7 @@ class StockAdjustmentItem < ActiveRecord::Base
   validates_presence_of(:count, :message => "'count' cannot be blank.")
   def validate
     unless(count.blank?) #this should be caught by validates_presence_of
-      errors.add_to_base("Count can't be negative.") if(count <= 0)
+      self.errors.add('count', "Count can't be negative.") if(count < 0)
     end
   end #validate
   
