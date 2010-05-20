@@ -3,6 +3,8 @@ class StockAuditsController < ApplicationController
   protect_from_forgery
   layout "application"
   
+  @@shopify_product_limit = 250.0
+  
   def index
     @audits = StockAudit.find :all, :conditions => ["shopify_store_id = ? AND deleted = ?", current_shop.shop.id, false]
 
@@ -19,7 +21,16 @@ class StockAuditsController < ApplicationController
     @products = {}
     
     # Gather the data from Shopify
-    products = ShopifyAPI::Product.find(:all, :sort => :title)
+    # Products are limited, deal with it.
+    #product_count = ShopifyAPI::Product.count
+    product_count = 5
+    page_count = (product_count / @@shopify_product_limit).ceil
+    products = []
+    page_count.times do |page|
+      # Not only can I not get *all* products with find(:all) but their page indexing starts at 1 instead of 0 :-(
+      products += ShopifyAPI::Product.find(:all, :params => {:limit => @@shopify_product_limit, :page => page + 1}, :sort => :title)
+    end
+    
     orders = ShopifyAPI::Order.find(:all, :params => { :status => "open", :fulfillment_status => "unshipped OR partial"})
     orders.each do |order|
       ShopifyAPI::Fulfillment.find(:all, :params => { :order_id => order.id } ).each do |f|
