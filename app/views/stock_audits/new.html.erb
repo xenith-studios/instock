@@ -14,17 +14,21 @@
     </thead>
     <tbody>
       <% form_for @audit do |audit| %>
+        <% even_or_odd_vendor = 1 %>
         <% @vendors.each do |vendor| %>
-          <tr><td colspan="6" class="dark"><%= vendor %></td></tr>
+          <% even_or_odd_vendor = (even_or_odd_vendor - 1).abs %>
             <% @products[vendor].each do |product| %>
               <tr>
-                <td colspan="6" class="light">
+                <td colspan="6" class="vendor<%= even_or_odd_vendor %>">
                   <%= link_to product[0], "http://#{current_shop.url}/admin/products/#{product[1]}" %>
+                  (<%= vendor %>)
                 </td>
               </tr>
+              <% even_or_odd_variant = 1 %>
               <% @audit.stock_audit_items.select{ |item| item.product_title == product[0] }.each do |variant| %>
                 <% audit.fields_for :stock_audit_items, @audit.stock_audit_items.select{|item| item.variant_id == variant.variant_id}.first do |item| %>
-                  <tr>
+                <% even_or_odd_variant = (even_or_odd_variant - 1).abs %>
+                  <tr class="variant<%= even_or_odd_variant %><%= even_or_odd_vendor %>">
                     <td><%= variant.title %> <small>(sku: <%= variant.sku %>)</small></td>
                     <td><%= variant.shopify_count %></td>
                     <td><%= variant.pending_count %></td>

@@ -203,7 +203,7 @@ code { font-size: 140%; }
 #flasherrors, #flashnotices {
   background: #faf7ea;
   border-bottom: 1px solid #e8e6d9;
-	padding: 10px;
+  padding: 10px;
   font-weight: bold;
   text-align:center;
 }
@@ -214,8 +214,8 @@ code { font-size: 140%; }
 /* CLASSES */
 
 .description {
-	margin: 0px 0px 0px 4px; 
-	font-weight: normal;
+  margin: 0px 0px 0px 4px; 
+  font-weight: normal;
 }
 
 .box {
@@ -230,9 +230,9 @@ code { font-size: 140%; }
 }
 
 .info {
-	padding: 0;
-	margin: 8px auto;
-	background: #009ad6 url('../images/info-bg.gif') top left repeat-x;
+  padding: 0;
+  margin: 8px auto;
+  background: #009ad6 url('../images/info-bg.gif') top left repeat-x;
   border: 1px solid #61abda;
   font: 1.2em/1.7em "Comic Sans MS"; 
   color: #fff;

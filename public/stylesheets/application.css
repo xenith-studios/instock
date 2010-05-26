@@ -69,6 +69,31 @@ ul.variantList li {
   /* background: orange; */
 }
 
+.variant00 {
+  background: #ccf;
+}
+
+.variant01 {
+  background: #ccc;
+}
+
+.variant10,.variant11 {
+  background: #fff;
+}
+
+.vendor0 {
+  background: #99f;
+}
+
+.vendor1 {
+  background: #999;
+}
+
+.vendor0,.vendor1 {
+  padding: 3px;
+  font-weight: 600;
+  color: #000;
+}
 
 /* IDs */
 
