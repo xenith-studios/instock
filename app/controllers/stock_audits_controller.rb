@@ -22,8 +22,7 @@ class StockAuditsController < ApplicationController
     
     # Gather the data from Shopify
     # Products are limited, deal with it.
-    #product_count = ShopifyAPI::Product.count
-    product_count = 5
+    product_count = ShopifyAPI::Product.count
     page_count = (product_count / @@shopify_product_limit).ceil
     products = []
     page_count.times do |page|
