@@ -13,7 +13,7 @@
 
 <% @client_shops.each do |client_shop| %>
   <tr>
-    <td><%=h client_shop.domain %></td>
+    <td><%= link_to client_shop.domain, "http://#{client_shop.domain}", {:target => "_blank"}  %></td>
     <td><%=h client_shop.name %></td>
     <td><%=h client_shop.shopify_store_id %></td>
     <td><%=h client_shop.email %></td>
