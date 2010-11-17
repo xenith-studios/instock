@@ -1,5 +1,5 @@
 rack --version '>= 1.0.0'
-rails --version 2.3.3
-shopify_api --version 1.0.2
-hoptoad_notifier --version 2.2.0
-authlogic --version 2.1.3
+rails --version 2.3.10
+shopify_api --version 1.0.6
+hoptoad_notifier --version 2.3.10
+authlogic --version 2.1.6
