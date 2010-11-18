@@ -7,4 +7,10 @@ module ApplicationHelper
     end
     links.reverse.join('<em> | </em>')
   end
+
+  def current_shop
+    if session[:shopify]
+      ShopifyAPI::Shop.current
+    end
+  end
 end
