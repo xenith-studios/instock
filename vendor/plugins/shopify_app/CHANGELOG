@@ -1,2 +1,0 @@
-* Require shopify_api gem
-* Don't require shopify.yml when using environment variables [cody]

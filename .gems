@@ -3,9 +3,7 @@ shopify_api --version 1.0.6
 hoptoad_notifier --version 2.3.10
 authlogic --version 2.1.6
 pg
-builder -v 2.1.2
 bundler -v 1.0.0
-i18n -v 0.4.2
 json_pure -v 1.4.6
 launchy -v 0.3.7
 mime-types -v 1.16
