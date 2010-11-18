@@ -45,6 +45,17 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
+
+    def current_shop
+      ShopifyAPI::Shop.current
+    end
+
+    def shopify_session
+      unless session[:shopify]
+        redirect_to(:controller => 'login')
+      end
+      yield
+    end
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
 end

@@ -3,15 +3,16 @@ class ClientShopManagementController < ApplicationController
   
   def record_shop
     #find the record to update
-    client_shop = ClientShop.find_or_create_by_id(current_shop.shop.id)
+    client_shop = ClientShop.find_or_create_by_id(current_shop.id)
     
     #find attributes that we care about
-    attributes = current_shop.shop.attributes.delete_if do |attribute, value|
+    attributes = current_shop.attributes.delete_if do |attribute, value|
       !client_shop.has_attribute?(attribute)
     end
   
     #update those attributes
     client_shop.update_attributes(attributes)
+    client_shop.id = current_shop.id
     
     #finish shop login
     flash[:notice] = "Logged in to shopify store."

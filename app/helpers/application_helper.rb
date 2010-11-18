@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def current_shop
     if session[:shopify]
-      ShopifyAPI::Shop.current
+      return ShopifyAPI::Shop.current
     end
   end
 end

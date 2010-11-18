@@ -20,7 +20,7 @@
             <% @products[vendor].each do |product| %>
               <tr>
                 <td colspan="6" class="vendor<%= even_or_odd_vendor %>">
-                  <%= link_to product[0], "http://#{current_shop.url}/admin/products/#{product[1]}" %>
+                  <%= link_to product[0], "http://#{current_shop.domain}/admin/products/#{product[1]}" %>
                   (<%= vendor %>)
                 </td>
               </tr>
@@ -51,6 +51,6 @@
         </tbody>
     </table>
     Enter your name: <%= audit.text_field :created_by %>
-    <%= audit.hidden_field :shopify_store_id, :value => current_shop.shop.id %>
+    <%= audit.hidden_field :shopify_store_id, :value => current_shop.id %>
     <%= submit_tag 'Complete Audit' %>
   <% end %>
