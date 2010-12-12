@@ -1,0 +1,31 @@
+# If you don't have an API key yet, register your application at:
+#
+# <YourShopURL>/admin/api (e.g. "http://shopname.myshopify.com/admin/api")
+#
+# Be sure to conceal these credentials if you make your application code public.
+# If you're using Git, put the following line in a file called .gitignore in your
+# repository root:
+#
+#   config/shopify.yml
+#
+# If you're using SVN, you can run this command from the application root:
+#
+#   svn propedit svn:ignore ./config/shopify.yml
+#
+# You can also load your API credentials from the environment variables
+# SHOPIFY_API_KEY and SHOPIFY_API_SECRET.
+#
+# If you are deploying to Heroku, you use config vars (http://docs.heroku.com/config-vars) for this purpose:
+#
+#   heroku config:add SHOPIFY_API_KEY=9b8ca7d587384d00267255bfd98cfe65 SHOPIFY_API_SECRET=4bb0add4f84f4a0181ed0e6d9ca048c5
+development:
+  api_key: 9b8ca7d587384d00267255bfd98cfe65
+  secret: 4bb0add4f84f4a0181ed0e6d9ca048c5
+
+test:
+  api_key: 9b8ca7d587384d00267255bfd98cfe65
+  secret: 4bb0add4f84f4a0181ed0e6d9ca048c5
+
+production:
+  api_key: 9b8ca7d587384d00267255bfd98cfe65
+  secret: 4bb0add4f84f4a0181ed0e6d9ca048c5
