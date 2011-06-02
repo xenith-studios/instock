@@ -1,6 +1,6 @@
-rails --version 2.3.10
-shopify_api --version 1.0.6
-hoptoad_notifier --version 2.3.10
+rails --version 2.3.11
+shopify_api --version 1.2.2
+hoptoad_notifier --version 2.4.11
 authlogic --version 2.1.6
 pg
 bundler -v 1.0.0
