@@ -14,13 +14,15 @@ class LoginController < ApplicationController
   # This token is later combined with the developer's shared secret to form
   # the password used to call API methods.
   def finalize
+    ShopifyAPI::Session.setup({:api_key => "9b8ca7d587384d00267255bfd98cfe65", :secret => "4bb0add4f84f4a0181ed0e6d9ca048c5"})
     shopify_session = ShopifyAPI::Session.new(params[:shop], params[:t], params)
     if shopify_session.valid?
       session[:shopify] = shopify_session
       ActiveResource::Base.site = shopify_session.site
 
+      return_address = session[:return_to] || '/home'
+      session[:return_to] = nil
       redirect_to :controller => 'client_shop_management', :action => 'record_shop'
-
     else
       flash[:error] = "Could not log in to Shopify store."
       redirect_to :action => 'index'
