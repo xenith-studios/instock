@@ -8,3 +8,4 @@ vendor/plugins/**/doc/*
 .bundle
 tmp/
 .sass-cache/
+old_code

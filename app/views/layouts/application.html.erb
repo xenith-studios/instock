@@ -1,39 +1,70 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Shopify Application</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="imagetoolbar" content="no" />
+  <meta name="MSSmartTagsPreventParsing" content="true" />
 
+  <title>inStock</title>
+  
+  <!-- Style Sheets -->
+  <%= stylesheet_link_tag 'shopify' %>
+  <%= stylesheet_link_tag 'application' %>
+  
+  <!-- JavaScripts -->
+  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js' %>
+  <%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.3/jquery-ui.min.js' %>
+  <%= javascript_include_tag 'jrails' %>
+  <%= yield(:custom_js) %>
+</head>
+  
 <body>
+  
   <div id="header">
-    <h1><%= link_to 'Shopify Demo Application', '/' %></h1>
-    
-    <p id="login-link">
+    <h1><%= link_to 'inStock', '/' %><span class="beta"><small>beta</small></span></h1>      
+    <p id="login-link">  
       <% if current_shop %>
-          <span class="note">current shop</span> <%= link_to current_shop.url, "https://#{current_shop.url}", :class => 'shop_name' %> <span class="note">|</span>
+          <span class="note"><%= current_shop.domain %></span>
+      <%= link_to "Store", "http://#{current_shop.domain}", :class => 'shop_name' %> <span class="note">|</span> 
+      <%= link_to "Admin", "http://#{current_shop.domain}/admin/products", :class => 'shop_name' %> <span class="note">|</span>
           <%= link_to 'logout', :controller => "login", :action => 'logout' %>
       <% end %>
     </p>
-  </div>
-
-  <div id="container" class="clearfix">
-    <ul id="tabs">
-      <%= tab :index, {:controller => 'home'}, :label => 'Home' %>
-      <%= tab :design, {:controller => 'home', :action => 'design'}, :label => 'Design Help' %>
-    </ul>
-    
+    <h2 id="mainNav">
+    <%= nav({
+            "Home" => {:controller => 'home'},
+            "Receivings" => {:controller => 'receivings'}, 
+            "Stock Adjustments" => {:controller => 'stock_adjustments'},
+            "Stock Audits" => {:controller => 'stock_audits'}   
+        }) %>
+    </h2>
+  <!-- end div#header -->
+  </div> 
     <!-- Flash error & notice-->
     <% if flash[:error] %> <div id="flasherrors"><%= flash[:error] %></div><% end %>
     <% if flash[:notice] %><div id="flashnotices"><%= flash[:notice] %></div><% end %>
   
-    <!-- begin div.main-->
     <div id="main">
-      <%= yield %>
+      <%= yield %>  
     </div>
-    <!-- end div.main -->
-  </div>
+    
+    <div id="footer">
+      <ul class="footer-list">
+        <li><strong>inStock</strong> is copyright © 2009-2011 <strong>Bazaar Consulting</strong></li>
+        <li><%= link_to "Contact", "/contact" %> | <%= link_to "About", "/about" %> | <a href="http://getsatisfaction.com/bazaar_consulting/products/bazaar_consulting_instock" target="_blank">Support</a></li>
+      </ul>
+    </div>
+
+<% if Rails.env == "production" %>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-9999597-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+<% end%>
 </body>
 </html>
