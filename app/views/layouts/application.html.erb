@@ -8,7 +8,6 @@
   <title>inStock</title>
   
   <!-- Style Sheets -->
-  <%= stylesheet_link_tag 'shopify' %>
   <%= stylesheet_link_tag 'application' %>
   
   <!-- JavaScripts -->
@@ -31,12 +30,7 @@
       <% end %>
     </p>
     <h2 id="mainNav">
-    <%= nav({
-            "Home" => {:controller => 'home'},
-            "Receivings" => {:controller => 'receivings'}, 
-            "Stock Adjustments" => {:controller => 'stock_adjustments'},
-            "Stock Audits" => {:controller => 'stock_audits'}   
-        }) %>
+	<%= link_to "Home", root_path %><em> | </em><%= link_to "Receivings", :controller => 'receivings' %><em> | </em><%= link_to "Stock Adjustments", :controller => 'stock_adjustments' %><em> | </em><%= link_to "Stock Audits", :controller => 'stock_audits' %>
     </h2>
   <!-- end div#header -->
   </div> 
@@ -51,7 +45,7 @@
     <div id="footer">
       <ul class="footer-list">
         <li><strong>inStock</strong> is copyright © 2009-2011 <strong>Bazaar Consulting</strong></li>
-        <li><%= link_to "Contact", "/contact" %> | <%= link_to "About", "/about" %> | <a href="http://getsatisfaction.com/bazaar_consulting/products/bazaar_consulting_instock" target="_blank">Support</a></li>
+        <li><%= link_to "Contact", :contact %> | <%= link_to "About", :about %> | <a href="http://getsatisfaction.com/bazaar_consulting/products/bazaar_consulting_instock" target="_blank">Support</a></li>
       </ul>
     </div>
 

@@ -25,10 +25,12 @@ class LoginController < ApplicationController
     shopify_session = ShopifyAPI::Session.new(params[:shop], params[:t], params)
     if shopify_session.valid?
       session[:shopify] = shopify_session
+      #ActiveResource::Base.site = shopify_session.site
       flash[:notice] = "Logged in to shopify store."
       
       redirect_to return_address
       session[:return_to] = nil
+      #redirect_to :controller => 'client_shop_management', :action => 'record_shop'
     else
       flash[:error] = "Could not log in to Shopify store."
       redirect_to :action => 'index'
