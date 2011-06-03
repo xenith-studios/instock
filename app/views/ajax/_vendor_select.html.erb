@@ -1,8 +1,0 @@
-<% form_tag "javascrkpt:void(0)", {:id => :vendor_select} do %>
-  <select id="vendor_name" name="vendor_name" size="10" class="tenSelector">
-  	<% @vendor_names.each do |vn| %>
-  	<option value="<%= vn %>"><%= vn %></p>
-  	<% end #each %>
-  </select>
-<% end #form_tag %>
-<%= observe_field :vendor_select, :url => "/ajax/vendor_products", :update => 'productVariants', :loading => "start_spinner($('#productVariants'));"%>

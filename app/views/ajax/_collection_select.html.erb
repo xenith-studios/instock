@@ -1,9 +1,0 @@
-<% form_tag "javascrkpt:void(0)", {:id => :collection_select} do %>
-  <%= collection_select(nil, :collection_ids, @collections, :id, :title, {}, {:multiple => true, :size => 10}) %>
-<% end #form_tag %>
-<%= observe_field :collection_select, 
-    :url => "/ajax/collection_products", 
-    :update => 'productVariants', 
-    :loading => "start_spinner($('#productVariants'));"
-%>
-     

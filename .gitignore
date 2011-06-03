@@ -1,9 +1,10 @@
 config/shopify.yml
-vendor/plugins/shopify_app/doc/
 log/*.log
-tmp/**/*
 doc/api
 doc/app
 db/*.sqlite3
 vendor/plugins/**/doc/*
 .DS_Store
+.bundle
+tmp/
+.sass-cache/
