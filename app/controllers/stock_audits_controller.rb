@@ -74,7 +74,7 @@ class StockAuditsController < ApplicationController
     respond_to do |format|
       if @audit.save
         flash[:notice] = 'Audit was successfully created.'
-        format.html { redirect_to(@audit) }
+        format.html { redirect_to @audit }
         format.xml  { render :xml => @audit, :status => :created, :location => @audit }
       else
         @products = {}

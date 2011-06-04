@@ -16,8 +16,12 @@ gem 'authlogic', '2.1.6'
 gem 'json_pure'
 gem 'heroku'
 gem 'client_side_validations'
+gem 'formtastic'
 
 gem 'thin'
+
+# This is only as a stopgap measure until some things can be rewritten to not use error_messages_for
+gem 'dynamic_form'
 
 # Use unicorn as the web server
 # gem 'unicorn'
