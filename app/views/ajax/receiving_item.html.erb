@@ -1,0 +1,14 @@
+<%= hidden_field(:receiving_item, :variant_id) %>
+<%= hidden_field(:receiving_item, :product_id) %>
+<tr class="receivingItem">
+	<td>
+	    <%= text_field(:receiving_item, :title, :disabled => "disabled", :size => @receiving_item.title.length) %>
+	    <%= hidden_field(:receiving_item, :title) %>
+	</td>
+	<td class="oldCount">
+		<%= ShopifyAPI::Variant.find(@receiving_item.variant_id, :params => { :product_id => @receiving_item.product_id }).inventory_quantity %>
+	</td>
+	<td class="newCount"><%= text_field(:receiving_item, :count, :size => 4) %></td>
+	<td class="newTotal">&nbsp;</td>
+	<td><%= error_message_on(@receiving_item, :count) %></td>
+</tr>

@@ -36,7 +36,7 @@ class AjaxController < ApplicationController
       render :text => "No products were selected for this receiving. Please select at least one product to receive."
     else
       @receiving = Receiving.new()
-      @receiving.shopify_store_id = current_shop.id
+      @receiving.shopify_store_id = current_shop.shop.id
       @variants = Hash.new()
       product_variant_ids.each do |pvid|
         pid, vid = pvid.split("|")
@@ -49,7 +49,7 @@ class AjaxController < ApplicationController
           :title => title,
           :sku => variant.sku)
       end #each
-      render(:layout => false)
+      render :layout => false
     end #if
     
     rescue ActiveResource::ResourceNotFound => e
@@ -62,7 +62,7 @@ class AjaxController < ApplicationController
       render :text => "No products were selected for this stock adjustment. Please select at least one product to adjust stock for."
     else
       @stock_adjustment = StockAdjustment.new()
-      @stock_adjustment.shopify_store_id = current_shop.id
+      @stock_adjustment.shopify_store_id = current_shop.shop.id
       @variants = Hash.new()
       product_variant_ids.each do |pvid|
         pid, vid = pvid.split("|")

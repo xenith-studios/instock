@@ -14,6 +14,12 @@ Instock::Application.routes.draw do
 
   match 'client_shop_management/record_shop'  => 'client_shop_management#record_shop'
 
+  match 'ajax/receiving_items'  => 'ajax#receiving_items'
+  match 'ajax/stock_adjustment_items'  => 'ajax#stock_adjustment_items'
+  match 'ajax/vendor_products'  => 'ajax#vendor_products'
+  match 'ajax/methods'  => 'ajax#methods'
+  match 'ajax/collection_products'  => 'ajax#collection_products'
+
   resources :stock_audits do
     resources :stock_audit_items, :only => :none
   end

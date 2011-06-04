@@ -1,13 +1,16 @@
 $(document).ready(function() {
-  /* Populate product variant checkboxes. */
-  /* Now handled by observe_form
-  $('#vendors').click(function() {
-    var vendor = $(this).val();
-    $('#productVariants').empty();
-    $('#productVariants').load("/ajax/vendor_products", {vendor_name: vendor}, null, stop_spinner($('#productVariants')));
-    start_spinner($('#productVariants'));
-  })
-  */
+  $("#method_select").change(function() {
+    // make a POST call and replace the content
+    $.post("/ajax/methods", {"method": $("#method").val()}, function(data) {
+	  stop_spinner($('#selector'));
+      $("#selector").html(data);
+    });
+    start_spinner($('#selector'));
+  });
+
+  $("#receiving_items").bind('ajax:success', function(evt, data, status, xhr){
+    $('#stepThree').html(xhr.responseText);
+  });
 })
 
 function new_total(item)

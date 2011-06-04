@@ -1,0 +1,38 @@
+<p>
+  <b>Domain:</b>
+  <%=h @client_shop.domain %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @client_shop.name %>
+</p>
+
+<p>
+  <b>Shopify store:</b>
+  <%=h @client_shop.shopify_store_id %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @client_shop.email %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @client_shop.name %>
+</p>
+
+<p>
+  <b>Shop-owner:</b>
+  <%=h @client_shop.shop_owner %>
+</p>
+
+<p>
+  <b>Active-subscription-id:</b>
+  <%=h @client_shop.active_subscription_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_shop_path(@client_shop) %> |
+<%= link_to 'Back', client_shops_path %>
