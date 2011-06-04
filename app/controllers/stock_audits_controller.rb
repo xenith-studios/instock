@@ -6,7 +6,7 @@ class StockAuditsController < ApplicationController
   @@shopify_product_limit = 250.0
   
   def index
-    @audits = StockAudit.find :all, :conditions => ["shopify_store_id = ? AND deleted = ?", current_shop.id, false]
+    @audits = StockAudit.find :all, :conditions => ["shopify_store_id = ? AND deleted = ?", current_shop.shop.id, false]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -90,7 +90,7 @@ class StockAuditsController < ApplicationController
   end
   
   def show
-    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.id], :include => :stock_audit_items)
+    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id], :include => :stock_audit_items)
     @products = {}
     @vendors = @audit.stock_audit_items.map{ |item| item.vendor}.uniq.sort{ |a,b| a.casecmp(b)}
     @vendors.each do |vendor|
@@ -105,11 +105,11 @@ class StockAuditsController < ApplicationController
 
   # Disable editing of stock audits
   #def edit
-  #  @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.id], :include => :stock_audit_items )
+  #  @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id], :include => :stock_audit_items )
   #end
   
   #def update
-  #  @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.id])
+  #  @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
 
   #  respond_to do |format|
   #    if @audit.update_attributes(params[:audit])
@@ -124,7 +124,7 @@ class StockAuditsController < ApplicationController
   #end
 
   def destroy
-    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.id])
+    @audit = StockAudit.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
     # Don't destroy the object. Set it to deleted.
     #@audit.destroy
     @audit.deleted = true

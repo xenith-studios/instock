@@ -12,7 +12,9 @@ Instock::Application.routes.draw do
   match 'login/finalize'     => 'login#finalize'
   match 'login/logout'       => 'login#logout'
 
-  resources :stock_audits, :as => "audits" do |audits|
+  match 'client_shop_management/record_shop'  => 'client_shop_management#record_shop'
+
+  resources :stock_audits, :as => "audits" do
     resources :stock_audit_items, :only => :none
   end
 
@@ -20,7 +22,7 @@ Instock::Application.routes.draw do
     resources :receiving_items, :only => :none
   end
 
-  resources :stock_adjustments, :as => "adjustments" do |adjustments|
+  resources :stock_adjustments, :as => "adjustments" do
     resources :stock_adjustment_items, :only => :none
   end
 

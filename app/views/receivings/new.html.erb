@@ -1,0 +1,53 @@
+<% content_for(:custom_js, javascript_include_tag('variant_select')) %>
+<h1 class="blue">Enter Receiving Data</h1>
+<% form_tag "javascript:void(0)", {:id => :method_select} do %>
+  <div class="box">
+    <h2 class="blue">Step One</h2>
+    <div class="wrapper">
+      <span class="highlight">Choose how you want to make this receiving: </span>
+      <br /> <br />
+      <%= select_tag :method, options_for_select(
+        {"Select a Method" => 'choose', "By Vendors" => 'vendors', "By Collections" => 'collections'}, 
+        {:selected => 'choose', :disabled => 'choose'}
+      )%>
+      <br />
+    </div>
+  </div>
+<% end %>
+<%= observe_field :method_select, :url => "/ajax/methods", :update => 'selector', :loading => "start_spinner($('#selector'));"%>
+
+<% form_remote_tag :url => "/ajax/receiving_items", :update => "stepThree" do %>
+  <div class="box">
+    <h2 class="blue">Step Two</h2>
+    <div class="wrapper">
+      <table>
+          <tr>
+            <td valign="top">
+              <label for="vendors">From:</label>
+            </td>
+            <td id="selector" class="firstCol">
+              <span class="highlight">Please select a method for choosing products from above.</span>
+            </td>
+            <td valign="top">
+              <label for="product_variants">Variants:</label>
+            </td>
+            <td>
+              <div id="productVariants"></div>
+            </td>
+          </tr>
+      </table>
+    </div>
+  </div>
+  <br />
+  <%= submit_tag("Use Checked Variants", :onclick => "start_spinner($('#receivingForm .box .wrapper'))")%>
+<% end %>
+<br />
+<div id="receivingForm">
+  <div class="box">
+    <h2 class="blue">Step Three</h2>
+    <div class="wrapper" id="stepThree">
+    <span class="highlight">Select at least one variant.</span>
+    </div>
+  </div>
+</div>
+
