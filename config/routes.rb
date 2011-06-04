@@ -5,9 +5,7 @@ Instock::Application.routes.draw do
   match 'about'              => 'home#about'
   match 'preferences'        => 'home#preferences'
   match 'support'            => 'home#support'
-
-  match 'welcome'            => 'home#welcome'
-  match 'design'             => 'home#design'
+  match 'dashboard'          => 'home#dashboard'
 
   match 'login'              => 'login#index'
   match 'login/authenticate' => 'login#authenticate'

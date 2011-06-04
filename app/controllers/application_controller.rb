@@ -42,9 +42,9 @@ class ApplicationController < ActionController::Base
       session[:return_to] = nil
     end
 
-    def current_shop
-      ShopifyAPI::Shop.current
-    end
+#    def current_shop
+#      ShopifyAPI::Shop.current
+#    end
 
 #    def shopify_session
 #      ShopifyAPI::Session.setup({:api_key => "9b8ca7d587384d00267255bfd98cfe65", :secret => "4bb0add4f84f4a0181ed0e6d9ca048c5"})
