@@ -11,6 +11,9 @@ $(document).ready(function() {
   $("#receiving_items").bind('ajax:success', function(evt, data, status, xhr){
     $('#stepThree').html(xhr.responseText);
   });
+  $("#stock_adjustment_items").bind('ajax:success', function(evt, data, status, xhr){
+    $('#stepThree').html(xhr.responseText);
+  });
 })
 
 function new_total(item)
