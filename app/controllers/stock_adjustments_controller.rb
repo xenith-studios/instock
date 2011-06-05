@@ -2,7 +2,7 @@ class StockAdjustmentsController < ApplicationController
   around_filter :shopify_session
 
   def index
-    @stock_adjustments = StockAdjustment.find(:all, :conditions => ["shopify_store_id = ?", current_shop.id])
+    @stock_adjustments = StockAdjustment.find(:all, :conditions => ["shopify_store_id = ?", current_shop.shop.id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,7 +12,7 @@ class StockAdjustmentsController < ApplicationController
 
   def show
     begin
-    @stock_adjustment = StockAdjustment.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.id])
+    @stock_adjustment = StockAdjustment.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access a stock adjustment that doesnt exist (#{params[:id]}) for the current shop (#{current_shop.domain}).")
       flash[:error] = "Could not find that stock adjustment!"
@@ -43,7 +43,7 @@ class StockAdjustmentsController < ApplicationController
 
   def create
     @stock_adjustment = StockAdjustment.new(params[:stock_adjustment])
-    @stock_adjustment.shopify_store_id = current_shop.id
+    @stock_adjustment.shopify_store_id = current_shop.shop.id
 
     respond_to do |format|
       if @stock_adjustment.save

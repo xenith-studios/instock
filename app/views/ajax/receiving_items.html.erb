@@ -1,4 +1,4 @@
-<% form_for(@receiving, :url => {:controller => 'receivings', :action => 'create'}) do |receiving_form| %>
+<%= form_for(@receiving, :url => {:controller => 'receivings', :action => 'create'}) do |receiving_form| %>
   <div class="box"><div class="wrapper">
   <%= receiving_form.hidden_field(:shopify_store_id)%>
     <table>
@@ -7,7 +7,7 @@
       </thead>
       <tbody>
         <% @receiving.receiving_items.each do |si| %>
-          <% receiving_form.fields_for(:receiving_items, si) do |receiving_item_form| %>
+          <%= receiving_form.fields_for(:receiving_items, si) do |receiving_item_form| %>
           <%= receiving_item_form.hidden_field(:variant_id) %>
           <%= receiving_item_form.hidden_field(:product_id) %>
           <tr class="receivingItem">

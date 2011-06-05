@@ -2,7 +2,7 @@ class ReceivingsController < ApplicationController
   around_filter :shopify_session
   
   def index
-    @receivings = Receiving.find(:all, :conditions => ["shopify_store_id = ?", current_shop.id])
+    @receivings = Receiving.find(:all, :conditions => ["shopify_store_id = ?", current_shop.shop.id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -12,7 +12,7 @@ class ReceivingsController < ApplicationController
 
   def show
     begin
-    @receiving = Receiving.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.id])
+    @receiving = Receiving.find(params[:id], :conditions => ["shopify_store_id = ?", current_shop.shop.id])
     rescue ActiveRecord::RecordNotFound
       logger.error("Attempt to access a recieving that doesnt exist (#{params[:id]}) for the current shop (#{current_shop.domain}).")
       flash[:error] = "Could not find that receiving!"
@@ -36,7 +36,7 @@ class ReceivingsController < ApplicationController
 
   def create
     @receiving = Receiving.new(params[:receiving])
-    @receiving.shopify_store_id = current_shop.id
+    @receiving.shopify_store_id = current_shop.shop.id
 
     respond_to do |format|
       if @receiving.save

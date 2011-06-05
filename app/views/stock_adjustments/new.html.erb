@@ -1,7 +1,6 @@
-<% content_for(:custom_js, javascript_include_tag('variant_select')) %>
 <h1 class="blue">Enter Stock Adjustment Data</h1>
 
-<% form_tag "javascript:void(0)", {:id => :method_select} do %>
+<%= form_tag "javascript:void(0)", {:id => :method_select} do %>
   <div class="box">
     <h2 class="blue">Step One</h2>
     <div class="wrapper">
@@ -15,9 +14,8 @@
     </div>
   </div>
 <% end %>
-<%= observe_field :method_select, :url => "/ajax/methods", :update => 'selector', :loading => "start_spinner($('#selector'));"%>
 
-<% form_remote_tag :url => "/ajax/stock_adjustment_items", :update => 'stepThree' do %>
+<%= form_tag "/ajax/stock_adjustment_items", :remote => true, :id => "stock_adjustment_items" do %>
   <div class="box">
     <h2 class="blue">Step Two</h2>
     <table>

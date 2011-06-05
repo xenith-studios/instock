@@ -9,9 +9,12 @@
       <thead>
         <% 
           reason_heading = case(@stock_adjustment.reason)
-          when "Defective" : "Defectives"
-          when "Donation"  : "Donated"
-          when "Found"     : "Found"
+          when "Defective"
+			"Defectives"
+          when "Donation"
+			"Donated"
+          when "Found"
+			"Found"
           else
             "Adjusted"
           end #case

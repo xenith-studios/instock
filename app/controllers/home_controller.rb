@@ -1,8 +1,11 @@
 class HomeController < ApplicationController
-  layout "application"
+  
   around_filter :shopify_session, :except => [:index, :about, :contact]
   
   def index
+    if session[:shopify]
+      redirect_to :action => :dashboard
+    end
   end
 
   def about
@@ -12,5 +15,8 @@ class HomeController < ApplicationController
   end
   
   def preferences
+  end
+  
+  def dashboard
   end
 end

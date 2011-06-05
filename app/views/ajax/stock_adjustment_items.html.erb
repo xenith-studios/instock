@@ -1,4 +1,4 @@
-<% form_for(@stock_adjustment, :url => {:controller => 'stock_adjustments', :action => 'create'}) do |stock_adjustment_form| %>
+<%= form_for(@stock_adjustment, :url => {:controller => 'stock_adjustments', :action => 'create'}) do |stock_adjustment_form| %>
   <div class="box"><div class="wrapper">
   <%= stock_adjustment_form.hidden_field(:shopify_store_id)%>
     <table>
@@ -7,7 +7,7 @@
       </thead>
       <tbody>
         <% @stock_adjustment.stock_adjustment_items.each do |si| %>
-          <% stock_adjustment_form.fields_for(:stock_adjustment_items, si) do |stock_adjustment_item_form| %>
+          <%= stock_adjustment_form.fields_for(:stock_adjustment_items, si) do |stock_adjustment_item_form| %>
           <%= stock_adjustment_item_form.hidden_field(:variant_id) %>
           <%= stock_adjustment_item_form.hidden_field(:product_id) %>
           <tr class="stock_adjustmentItem">

@@ -9,6 +9,6 @@
 		<%= ShopifyAPI::Variant.find(@receiving_item.variant_id, :params => { :product_id => @receiving_item.product_id }).inventory_quantity %>
 	</td>
 	<td class="newCount"><%= text_field(:receiving_item, :count, :size => 4) %></td>
-	<td class="newTotal">&nbsp</td>
+	<td class="newTotal">&nbsp;</td>
 	<td><%= error_message_on(@receiving_item, :count) %></td>
 </tr>

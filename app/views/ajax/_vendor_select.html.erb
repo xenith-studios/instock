@@ -1,8 +1,18 @@
-<% form_tag "javascrkpt:void(0)", {:id => :vendor_select} do %>
+<%= form_tag "javascript:void(0)", {:id => :vendor_select} do %>
   <select id="vendor_name" name="vendor_name" size="10" class="tenSelector">
   	<% @vendor_names.each do |vn| %>
   	<option value="<%= vn %>"><%= vn %></p>
   	<% end #each %>
   </select>
 <% end #form_tag %>
-<%= observe_field :vendor_select, :url => "/ajax/vendor_products", :update => 'productVariants', :loading => "start_spinner($('#productVariants'));"%>
+
+<script>
+	$("#vendor_name").change(function() {
+	  $('#productVariants').empty();
+	  $.post("/ajax/vendor_products", {"vendor_name": $(this).val()}, function(data) {
+		  stop_spinner($('#productVariants'));
+		  $("#productVariants").html(data);
+		});
+	  start_spinner($('#productVariants'));
+	});
+</script>

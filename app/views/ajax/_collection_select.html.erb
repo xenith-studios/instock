@@ -1,9 +1,14 @@
-<% form_tag "javascrkpt:void(0)", {:id => :collection_select} do %>
+<%= form_tag "javascript:void(0)", {:id => :collection_select} do %>
   <%= collection_select(nil, :collection_ids, @collections, :id, :title, {}, {:multiple => true, :size => 10}) %>
 <% end #form_tag %>
-<%= observe_field :collection_select, 
-    :url => "/ajax/collection_products", 
-    :update => 'productVariants', 
-    :loading => "start_spinner($('#productVariants'));"
-%>
      
+<script>
+	$("#collection_select").change(function() {
+	  $('#productVariants').empty();
+	  $.post("/ajax/collection_products", {"collection_ids": $("#_collection_ids").val()}, function(data) {
+		  stop_spinner($('#productVariants'));
+		  $("#productVariants").html(data);
+		});
+	  start_spinner($('#productVariants'));
+	});
+</script>
