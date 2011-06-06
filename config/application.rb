@@ -15,8 +15,8 @@ module Instock
   class Application < Rails::Application
     
     # Shopify API connection credentials:
-    config.shopify.api_key = "5811123ca096f1fc9850657563cb4ce6"
-    config.shopify.secret = "54be8d8f06906cdf2bb8f2ce6909715d"
+    config.shopify.api_key = "9b8ca7d587384d00267255bfd98cfe65"
+    config.shopify.secret = "4bb0add4f84f4a0181ed0e6d9ca048c5"
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
