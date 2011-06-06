@@ -162,6 +162,7 @@ GEM
     term-ansicolor (1.0.5)
     test_notifier (0.3.6)
       notifier
+    therubyracer-heroku (0.8.1.pre3)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -209,6 +210,7 @@ DEPENDENCIES
   spark
   sqlite3
   test_notifier
+  therubyracer-heroku (= 0.8.1.pre3)
   thin
   uglifier
   watchr
