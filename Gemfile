@@ -16,6 +16,7 @@ gem 'json_pure'
 gem 'heroku'
 gem 'client_side_validations'
 #gem 'formtastic'
+gem 'execjs'
 
 gem 'thin'
 
