@@ -10,13 +10,12 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'shopify_api'
-gem 'shopify_app'
 gem 'hoptoad_notifier'
 gem 'authlogic'
 gem 'json_pure'
 gem 'heroku'
 gem 'client_side_validations'
-gem 'formtastic'
+#gem 'formtastic'
 
 gem 'thin'
 
@@ -37,6 +36,7 @@ group :production do
 end
 
 group :development, :test do
+  gem 'shopify_app'
   gem 'sqlite3'
   gem 'webrat'
   gem 'rspec-rails'
