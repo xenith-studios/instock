@@ -10,6 +10,7 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 gem 'shopify_api'
+gem 'shopify_app'
 gem 'hoptoad_notifier'
 gem 'authlogic'
 gem 'json_pure'
@@ -38,7 +39,6 @@ group :production do
 end
 
 group :development, :test do
-  gem 'shopify_app'
   gem 'sqlite3'
   gem 'webrat'
   gem 'rspec-rails'
