@@ -21,4 +21,8 @@ Instock::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  # Shopify API keys
+  config.shopify.api_key = "5811123ca096f1fc9850657563cb4ce6"
+  config.shopify.secret = "54be8d8f06906cdf2bb8f2ce6909715d"
 end

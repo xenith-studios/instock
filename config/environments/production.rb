@@ -49,4 +49,8 @@ Instock::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # Shopify API keys
+  config.shopify.api_key = "9b8ca7d587384d00267255bfd98cfe65"
+  config.shopify.secret = "4bb0add4f84f4a0181ed0e6d9ca048c5"
 end
