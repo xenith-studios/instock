@@ -4,6 +4,23 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_admin_session, :current_admin
   
+  rescue_from ActiveResource::ServerError do
+    flash[:error] = "The Shopify service is temporarily unavailable. Please try again in a few minutes."
+    redirect_back_or_default dashboard_url
+  end
+
+  rescue_from NoMethodError do
+    flash[:error] = "Your session has become invalid. Please log in again."
+    session[:shopify] = nil
+    redirect_to login_url
+  end
+
+  rescue_from RuntimeError do
+    flash[:error] = "Your session has become invalid. Please log in again."
+    session[:shopify] = nil
+    redirect_to login_url
+  end
+
   private
     def current_admin_session
       return @current_admin_session if defined?(@current_admin_session)
@@ -41,16 +58,4 @@ class ApplicationController < ActionController::Base
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
     end
-
-#    def current_shop
-#      ShopifyAPI::Shop.current
-#    end
-
-#    def shopify_session
-#      ShopifyAPI::Session.setup({:api_key => "9b8ca7d587384d00267255bfd98cfe65", :secret => "4bb0add4f84f4a0181ed0e6d9ca048c5"})
-#      unless session[:shopify]
-#        redirect_to(:controller => 'login')
-#      end
-#      yield
-#    end
 end
