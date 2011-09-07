@@ -40,7 +40,7 @@ function new_total(item)
 
 function start_spinner(element)
 {
-  $(element).html('Please wait...<img src="/images/ajax-loader.gif" alt="Data Loading" />');
+  $(element).html('Please wait...<img src="/assets/ajax-loader.gif" alt="Data Loading" />');
 }
 
 function stop_spinner(element)
