@@ -373,7 +373,7 @@ code { font-size: 140%; }
 #style-table td * { margin: 0; }
 #style-table td { padding: 10px; border-bottom: 1px dotted #e5e5e5; }
 #style-table td:first-child {
-  background:#Fefefe url('../images/box-bg2.gif') repeat-x scroll left bottom;
+  background:#Fefefe url('box-bg2.gif') repeat-x scroll left bottom;
 }
 */
 
@@ -400,7 +400,7 @@ code { font-size: 140%; }
 
 .box {
   padding: 0;
-  background:#FAFAFA url('../images/box-bg2.gif') repeat-x scroll left top;
+  background:#FAFAFA url('box-bg2.gif') repeat-x scroll left top;
   border:1px solid #CCCCCC;
 }
 
@@ -412,7 +412,7 @@ code { font-size: 140%; }
 .info {
   padding: 0;
   margin: 8px auto;
-  background: #009ad6 url('../images/info-bg.gif') top left repeat-x;
+  background: #009ad6 url('info-bg.gif') top left repeat-x;
   border: 1px solid #61abda;
   font: 1.2em/1.7em "Comic Sans MS"; 
   color: #fff;
