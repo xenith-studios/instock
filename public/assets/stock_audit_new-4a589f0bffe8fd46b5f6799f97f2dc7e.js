@@ -1,0 +1,1 @@
+function calculate_difference(a){var b=$(a).parent().parent();actual=Number($(a).val()),expected=Number(b.children("td.expected").text()),isNaN(actual-expected)||(b.children("td.difference").empty(),b.children("td.difference").text(actual-expected))}
