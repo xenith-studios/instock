@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :current_admin_session, :current_admin
-  
+
   rescue_from ActiveResource::ServerError do
     flash[:error] = "The Shopify service is temporarily unavailable. Please try again in a few minutes."
     redirect_back_or_default dashboard_url
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
       return @current_admin if defined?(@current_admin)
       @current_admin = current_admin_session && current_admin_session.admin
     end
-    
+
     def require_admin
       unless current_admin
         store_location
@@ -40,8 +40,8 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
-    
-    def require_no_admin  
+
+    def require_no_admin
       if current_admin
         store_location
         flash[:notice] = "You must be logged out to access this page"

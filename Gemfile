@@ -15,7 +15,7 @@ end
 gem 'jquery-rails'
 gem 'shopify_api'
 gem 'shopify_app'
-gem 'hoptoad_notifier'
+gem "airbrake", "~> 3.0.5"
 gem 'authlogic'
 gem 'json_pure'
 gem 'heroku'
